@@ -35,7 +35,8 @@ env:
   BRIEF_WEB_RESEARCH: ${{ vars.BRIEF_WEB_RESEARCH }}
   INVESTOR_PROFILE: ${{ vars.INVESTOR_PROFILE }}
   VAPID_PUBLIC_KEY: ${{ vars.VAPID_PUBLIC_KEY }}
-  VAPID_SUBJECT: ${{ vars.VAPID_SUBJECT }}
+  # A secret, not a variable: public repos show variables in their logs.
+  VAPID_SUBJECT: ${{ secrets.VAPID_SUBJECT || vars.VAPID_SUBJECT }}
   NTFY_SERVER: ${{ vars.NTFY_SERVER }}
   WEB_PUSH_SUBSCRIPTIONS: ${{ secrets.WEB_PUSH_SUBSCRIPTIONS }}
   VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}

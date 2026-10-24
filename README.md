@@ -72,7 +72,7 @@ npx web-push generate-vapid-keys
 |---|---|---|
 | Secret | `VAPID_PRIVATE_KEY` | the *Private Key* line |
 | Variable | `VAPID_PUBLIC_KEY` | optional: the *Public Key* line (it's calculated from the private key anyway) |
-| Variable | `VAPID_SUBJECT` | Optional, and best left out: your site's address is used. If you do set it, the whole value is `mailto:` immediately followed by your real email address, with no spaces |
+| Secret | `VAPID_SUBJECT` | Optional: `mailto:` immediately followed by your email, no spaces. Make it a **secret**, because public repositories show variables in their logs. Left out, your site's address is used |
 | Variable | `BRIEF_TIMEZONE` | where you are now, e.g. `Asia/Singapore`, `America/New_York`, `Europe/London` |
 
 The app keeps `BRIEF_TIMEZONE` up to date once step 7 is done.

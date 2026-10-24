@@ -730,3 +730,9 @@ def test_bad_jwt_rejection_is_explained(monkeypatch, caplog):
     with pytest.raises(RuntimeError):
         notify.deliver({"title": "t", "body": "b", "url": "./", "tag": "x"})
     assert "Reconnect this iPhone" in caplog.text and "BadJwtToken" in caplog.text
+
+
+
+def test_contact_email_is_masked_in_logs():
+    assert vapid.redacted("mailto:jane.doe@uni.edu") == "mailto:j…@uni.edu"
+    assert vapid.redacted("https://ml7084.github.io") == "https://ml7084.github.io"

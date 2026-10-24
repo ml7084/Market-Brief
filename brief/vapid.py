@@ -64,6 +64,12 @@ def subject(env=os.environ) -> str:
     return f"https://{owner.lower()}.github.io" if owner else "https://github.com"
 
 
+def redacted(sub: str) -> str:
+    """mailto:jane.doe@uni.edu -> mailto:j…@uni.edu, for logs."""
+    match = re.fullmatch(r"(mailto:)(.)[^@]*(@.+)", sub)
+    return f"{match.group(1)}{match.group(2)}…{match.group(3)}" if match else sub
+
+
 def generate() -> tuple[str, str]:
     """(private, public), base64url, the format browsers and pywebpush expect."""
     key = ec.generate_private_key(ec.SECP256R1())

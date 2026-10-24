@@ -73,7 +73,7 @@ def send_web_push(message: dict) -> int:
                           "again and update the WEB_PUSH_SUBSCRIPTIONS secret", status)
             elif status == 403:
                 _annotate("Push rejected (403)", "The push service didn't accept who the push is from "
-                          f"(sender used: {vapid.subject()}). If VAPID_SUBJECT isn't mailto: plus your real "
+                          f"(sender used: {vapid.redacted(vapid.subject())}). If VAPID_SUBJECT isn't mailto: plus your real "
                           "email, fix or delete it. Otherwise, in the app: Settings → Reconnect this iPhone, "
                           "then save the new code as WEB_PUSH_SUBSCRIPTIONS. "
                           f"Response: {exc.response.text[:200]}")
