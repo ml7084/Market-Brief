@@ -40,11 +40,18 @@ def notification(record: dict) -> dict:
 
 
 def _subscriptions() -> list[dict]:
+    """Every device code in WEB_PUSH_SUBSCRIPTIONS: one code, a JSON list, or several codes
+    pasted one after another (e.g. Mac on the first line, iPhone on the next)."""
     raw = os.getenv("WEB_PUSH_SUBSCRIPTIONS", "").strip()
-    if not raw:
-        return []
-    parsed = json.loads(raw)
-    return parsed if isinstance(parsed, list) else [parsed]
+    decoder, found, pos = json.JSONDecoder(), [], 0
+    while pos < len(raw):
+        if raw[pos] in " \t\r\n,":
+            pos += 1
+            continue
+        value, pos = decoder.raw_decode(raw, pos)
+        found.extend(value if isinstance(value, list) else [value])
+    unique = {sub["endpoint"]: sub for sub in found if isinstance(sub, dict) and sub.get("endpoint")}
+    return list(unique.values())
 
 
 def send_web_push(message: dict) -> int:

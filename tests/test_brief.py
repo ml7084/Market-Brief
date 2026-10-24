@@ -736,3 +736,18 @@ def test_bad_jwt_rejection_is_explained(monkeypatch, caplog):
 def test_contact_email_is_masked_in_logs():
     assert vapid.redacted("mailto:jane.doe@uni.edu") == "mailto:j…@uni.edu"
     assert vapid.redacted("https://ml7084.github.io") == "https://ml7084.github.io"
+
+
+
+def test_several_device_codes_can_be_pasted_one_per_line(monkeypatch):
+    mac = {"endpoint": "https://web.push.apple.com/mac", "keys": {"p256dh": "a", "auth": "b"}}
+    iphone = {"endpoint": "https://web.push.apple.com/iphone", "keys": {"p256dh": "c", "auth": "d"}}
+    for raw in (json.dumps(iphone),
+                json.dumps([mac, iphone]),
+                json.dumps(mac) + "\n" + json.dumps(iphone) + "\n",
+                json.dumps(mac) + "," + json.dumps(iphone) + "\n" + json.dumps(iphone)):  # duplicate ignored
+        monkeypatch.setenv("WEB_PUSH_SUBSCRIPTIONS", raw)
+        endpoints = [s["endpoint"] for s in notify._subscriptions()]
+        assert endpoints[-1] == iphone["endpoint"] and len(endpoints) == len(set(endpoints))
+    monkeypatch.setenv("WEB_PUSH_SUBSCRIPTIONS", json.dumps(mac) + "\n" + json.dumps(iphone))
+    assert len(notify._subscriptions()) == 2

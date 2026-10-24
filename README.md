@@ -90,7 +90,7 @@ The app keeps `BRIEF_TIMEZONE` up to date once step 7 is done.
 1. Open the URL in **Safari** → tap **Share** → **Add to Home Screen**.
 2. Open **Brief** from the Home Screen (not from Safari) → **Enable notifications** → **Allow**.
 3. Tap **Copy code** and save it as the repo secret `WEB_PUSH_SUBSCRIPTIONS`.
-   For several devices, paste a JSON array: `[{…iphone…}, {…ipad…}]`.
+   Make sure it's the code from the **iPhone** app, not from a browser on your computer. For several devices, paste each device's code on its own line.
 4. Run the workflow again with **Only send a test notification** ticked. A test notification should arrive within seconds.
 
 ### 7. Make it follow your time zone
