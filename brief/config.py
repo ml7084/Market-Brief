@@ -65,7 +65,6 @@ INVESTOR_PROFILE = _env(
 
 # --- Delivery ----------------------------------------------------------------
 SITE_URL = _env("SITE_URL", "")  # e.g. https://<user>.github.io/market-brief/
-VAPID_SUBJECT = _env("VAPID_SUBJECT", "mailto:market-brief@example.com")
 NTFY_SERVER = _env("NTFY_SERVER", "https://ntfy.sh")
 
 # --- Sources -----------------------------------------------------------------

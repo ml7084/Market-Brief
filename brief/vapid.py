@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import base64
 import os
+import re
 
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import ec
@@ -43,6 +44,24 @@ def public_from_private(private: str) -> str:
     key = ec.derive_private_key(int.from_bytes(_decode(private), "big"), ec.SECP256R1())
     return _encode(key.public_key().public_bytes(serialization.Encoding.X962,
                                                  serialization.PublicFormat.UncompressedPoint))
+
+
+_MAILTO = re.compile(r"mailto:[^@\s<>]+@[a-z0-9-]+(\.[a-z0-9-]+)+", re.I)
+_HTTPS = re.compile(r"https://[a-z0-9-]+(\.[a-z0-9-]+)+(/\S*)?", re.I)
+_PLACEHOLDER = re.compile(r"@(example\.(com|org|net)|localhost|yourdomain\.com)$", re.I)
+
+
+def subject(env=os.environ) -> str:
+    """The contact sent with every push (VAPID "sub"). Apple answers BadJwtToken unless it is a
+    clean mailto: or https: URL, so tidy up common paste mistakes and fall back to the site's
+    own address when it's missing, a placeholder, or still malformed."""
+    raw = "".join(env.get("VAPID_SUBJECT", "").split()).replace("<", "").replace(">", "")
+    if "@" in raw and not raw.lower().startswith("mailto:"):
+        raw = "mailto:" + raw
+    if (_MAILTO.fullmatch(raw) and not _PLACEHOLDER.search(raw)) or _HTTPS.fullmatch(raw):
+        return raw
+    owner = env.get("GITHUB_REPOSITORY_OWNER", "")
+    return f"https://{owner.lower()}.github.io" if owner else "https://github.com"
 
 
 def generate() -> tuple[str, str]:

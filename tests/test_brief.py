@@ -661,3 +661,68 @@ def test_vapid_keys_from_npx_web_push_are_accepted():
     private, public = "b4jik4US6BeiUtYhtD81OQ8TxPyfLhr0J28emLtnrVQ", \
         "BNNvip9kkiHTXMnr2LaA2hOMC0r3gbJPvBN4fYF6HW66XDGyoshHuXRCpUCykb_OONrGUgBn7_YqyOVaLg5YPok"
     assert vapid.resolve({"VAPID_PRIVATE_KEY": private, "VAPID_PUBLIC_KEY": public}) == (private, public, [])
+
+
+@pytest.mark.parametrize("given, expected", [
+    ("mailto:me@gmail.com", "mailto:me@gmail.com"),
+    ("me@gmail.com", "mailto:me@gmail.com"),                 # bare email
+    ("mailto: me@gmail.com\n", "mailto:me@gmail.com"),       # space and pasted line break
+    ("mailto:<me@gmail.com>", "mailto:me@gmail.com"),        # angle brackets
+    ("https://ml7084.github.io/Market-Brief/", "https://ml7084.github.io/Market-Brief/"),
+    ("", "https://ml7084.github.io"),                        # not set: the site's own address
+    ("mailto:you@yourdomain.com", "https://ml7084.github.io"),  # README placeholder
+    ("mailto:market-brief@example.com", "https://ml7084.github.io"),
+    ("my email", "https://ml7084.github.io"),
+])
+def test_push_subject_is_always_one_apple_accepts(given, expected):
+    assert vapid.subject({"VAPID_SUBJECT": given, "GITHUB_REPOSITORY_OWNER": "ml7084"}) == expected
+
+
+def test_signed_push_meets_apples_rules(monkeypatch, sample):
+    """Decode the JWT actually sent and check each BadJwtToken cause Apple documents."""
+    import time
+
+    import pywebpush
+    from cryptography.hazmat.primitives import hashes
+    from cryptography.hazmat.primitives.asymmetric import ec as _ec
+    from cryptography.hazmat.primitives.asymmetric.utils import encode_dss_signature
+
+    private, public = vapid.generate()
+    subscription, _, _ = _browser_subscription()
+    sent = {}
+    monkeypatch.setattr(pywebpush.requests, "post", lambda url, data=None, headers=None, timeout=None:
+                        sent.update(headers=headers) or SimpleNamespace(status_code=201, text="", headers={}))
+    monkeypatch.setenv("WEB_PUSH_SUBSCRIPTIONS", json.dumps(subscription))
+    monkeypatch.setenv("VAPID_PRIVATE_KEY", private)
+    monkeypatch.setenv("VAPID_PUBLIC_KEY", "wrong")
+    monkeypatch.setenv("VAPID_SUBJECT", " mailto: me@gmail.com ")
+    monkeypatch.delenv("NTFY_TOPIC", raising=False)
+    assert notify.deliver(notify.notification(sample)) == 1
+
+    auth = sent["headers"]["Authorization"]  # "vapid t=<jwt>, k=<public key>"
+    token = auth.split("t=")[1].split(",")[0]
+    key = auth.split("k=")[1]
+    head, body, sig = token.split(".")
+    pad = lambda s: s + "=" * (-len(s) % 4)
+    claims = json.loads(base64.urlsafe_b64decode(pad(body)))
+    assert key == public                                   # 1. signed with the key the phone subscribed with
+    assert claims["sub"] == "mailto:me@gmail.com"          # 2. clean mailto:
+    assert claims["aud"] == "https://web.push.apple.com"   # 3. the push server's origin
+    assert claims["exp"] - time.time() <= 24 * 3600        # 4. at most a day ahead
+    raw_sig = base64.urlsafe_b64decode(pad(sig))
+    pub = _ec.EllipticCurvePublicKey.from_encoded_point(_ec.SECP256R1(), base64.urlsafe_b64decode(pad(public)))
+    pub.verify(encode_dss_signature(int.from_bytes(raw_sig[:32], "big"), int.from_bytes(raw_sig[32:], "big")),
+               f"{head}.{body}".encode(), _ec.ECDSA(hashes.SHA256()))
+
+
+def test_bad_jwt_rejection_is_explained(monkeypatch, caplog):
+    import pywebpush
+
+    subscription, _, _ = _browser_subscription()
+    monkeypatch.setattr(pywebpush.requests, "post", lambda url, **kw: SimpleNamespace(
+        status_code=403, reason="Forbidden", text='{"reason":"BadJwtToken"}', headers={}))
+    monkeypatch.setenv("WEB_PUSH_SUBSCRIPTIONS", json.dumps(subscription))
+    monkeypatch.setenv("VAPID_PRIVATE_KEY", vapid.generate()[0])
+    with pytest.raises(RuntimeError):
+        notify.deliver({"title": "t", "body": "b", "url": "./", "tag": "x"})
+    assert "Reconnect this iPhone" in caplog.text and "BadJwtToken" in caplog.text

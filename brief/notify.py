@@ -60,7 +60,7 @@ def send_web_push(message: dict) -> int:
                 subscription_info=sub,
                 data=json.dumps(message),
                 vapid_private_key=key,
-                vapid_claims={"sub": config.VAPID_SUBJECT},
+                vapid_claims={"sub": vapid.subject()},
                 ttl=12 * 3600,
                 headers={"Urgency": "high"},
                 timeout=config.HTTP_TIMEOUT,
@@ -71,11 +71,21 @@ def send_web_push(message: dict) -> int:
             if status in (404, 410):
                 log.error("push subscription expired (HTTP %s): open the app, tap 'Enable notifications' "
                           "again and update the WEB_PUSH_SUBSCRIPTIONS secret", status)
+            elif status == 403:
+                _annotate("Push rejected (403)", "The push service didn't accept who the push is from. "
+                          "In the app: Settings → Reconnect this iPhone, then save the new code as "
+                          f"WEB_PUSH_SUBSCRIPTIONS. Sender used: {vapid.subject()}. Response: {exc.response.text[:200]}")
             else:
                 log.error("web push failed (HTTP %s): %s", status, exc)
         except Exception as exc:  # network errors etc.; keep going for other devices
             log.error("web push failed: %s", exc)
     return sent
+
+
+def _annotate(title: str, text: str) -> None:
+    log.error("%s: %s", title, text)
+    if os.getenv("GITHUB_ACTIONS"):  # shows at the top of the workflow run
+        print(f"::error title={title}::{text}")
 
 
 def send_ntfy(message: dict) -> int:

@@ -72,7 +72,7 @@ npx web-push generate-vapid-keys
 |---|---|---|
 | Secret | `VAPID_PRIVATE_KEY` | the *Private Key* line |
 | Variable | `VAPID_PUBLIC_KEY` | optional: the *Public Key* line (it's calculated from the private key anyway) |
-| Variable | `VAPID_SUBJECT` | `mailto:you@yourdomain.com` (Apple wants a real contact) |
+| Variable | `VAPID_SUBJECT` | optional: `mailto:` plus your real email, e.g. `mailto:me@gmail.com`. If it's missing or malformed, your site's address is used, which Apple accepts |
 | Variable | `BRIEF_TIMEZONE` | where you are now, e.g. `Asia/Singapore`, `America/New_York`, `Europe/London` |
 
 The app keeps `BRIEF_TIMEZONE` up to date once step 7 is done.

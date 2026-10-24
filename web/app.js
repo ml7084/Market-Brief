@@ -377,6 +377,13 @@ async function openSettings() {
     action.textContent = "Show connection code";
     action.onclick = () => showSubscription(sub);
     action.hidden = false;
+    // A fresh subscription (and a new code to save on GitHub) fixes most delivery errors.
+    $("#push-reset").hidden = false;
+    $("#push-reset").onclick = async () => {
+      await sub.unsubscribe().catch(() => null);
+      $("#settings").close();
+      await enablePush();
+    };
   } else {
     const installFirst = !pushCapable || (isIOS && !standalone);
     $("#push-status").textContent = installFirst
@@ -385,6 +392,7 @@ async function openSettings() {
     action.textContent = "Enable notifications";
     action.onclick = enablePush;
     action.hidden = installFirst;
+    $("#push-reset").hidden = true;
   }
   $("#send-at").textContent = sendAtLabel();
   $("#device-tz").textContent = BriefShared.deviceTimeZone();
