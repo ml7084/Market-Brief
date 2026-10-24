@@ -42,7 +42,7 @@ def _subscriptions() -> list[dict]:
 
 def send_web_push(message: dict) -> int:
     subs = _subscriptions()
-    key = os.getenv("VAPID_PRIVATE_KEY", "").strip()
+    key = config.clean_secret(os.getenv("VAPID_PRIVATE_KEY", ""))
     if not subs or not key:
         log.info("web push not configured (need WEB_PUSH_SUBSCRIPTIONS and VAPID_PRIVATE_KEY)")
         return 0
@@ -93,7 +93,7 @@ def _b64(text: str) -> str:
 
 
 def deliver(message: dict) -> int:
-    web_push = bool(_subscriptions() and os.getenv("VAPID_PRIVATE_KEY", "").strip())
+    web_push = bool(_subscriptions() and config.clean_secret(os.getenv("VAPID_PRIVATE_KEY", "")))
     if not web_push and not os.getenv("NTFY_TOPIC", "").strip():
         # Expected on the very first run, before a phone is connected (README step 6).
         log.warning("no notification channel configured yet; brief published without a push")

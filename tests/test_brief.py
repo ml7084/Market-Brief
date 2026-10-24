@@ -604,3 +604,16 @@ def test_research_resumes_paused_turns(monkeypatch):
     assert notes == "Futures +0.2%. Brent $71."
     assert bodies[0]["tools"][0]["type"] == "web_search_20260209"
     assert [m["role"] for m in bodies[1]["messages"]] == ["user", "assistant"]  # resumed, not restarted
+
+
+def test_wrapped_token_and_keys_are_cleaned(tmp_path, monkeypatch, sample):
+    # Copying from an 80-column terminal adds a line break inside the token.
+    wrapped = "sk-ant-oat01-" + "a" * 67 + "\r\n" + "b" * 30 + "\n"
+    monkeypatch.setenv("CLAUDE_CODE_OAUTH_TOKEN", wrapped)
+    out = {"type": "result", "subtype": "success", "is_error": False, "structured_output": sample["brief"]}
+    analyst.ClaudeCodeEngine(_fake_cli(tmp_path, out)).write_brief("p")
+    assert json.loads((tmp_path / "call.json").read_text())["oauth"] == "sk-ant-oat01-" + "a" * 67 + "b" * 30
+
+    monkeypatch.setenv("VAPID_PUBLIC_KEY", "BPUB\nLIC ")
+    built = site.build(tmp_path / "_site", sample=True)
+    assert json.loads((built / "config.json").read_text())["vapidPublicKey"] == "BPUBLIC"

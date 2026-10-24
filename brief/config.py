@@ -21,6 +21,11 @@ def _env(name: str, default: str) -> str:
     return os.getenv(name) or default
 
 
+def clean_secret(value: str) -> str:
+    """Keys and tokens never contain whitespace; drop any picked up while copying them."""
+    return "".join(value.split())
+
+
 def _env_bool(name: str, default: bool) -> bool:
     return _env(name, str(default)).strip().lower() in ("1", "true", "yes", "on")
 

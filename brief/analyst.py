@@ -265,6 +265,9 @@ class ClaudeCodeEngine:
         # An API key in the environment would take precedence over the
         # subscription sign-in and bill the API, so never pass one through.
         env = {k: v for k, v in os.environ.items() if k not in ("ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN")}
+        if token := env.get("CLAUDE_CODE_OAUTH_TOKEN"):
+            # Copying a long token from a terminal often adds a line break where the text wrapped.
+            env["CLAUDE_CODE_OAUTH_TOKEN"] = config.clean_secret(token)
         cmd = [self.binary, "-p", "--model", config.MODEL, "--output-format", "json", "--no-session-persistence", *args]
         with tempfile.TemporaryDirectory() as workdir:  # keep repo files and CLAUDE.md out of the session
             proc = subprocess.run(cmd, input=prompt, capture_output=True, text=True, timeout=timeout, env=env, cwd=workdir)

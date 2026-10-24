@@ -31,7 +31,7 @@ def build(out: Path, sample: bool = False) -> Path:
                 shutil.copy2(src, data_out / name)
     build_id = datetime.now(timezone.utc).strftime("%Y%m%d%H%M")
     (out / "config.json").write_text(json.dumps({
-        "vapidPublicKey": os.getenv("VAPID_PUBLIC_KEY", ""),
+        "vapidPublicKey": config.clean_secret(os.getenv("VAPID_PUBLIC_KEY", "")),
         "repo": os.getenv("GITHUB_REPOSITORY", ""),  # owner/name, for the app's time zone sync
         "sendAt": config.SEND_AT,
         "build": build_id,
