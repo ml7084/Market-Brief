@@ -31,7 +31,7 @@
   <footer class="footer">
     <p class="disclaimer">Generated automatically by Claude from public news and market data. It can be wrong or out of date. This is not personalised investment advice: check the facts and size positions to your own risk tolerance before trading.</p>
     <p id="meta" class="meta"></p>
-    <button id="settings-open" class="link" type="button">Notification settings</button>
+    <button id="settings-open" class="link" type="button">Settings</button>
   </footer>
 
   <dialog id="history">
@@ -51,6 +51,35 @@
     <button id="copy-code" class="primary" type="button">Copy code</button>
   </dialog>
 
+  <dialog id="settings">
+    <form method="dialog" class="dialog-head"><h2>Settings</h2><button class="ghost">Done</button></form>
+    <section class="setting">
+      <h3>Morning notification</h3>
+      <p id="push-status"></p>
+      <button id="push-action" class="secondary" type="button"></button>
+    </section>
+    <section class="setting">
+      <h3>Follow my time zone</h3>
+      <p>The brief arrives at <b id="send-at">7:30 AM</b> local time wherever you are. This phone is on <b id="device-tz"></b>.</p>
+      <p id="tz-status" class="status"></p>
+      <details id="tz-help">
+        <summary>One-time setup</summary>
+        <ol class="steps">
+          <li>On GitHub, create a <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">fine-grained token</a>.</li>
+          <li><b>Repository access</b>: only this brief’s repository.</li>
+          <li><b>Permissions → Repository → Variables</b>: Read and write. Nothing else.</li>
+          <li>Generate it, then paste it here. It stays on this phone.</li>
+        </ol>
+      </details>
+      <input id="tz-token" type="password" placeholder="github_pat_…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="row">
+        <button id="tz-save" class="primary" type="button">Save and sync</button>
+        <button id="tz-remove" class="link" type="button" hidden>Remove token</button>
+      </div>
+    </section>
+  </dialog>
+
+  <script src="shared.js"></script>
   <script src="app.js" type="module"></script>
 </body>
 </html>

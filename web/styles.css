@@ -83,7 +83,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .loading, .empty { color: var(--ink-3); padding: 48px 0; text-align: center; }
 
 /* Setup banner */
-.setup { margin-top: 12px; }
+.setup { margin-top: 12px; display: grid; gap: 10px; }
+.setup[hidden] { display: none; }
 .setup .card { display: grid; gap: 10px; }
 .setup p { margin: 0; color: var(--ink-2); font-size: 15px; }
 .setup h3 { margin: 0; font-size: 16px; }
@@ -214,3 +215,45 @@ textarea {
   border: 1px solid var(--line); border-radius: 10px; padding: 10px; margin: 4px 0 12px; resize: none;
 }
 code { font-family: var(--mono); font-size: 0.9em; background: var(--surface-2); padding: 1px 5px; border-radius: 5px; }
+
+/* Instructor voice */
+.voice {
+  display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 6px;
+}
+.instructor { margin-top: 20px; border-left: 4px solid var(--accent); }
+.instructor p { margin: 0; color: var(--ink); font-size: 16px; }
+.reasoning { margin-top: 12px; padding: 12px; border-radius: 10px; background: var(--surface-2); }
+.reasoning p { color: var(--ink); font-size: 15px; }
+.lesson h3 { margin: 0 0 6px; font-size: 17px; }
+.lesson p { margin: 0; color: var(--ink-2); }
+.lesson .example { margin-top: 10px; }
+
+/* Economic data & earnings */
+.datalist { list-style: none; margin: 0; padding: 0; }
+.datalist li { padding: 12px 0; border-top: 1px solid var(--line); }
+.datalist li:first-child { border-top: 0; padding-top: 0; }
+.datalist li:last-child { padding-bottom: 0; }
+.datalist p { margin: 6px 0 0; color: var(--ink-2); font-size: 15px; }
+.datalist .result { color: var(--ink); font-variant-numeric: tabular-nums; }
+.row-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.ticker { font-family: var(--mono); font-weight: 700; }
+.figures { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.figures span { font-weight: 600; }
+.figures small { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-3); }
+
+/* Settings */
+.setting { margin-top: 18px; }
+.setting h3 { margin: 0 0 4px; font-size: 16px; }
+.setting p { margin: 0 0 8px; color: var(--ink-2); font-size: 15px; }
+.setting .status { color: var(--ink); }
+.secondary {
+  background: var(--surface-2); color: var(--ink); border: 1px solid var(--line); border-radius: 12px;
+  padding: 10px 14px; font-weight: 600;
+}
+input[type="password"] {
+  width: 100%; font: 15px var(--mono); color: var(--ink); background: var(--surface-2);
+  border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin: 8px 0 10px;
+}
+.row { display: flex; align-items: center; gap: 14px; }
+.row .primary { width: auto; }

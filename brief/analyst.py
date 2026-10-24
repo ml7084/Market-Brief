@@ -2,7 +2,12 @@
 
 from __future__ import annotations
 
+import json
 import logging
+import os
+import re
+import subprocess
+import tempfile
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -18,26 +23,28 @@ log = logging.getLogger(__name__)
 # recommended model for that refusal category instead of failing the brief.
 FALLBACK_BETA = "server-side-fallback-2026-07-01"
 
-SYSTEM = """You are the morning markets strategist for one private investor. Each morning you turn the news flow since the previous brief and a price snapshot into a short, decision-ready brief covering four areas: US equities, US Treasuries and credit ("bonds"), Brent crude, and the major layer-1 crypto networks (BTC, ETH, SOL, BNB, XRP, ADA, AVAX, SUI, TON).
+SYSTEM = """You are the morning markets strategist and instructor for one private investor. Each morning you turn the news, corporate earnings, economic data and prices since the previous brief into a short, decision-ready brief covering four areas: US equities, US Treasuries and credit ("bonds"), Brent crude, and the major layer-1 crypto networks (BTC, ETH, SOL, BNB, XRP, ADA, AVAX, SUI, TON). The investor also wants to learn how you think, so you explain your reasoning the way a good instructor would.
 
 How to work:
-- Ground every claim in the supplied headlines, price snapshot or web research notes, and quote the actual numbers. If something isn't in the material, don't state it as fact. If data is missing or stale (weekend, holiday, failed source), say so.
-- Separate signal from noise. Lead with what moves prices: the Fed and rate expectations, inflation and labour data, earnings from index heavyweights, OPEC+ and geopolitics, crypto ETF flows and regulation.
+- Ground every claim in the supplied material: headlines, the earnings and economic calendars, the price snapshot and the web research notes. Quote the actual numbers. If something isn't in the material, don't state it as fact. If data is missing or stale (weekend, holiday, failed source), say so.
+- Treat earnings and economic data as primary drivers. For reported earnings, compare actual EPS with the estimate and say what it implies for the stock, its sector and the index. For data releases, compare the actual with consensus and the prior reading, and trace the effect through rate expectations, yields, the dollar, oil and risk appetite. Flag the scheduled releases and reports that could move today's ideas.
 - The three ideas are the point of the brief. Make each specific and tradeable for the investor profile: a named instrument, a direction, an entry approach, the level or event that invalidates it, a horizon and a position size. Rank by reward relative to risk, not by excitement. Spread ideas across asset classes only when the evidence supports it; a defensive idea (trim, hedge, avoid, park in short Treasuries) is a valid pick on a risky day.
 - Prefer liquid vehicles the investor can actually trade: index and sector ETFs, large-cap stocks, Treasury ETFs or bills, BNO for Brent, spot crypto or spot BTC/ETH ETFs.
+- In the instructor's take and in each idea's reasoning, speak in the first person as an experienced instructor talking to a capable student. Give your own view rather than a survey of opinions. Walk through the chain of logic from evidence to trade, name the concept you're applying, say what would prove you wrong, and point out what a less experienced investor might miss. Be candid about uncertainty.
 - Review the previous brief's ideas honestly against today's prices: what worked, what didn't, and whether to keep, adjust or drop each. Carry an idea forward only if the case still holds.
-- Write plainly and tersely for an experienced reader. No hype and no generic disclaimers; the app shows one.
+- Write plainly and tersely. No hype and no generic disclaimers; the app shows one.
 - Refer to headlines only by the ids given (like "n12")."""
 
 RESEARCH_PROMPT = """It is {now}. I'm preparing a morning markets brief. The headlines I already have are listed below.
 
 Use web search to gather what a strategist needs this morning that those headlines may not cover:
 1. US stock index futures and notable pre-market movers right now (on a weekend: how the week closed).
-2. Today's and this week's US economic calendar, Fed speakers, Treasury auctions and major earnings.
-3. Brent crude: price and drivers in the last 12-24 hours (OPEC+, inventories, geopolitics).
-4. Major layer-1 crypto developments in the last 12-24 hours (ETF flows, regulation, network events).
+2. Economic data released in the last 24 hours (actual vs consensus) and today's and this week's calendar: data, Fed speakers, Treasury auctions.
+3. Large-cap earnings reported since yesterday's open (EPS and revenue vs estimates, guidance, after-hours/pre-market reaction) and the big reports due this week.
+4. Brent crude: price and drivers in the last 12-24 hours (OPEC+, inventories, geopolitics).
+5. Major layer-1 crypto developments in the last 12-24 hours (ETF flows, regulation, network events).
 
-Reply with compact factual notes under those four headings. Give each note its source and publication time. No recommendations.
+Reply with compact factual notes under those five headings. Give each note its source and publication time. No recommendations.
 
 <headlines>
 {titles}
@@ -85,6 +92,47 @@ def format_headlines(items: list[NewsItem], tz: ZoneInfo) -> str:
     return "\n".join(out) or "(no headlines collected)"
 
 
+def _cap(value: float) -> str:
+    return f"${value / 1e12:.2f}T" if value >= 1e12 else f"${value / 1e9:.0f}B"
+
+
+def format_events(events: dict | None, tz) -> str:
+    if not events:
+        return "(earnings and economic calendars unavailable)"
+    lines = ["## Earnings reported since the last brief (largest companies first)"]
+    for r in events.get("earnings_reported", []):
+        est = f" vs est {r['eps_forecast']}" if r["eps_forecast"] else ""
+        surprise = f" (surprise {r['surprise_pct']}%)" if r["surprise_pct"] else ""
+        lines.append(f"- {r['symbol']} {r['name']} ({_cap(r['market_cap'])}) {r['date']} {r['time']}, "
+                     f"quarter {r['quarter'] or 'n/a'}: EPS {r['eps'] or 'n/a'}{est}{surprise}")
+    if len(lines) == 1:
+        lines.append("- none found in the calendar (check headlines and research notes)")
+    lines.append("## Earnings coming up (largest companies first)")
+    upcoming = events.get("earnings_upcoming", [])
+    for r in upcoming:
+        last = f", last year {r['last_year_eps']}" if r["last_year_eps"] else ""
+        lines.append(f"- {r['date']} {r['time']}: {r['symbol']} {r['name']} ({_cap(r['market_cap'])}), "
+                     f"est EPS {r['eps_forecast'] or 'n/a'}{last}")
+    if not upcoming:
+        lines.append("- none found")
+    lines.append("## US economic data released (times GMT)")
+    released = events.get("econ_released", [])
+    for r in released:
+        lines.append(f"- {r['date']} {r['time_gmt']} {r['event']}: actual {r['actual']}, "
+                     f"consensus {r['consensus'] or 'n/a'}, previous {r['previous'] or 'n/a'}")
+    if not released:
+        lines.append("- none found")
+    lines.append(f"## Scheduled economic events, next 7 days (times {tz})")
+    scheduled = events.get("econ_upcoming", [])
+    for r in scheduled:
+        when = datetime.fromisoformat(r["when"]).astimezone(tz)
+        lines.append(f"- {when:%a %d %b %H:%M} {r['country']} {r['event']} [{r['impact']}]: "
+                     f"forecast {r['forecast'] or 'n/a'}, previous {r['previous'] or 'n/a'}")
+    if not scheduled:
+        lines.append("- none found")
+    return "\n".join(lines)
+
+
 def format_previous(previous: dict | None) -> str:
     if not previous:
         return "(none — this is the first brief)"
@@ -110,7 +158,7 @@ def us_session_status(local: datetime) -> str:
 
 
 def build_prompt(local: datetime, since: datetime, items: list[NewsItem], market: dict,
-                 previous: dict | None, research_notes: str) -> str:
+                 previous: dict | None, research_notes: str, events: dict | None = None) -> str:
     tz = local.tzinfo
     hours = (local - since).total_seconds() / 3600
     return f"""<context>
@@ -123,6 +171,10 @@ Investor profile: {config.INVESTOR_PROFILE}
 <price_snapshot fetched_at="{market.get('fetched_at', '')}">
 {format_snapshot(market)}
 </price_snapshot>
+
+<earnings_and_economic_data>
+{format_events(events, tz)}
+</earnings_and_economic_data>
 
 <previous_brief>
 {format_previous(previous)}
@@ -139,7 +191,9 @@ Investor profile: {config.INVESTOR_PROFILE}
 Write today's brief."""
 
 
-class Analyst:
+class ApiEngine:
+    """Anthropic API with an API key (ANTHROPIC_API_KEY); billed per token."""
+
     def __init__(self, client: anthropic.Anthropic | None = None):
         self.client = client or anthropic.Anthropic(max_retries=3)
 
@@ -197,3 +251,71 @@ class Analyst:
             brief = Brief.model_validate_json(text)
         brief.top_ideas = sorted(brief.top_ideas, key=lambda i: i.rank)[:3]
         return brief
+
+
+class ClaudeCodeEngine:
+    """Claude Code CLI in headless mode, signed in with a Claude subscription
+    (CLAUDE_CODE_OAUTH_TOKEN from `claude setup-token`). Usage counts toward the
+    plan's limits instead of being billed per token."""
+
+    def __init__(self, binary: str = "claude"):
+        self.binary = binary
+
+    def _run(self, prompt: str, *args: str, timeout: int = 900) -> dict:
+        # An API key in the environment would take precedence over the
+        # subscription sign-in and bill the API, so never pass one through.
+        env = {k: v for k, v in os.environ.items() if k not in ("ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN")}
+        cmd = [self.binary, "-p", "--model", config.MODEL, "--output-format", "json", "--no-session-persistence", *args]
+        with tempfile.TemporaryDirectory() as workdir:  # keep repo files and CLAUDE.md out of the session
+            proc = subprocess.run(cmd, input=prompt, capture_output=True, text=True, timeout=timeout, env=env, cwd=workdir)
+        try:
+            out = json.loads(proc.stdout)
+        except json.JSONDecodeError:
+            raise RuntimeError(f"claude CLI failed (exit {proc.returncode}): {(proc.stderr or proc.stdout)[-800:]}")
+        if proc.returncode != 0 or out.get("is_error"):
+            raise RuntimeError(f"claude CLI failed ({out.get('subtype')}): {str(out.get('result'))[:800]}")
+        log.info("claude-code: turns=%s duration=%ss", out.get("num_turns"), round(out.get("duration_ms", 0) / 1000))
+        return out
+
+    def research(self, local: datetime, items: list[NewsItem]) -> str:
+        prompt = RESEARCH_PROMPT.format(
+            now=f"{local:%A %d %B %Y %H:%M} {config.TIMEZONE}",
+            titles="\n".join(f"- {i.title}" for i in items[:80]) or "(none)",
+        )
+        out = self._run(prompt, "--tools", "WebSearch,WebFetch", "--allowedTools", "WebSearch,WebFetch",
+                        "--effort", "medium", "--max-turns", "25")
+        notes = str(out.get("result") or "").strip()
+        log.info("research: %d chars of notes", len(notes))
+        return notes
+
+    def write_brief(self, prompt: str) -> Brief:
+        out = self._run(prompt, "--system-prompt", SYSTEM, "--json-schema", json.dumps(Brief.model_json_schema()),
+                        "--disallowedTools", "Bash,Edit,Write,NotebookEdit,WebSearch,WebFetch",
+                        "--effort", config.EFFORT, "--max-turns", "8")
+        data = out.get("structured_output")
+        if data is None:  # fall back to JSON in the final message
+            text = str(out.get("result") or "")
+            match = re.search(r"\{.*\}", text, re.S)
+            if not match:
+                raise RuntimeError("claude CLI returned no brief JSON")
+            data = json.loads(match.group(0))
+        brief = Brief.model_validate(data)
+        brief.top_ideas = sorted(brief.top_ideas, key=lambda i: i.rank)[:3]
+        return brief
+
+
+def make_engine() -> ApiEngine | ClaudeCodeEngine:
+    engine = config.ENGINE
+    if engine == "auto":
+        if os.getenv("CLAUDE_CODE_OAUTH_TOKEN"):
+            engine = "claude-code"
+        elif os.getenv("ANTHROPIC_API_KEY"):
+            engine = "api"
+    if engine == "claude-code":
+        log.info("engine: Claude Code with your Claude subscription (no API charges)")
+        return ClaudeCodeEngine()
+    if engine == "api":
+        log.info("engine: Anthropic API (billed per token)")
+        return ApiEngine()
+    raise RuntimeError("No Claude credentials. Set the CLAUDE_CODE_OAUTH_TOKEN secret (uses your Claude "
+                       "subscription, no API charges) or ANTHROPIC_API_KEY. See the README.")

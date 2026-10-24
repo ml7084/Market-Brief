@@ -2,16 +2,14 @@ name: Morning brief
 
 on:
   schedule:
-    # Two UTC times so the brief lands at the same local time all year: the gate
-    # step skips whichever run falls before BRIEF_SEND_AFTER or after today's brief.
-    # Defaults suit New York (06:40 local in summer and winter). For another time
-    # zone see "Change the delivery time" in the README.
-    - cron: "40 10 * * *"
-    - cron: "40 11 * * *"
+    # Wake up every 15 minutes; the gate job decides whether it's time to prepare
+    # (07:00) or send (07:30) in the phone's current time zone (BRIEF_TIMEZONE,
+    # kept up to date by the app). Most wake-ups skip in a few seconds.
+    - cron: "*/15 * * * *"
   workflow_dispatch:
     inputs:
       force:
-        description: "Generate and send even if today's brief already went out"
+        description: "Prepare and send a brief right now"
         type: boolean
         default: true
       test_notification:
@@ -30,7 +28,8 @@ concurrency:
 
 env:
   BRIEF_TIMEZONE: ${{ vars.BRIEF_TIMEZONE }}
-  BRIEF_SEND_AFTER: ${{ vars.BRIEF_SEND_AFTER }}
+  BRIEF_SEND_AT: ${{ vars.BRIEF_SEND_AT }}
+  BRIEF_ENGINE: ${{ vars.BRIEF_ENGINE }}
   BRIEF_MODEL: ${{ vars.BRIEF_MODEL }}
   BRIEF_EFFORT: ${{ vars.BRIEF_EFFORT }}
   BRIEF_WEB_RESEARCH: ${{ vars.BRIEF_WEB_RESEARCH }}
@@ -44,11 +43,41 @@ env:
   NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
 
 jobs:
-  build:
+  gate:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 5
     outputs:
-      run: ${{ steps.gate.outputs.run }}
+      action: ${{ steps.plan.outputs.action }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            brief
+            data/state.json
+          sparse-checkout-cone-mode: false
+
+      - name: Decide what to do
+        id: plan
+        run: |
+          if [ "${{ inputs.test_notification }}" = "true" ]; then
+            echo "action=test" >> "$GITHUB_OUTPUT"
+          elif [ "${{ inputs.force }}" = "true" ]; then
+            python3 -m brief gate --force
+          else
+            python3 -m brief gate
+          fi
+
+  generate:
+    needs: gate
+    if: needs.gate.outputs.action == 'generate'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      # Free: Claude Code signed in with your Claude subscription (`claude setup-token`).
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      # Alternative, billed per token: an Anthropic API key.
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
     steps:
       - uses: actions/checkout@v4
 
@@ -57,61 +86,38 @@ jobs:
           python-version: "3.12"
           cache: pip
 
-      - name: Decide whether to run
-        id: gate
-        run: |
-          if [ "${{ inputs.test_notification }}" = "true" ]; then
-            echo "run=false" >> "$GITHUB_OUTPUT"
-          elif [ "${{ inputs.force }}" = "true" ]; then
-            python -m brief gate --force
-          else
-            python -m brief gate
-          fi
-
       - name: Install dependencies
-        if: steps.gate.outputs.run == 'true' || inputs.test_notification
         run: pip install -r requirements.txt
 
-      - name: Send test notification
-        if: inputs.test_notification
-        run: python -m brief notify --test
+      - name: Install Claude Code
+        if: env.CLAUDE_CODE_OAUTH_TOKEN != ''
+        run: npm install -g @anthropic-ai/claude-code@2
 
       - name: Generate brief
-        if: steps.gate.outputs.run == 'true'
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
         run: python -m brief generate
 
       - name: Save brief to the repository
-        if: steps.gate.outputs.run == 'true'
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data
-          git commit -m "Brief for $(jq -r .date data/latest.json)"
+          git diff --cached --quiet && exit 0
+          git commit -m "Brief for $(jq -r .date data/latest.json 2>/dev/null || date +%F)"
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"
 
       - name: Build site
-        if: steps.gate.outputs.run == 'true'
         run: python -m brief build-site --out _site
 
       - uses: actions/configure-pages@v5
-        if: steps.gate.outputs.run == 'true'
 
       - uses: actions/upload-pages-artifact@v3
-        if: steps.gate.outputs.run == 'true'
         with:
           path: _site
 
-      - name: Tell the phone the run failed
-        if: failure() && steps.gate.outputs.run == 'true'
-        run: pip install -q -r requirements.txt && python -m brief notify --failure
-
   deploy:
-    needs: build
-    if: needs.build.outputs.run == 'true'
+    needs: generate
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment:
@@ -121,9 +127,19 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v4
 
+  notify:
+    needs: [gate, deploy]
+    if: >-
+      always() && (needs.gate.outputs.action == 'notify' || needs.gate.outputs.action == 'test'
+      || needs.deploy.result == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SITE_URL: ${{ vars.SITE_URL }}
+    steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref_name }}  # includes the brief committed by the build job
+          ref: ${{ github.ref_name }}  # includes the brief committed by the generate job
 
       - uses: actions/setup-python@v5
         with:
@@ -132,11 +148,23 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - name: Send notification
-        env:
-          SITE_URL: ${{ vars.SITE_URL || steps.deployment.outputs.page_url }}
-        run: python -m brief notify
+      - name: Send notification (at 07:30 local, or now if forced)
+        run: |
+          export SITE_URL="${SITE_URL:-https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}/}"
+          if [ "${{ needs.gate.outputs.action }}" = "test" ]; then
+            python -m brief notify --test
+          elif [ "${{ inputs.force }}" = "true" ]; then
+            python -m brief notify --force
+          else
+            python -m brief notify
+          fi
 
-      - name: Tell the phone the run failed
-        if: failure()
-        run: pip install -q -r requirements.txt && python -m brief notify --failure
+      - name: Record that today's brief was sent
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/state.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Sent brief for $(jq -r .last_notified_date data/state.json)"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

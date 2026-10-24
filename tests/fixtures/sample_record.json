@@ -10,6 +10,53 @@
   "notification_title": "Sample brief: yields ease, chips lead, oil slides",
   "market_summary": "This is sample content for previewing the layout, not real market data. Equity futures point higher, led by semiconductors, while 10-year yields drift lower after a soft inflation print. Brent is heading for a weekly loss on OPEC+ supply signals, and large-cap crypto is firm on steady ETF inflows.",
   "since_last": "Sample: the market moved from pricing a pause to roughly even odds of a December cut, which pulled the 10-year down 3bp and lifted rate-sensitive growth stocks. Oil lost its geopolitical premium.",
+  "economic_data": [
+   {
+    "release": "SAMPLE: Core PCE price index (Sep, m/m)",
+    "status": "released",
+    "when": "Thu 08:30 ET",
+    "actual": "0.1%",
+    "expected": "0.2%",
+    "previous": "0.3%",
+    "takeaway": "Sample: a soft core print lowers the bar for a December cut, which pulls 2-year yields down and supports duration and growth stocks."
+   },
+   {
+    "release": "SAMPLE: Initial jobless claims",
+    "status": "released",
+    "when": "Thu 08:30 ET",
+    "actual": "231K",
+    "expected": "220K",
+    "previous": "218K",
+    "takeaway": "Sample: claims drifting higher fit a cooling labour market, which reinforces the cut narrative rather than signalling recession."
+   },
+   {
+    "release": "SAMPLE: UMich consumer sentiment (final)",
+    "status": "upcoming",
+    "when": "Fri 10:00 ET",
+    "actual": "",
+    "expected": "68.5",
+    "previous": "68.0",
+    "takeaway": "Sample: watch the 1-year inflation expectations line; a jump would undercut the soft PCE message."
+   }
+  ],
+  "earnings": [
+   {
+    "ticker": "TSM",
+    "company": "SAMPLE: Taiwan Semiconductor",
+    "status": "reported",
+    "timing": "Thu before open",
+    "result": "Sample: EPS $2.45 vs est $2.31 (+6%); Q4 revenue guide above consensus",
+    "takeaway": "Sample: confirms AI capex is still accelerating, which lifts the whole semis complex (SMH) and equipment makers."
+   },
+   {
+    "ticker": "XOM",
+    "company": "SAMPLE: Exxon Mobil",
+    "status": "upcoming",
+    "timing": "Fri before open",
+    "result": "Sample: est EPS $1.85; bar is buyback pace with Brent near $71",
+    "takeaway": "Sample: a cut to buybacks would confirm the energy de-rating behind idea 3."
+   }
+  ],
   "sections": [
    {
     "asset_class": "us_equities",
@@ -64,6 +111,7 @@
     ]
    }
   ],
+  "instructor_take": "Sample, for layout only. Here's how I read this morning: the market is trading one variable, the path of Fed cuts, and yesterday's soft core PCE moved it. When inflation surprises low, I look first at the 2-year yield because it reacts most directly to policy expectations, then at long-duration assets that benefit. That's why two of my three ideas lean on lower yields. What a newer investor might miss is that the same data hurt energy: lower rates don't help oil when supply is rising. I'd be wrong if Friday's sentiment survey shows inflation expectations jumping, so I'd size modestly ahead of it.",
   "top_ideas": [
    {
     "rank": 1,
@@ -72,7 +120,8 @@
     "direction": "buy",
     "title": "Add duration while cut odds rebuild",
     "one_liner": "Soft PCE reopens Dec cut; 10Y has room toward 3.9%",
-    "thesis": "Sample idea for layout only. A softer core inflation print and dovish Fed commentary shift the balance of risks toward lower intermediate yields. With the 10-year at 4.08% and a positively sloped curve, the intermediate segment offers carry plus upside if cut odds keep rising.",
+    "thesis": "Sample idea for layout only. Soft core PCE revives December cut odds; intermediate Treasuries offer carry plus upside if yields keep falling.",
+    "reasoning": "Sample. I start from the data: core PCE came in at 0.1% against 0.2% expected, and that's the Fed's preferred inflation gauge. When the inflation input to the Fed's reaction function softens, cut odds rise, and intermediate Treasuries like IEF gain as yields fall. I prefer IEF to TLT because the 7-10 year part of the curve moves with cut expectations without as much long-end supply risk. I'd change my mind if the 10-year closed above 4.25%, because that would mean the market is pricing something other than cuts.",
     "catalysts": [
      "Next CPI release",
      "Fed speakers this week"
@@ -94,7 +143,8 @@
     "direction": "add",
     "title": "Semis on guidance momentum",
     "one_liner": "Foundry beat extends AI capex cycle; buy dips",
-    "thesis": "Sample idea for layout only. Strong foundry guidance supports the AI capex narrative heading into big-tech earnings, and lower yields help long-duration growth.",
+    "thesis": "Sample idea for layout only. A foundry beat and raised guide extend the AI capex cycle into big-tech earnings.",
+    "reasoning": "Sample. TSMC's beat and raised guide is the most direct read on AI chip demand, since it manufactures for nearly every major designer. Strong foundry guidance tends to feed through to the whole group via estimate revisions, which I think is the most reliable driver of semis over weeks. Lower yields help too, because semis are long-duration growth assets. The risk a newer investor might miss is crowding: after a 6% month, buy pullbacks rather than chase.",
     "catalysts": [
      "Mega-cap earnings next week"
     ],
@@ -115,7 +165,8 @@
     "direction": "trim",
     "title": "Lighten energy into OPEC+ supply",
     "one_liner": "Brent losing premium as OPEC+ adds barrels; trim XLE",
-    "thesis": "Sample idea for layout only. With OPEC+ signalling more supply and a softer demand outlook, the path of least resistance for Brent is lower in the near term.",
+    "thesis": "Sample idea for layout only. OPEC+ supply signals outweigh the macro tailwind for crude; energy stocks lag.",
+    "reasoning": "Sample. Oil is caught between two forces: lower yields and a weaker dollar should help, but OPEC+ signalling more barrels dominates. Supply news usually beats macro for crude over weeks. Exxon's report on Friday is the next test of whether lower prices are eating into buybacks, which is what supports energy stocks. I'd be wrong if Brent reclaims $76, which would suggest a supply disruption I'm not seeing.",
     "catalysts": [
      "OPEC+ meeting",
      "Weekly EIA inventories"
@@ -131,6 +182,11 @@
    }
   ],
   "prior_ideas_review": "Sample: yesterday's long-BTC idea gained 1.8%. Keep it with the stop raised to $94k.",
+  "lesson": {
+   "concept": "SAMPLE: Bull steepening",
+   "explanation": "Sample: a bull steepener is when yields fall across the curve but short-term yields fall more than long-term ones. It usually happens when markets start pricing rate cuts. Short maturities track the Fed closely, while long maturities also carry inflation and supply risk.",
+   "todays_example": "Sample: today the 10-year fell 3bp and the 2-year only 2bp, so the curve actually flattened slightly. That's a bull flattener, the opposite case. A true bull steepener needs the front end to lead, which is what to watch if cut odds keep rising."
+  },
   "watchlist": [
    {
     "time": "08:30 ET",
@@ -430,7 +486,9 @@
   "headlines_considered": 0,
   "live_sources": 0,
   "total_sources": 0,
-  "web_research": false
+  "web_research": false,
+  "earnings_events": 0,
+  "economic_events": 0
  },
  "model": "sample"
 }

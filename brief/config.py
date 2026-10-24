@@ -26,10 +26,14 @@ def _env_bool(name: str, default: bool) -> bool:
 
 
 # --- Scheduling --------------------------------------------------------------
+# The phone keeps BRIEF_TIMEZONE in sync with wherever it is (see web/shared.js),
+# so the notification lands at SEND_AT local time in whatever time zone you're in.
 TIMEZONE = _env("BRIEF_TIMEZONE", "America/New_York")
-# The workflow fires at two UTC times so the brief lands at the same local time
-# across daylight-saving changes; runs before this local time are skipped.
-SEND_AFTER = _env("BRIEF_SEND_AFTER", "06:30")
+SEND_AT = _env("BRIEF_SEND_AT", "07:30")
+# Start preparing this many minutes earlier so the brief is ready at SEND_AT.
+PREPARE_MINUTES = int(_env("BRIEF_PREPARE_MINUTES", "30"))
+# A failing run is retried by the next scheduled check, up to this many times a day.
+MAX_ATTEMPTS_PER_DAY = 3
 FIRST_RUN_LOOKBACK_HOURS = 24
 # If runs were missed (outage, paused workflow) don't dump a week of news.
 MAX_LOOKBACK_HOURS = 96
@@ -37,6 +41,11 @@ MAX_LOOKBACK_HOURS = 96
 OVERLAP_MINUTES = 15
 
 # --- Model -------------------------------------------------------------------
+# "claude-code": Claude Code CLI signed in with your Claude subscription
+#   (CLAUDE_CODE_OAUTH_TOKEN) - no per-use API charges.
+# "api": Anthropic API key (ANTHROPIC_API_KEY) - billed per token.
+# "auto": claude-code when the subscription token is set, otherwise api.
+ENGINE = _env("BRIEF_ENGINE", "auto")
 MODEL = _env("BRIEF_MODEL", "claude-opus-5-5")
 EFFORT = _env("BRIEF_EFFORT", "high")
 WEB_RESEARCH = _env_bool("BRIEF_WEB_RESEARCH", True)
@@ -87,6 +96,15 @@ GOOGLE_NEWS_QUERIES: dict[str, list[str]] = {
     "crypto": ["bitcoin price", "ethereum solana crypto market"],
     "macro": ["US economy inflation jobs report"],
 }
+
+# Earnings: only companies at least this large (USD market cap) make the brief.
+EARNINGS_MIN_MARKET_CAP = 20e9
+EARNINGS_PER_DAY = 15
+EARNINGS_DAYS_AHEAD = 5
+# Upcoming economic events: all US events of these impacts, plus "High" impact
+# events from these other economies (they move oil, yields and the dollar).
+ECON_US_IMPACTS = ("High", "Medium")
+ECON_OTHER_COUNTRIES = ("EUR", "CNY", "JPY", "GBP")
 
 MAX_ITEMS_PER_CATEGORY = 45
 MAX_ITEMS_TOTAL = 180

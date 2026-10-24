@@ -9,7 +9,7 @@ import httpx2 as httpx
 import pytest
 
 import anthropic
-from brief import analyst, config, markets, news, notify, schedule, site, store
+from brief import analyst, config, events, markets, news, notify, schedule, site, store
 from brief.__main__ import main
 from brief.models import Brief
 
@@ -30,25 +30,49 @@ def data_dir(tmp_path, monkeypatch):
 
 # --- scheduling -------------------------------------------------------------
 
-@pytest.mark.parametrize("utc_time, expected", [
-    ("2026-07-15T10:40", True),   # EDT: 06:40 New York -> send
-    ("2026-07-15T09:40", False),  # EDT: 05:40 -> too early
-    ("2026-12-15T10:40", False),  # EST: 05:40 -> too early (the 11:40 run sends)
-    ("2026-12-15T11:40", True),   # EST: 06:40 -> send
+@pytest.mark.parametrize("tz, utc_time, state, expected", [
+    # New York summer (UTC-4): prepare from 07:00, send from 07:30 local
+    ("America/New_York", "2026-07-15T10:55", {}, "skip"),
+    ("America/New_York", "2026-07-15T11:00", {}, "generate"),
+    ("America/New_York", "2026-07-15T11:15", {"last_brief_date": "2026-07-15"}, "skip"),
+    ("America/New_York", "2026-07-15T11:30", {"last_brief_date": "2026-07-15"}, "notify"),
+    ("America/New_York", "2026-07-15T11:45", {"last_brief_date": "2026-07-15", "last_notified_date": "2026-07-15"}, "skip"),
+    # Same wall-clock time in winter (UTC-5) is an hour later in UTC
+    ("America/New_York", "2026-12-15T12:30", {"last_brief_date": "2026-12-15"}, "notify"),
+    # Travelling: Singapore (UTC+8) and India (UTC+5:30) - 07:30 there
+    ("Asia/Singapore", "2026-07-14T23:00", {}, "generate"),
+    ("Asia/Singapore", "2026-07-14T23:30", {"last_brief_date": "2026-07-15"}, "notify"),
+    ("Asia/Kolkata", "2026-07-15T02:00", {"last_brief_date": "2026-07-15"}, "notify"),
+    # A brief that finished late (after 07:30) still gets sent by the next check
+    ("Europe/London", "2026-07-15T09:15", {"last_brief_date": "2026-07-15"}, "notify"),
+    # Three failures today: stop retrying until tomorrow
+    ("America/New_York", "2026-07-15T11:45", {"failures_date": "2026-07-15", "failures": 3}, "skip"),
+    ("America/New_York", "2026-07-15T11:45", {"failures_date": "2026-07-14", "failures": 3}, "generate"),
 ])
-def test_gate_handles_daylight_saving(monkeypatch, utc_time, expected):
-    monkeypatch.setattr(config, "TIMEZONE", "America/New_York")
-    monkeypatch.setattr(config, "SEND_AFTER", "06:30")
+def test_plan_sends_at_0730_in_any_time_zone(monkeypatch, tz, utc_time, state, expected):
+    monkeypatch.setattr(config, "TIMEZONE", tz)
     now = datetime.fromisoformat(utc_time).replace(tzinfo=UTC)
-    assert schedule.should_run(schedule.State(), now)[0] is expected
+    assert schedule.plan(schedule.State(**state), now)[0] == expected
 
 
-def test_gate_skips_second_run_same_day(monkeypatch):
-    monkeypatch.setattr(config, "TIMEZONE", "America/New_York")
-    now = datetime(2026, 7, 15, 11, 40, tzinfo=UTC)
-    state = schedule.State(last_brief_date="2026-07-15")
-    assert schedule.should_run(state, now)[0] is False
-    assert schedule.should_run(state, now, force=True)[0] is True
+def test_plan_force_and_bad_time_zone(monkeypatch):
+    monkeypatch.setattr(config, "TIMEZONE", "Mars/Olympus_Mons")
+    now = datetime(2026, 7, 15, 3, 0, tzinfo=UTC)
+    assert schedule.local_now(now).tzinfo.key == schedule.FALLBACK_TIMEZONE
+    assert schedule.plan(schedule.State(last_brief_date="2026-07-14"), now, force=True)[0] == "generate"
+
+
+def test_notify_due(monkeypatch):
+    monkeypatch.setattr(config, "TIMEZONE", "Asia/Tokyo")
+    at_0715 = datetime(2026, 7, 14, 22, 15, tzinfo=UTC)
+    at_0730 = datetime(2026, 7, 14, 22, 30, tzinfo=UTC)
+    ready = schedule.State(last_brief_date="2026-07-15")
+    assert not schedule.notify_due(ready, at_0715)
+    assert schedule.notify_due(ready, at_0730)
+    assert schedule.notify_due(ready, at_0715, force=True)
+    sent = schedule.State(last_brief_date="2026-07-15", last_notified_date="2026-07-15")
+    assert not schedule.notify_due(sent, at_0730)
+    assert not schedule.notify_due(schedule.State(last_brief_date="2026-07-14"), at_0730, force=True)
 
 
 def test_news_window_since_last_brief_with_cap():
@@ -138,6 +162,83 @@ def test_parse_treasury_csv():
     assert curve["change_bp"]["10 Yr"] == -3.0
 
 
+# --- earnings & economic data -------------------------------------------------
+
+NASDAQ_EARNINGS_PAST = {"data": {"rows": [
+    {"symbol": "MSFT", "name": "Microsoft Corporation", "marketCap": "$3,100,000,000,000", "time": "time-after-hours",
+     "fiscalQuarterEnding": "Sep/2026", "eps": "$3.30", "epsForecast": "$3.10", "surprise": "6.45"},
+    {"symbol": "TINY", "name": "Tiny Corp", "marketCap": "$900,000,000", "time": "time-pre-market", "eps": "$0.10"},
+]}}
+NASDAQ_EARNINGS_TODAY = {"data": {"rows": [
+    {"symbol": "XOM", "name": "Exxon Mobil Corporation", "marketCap": "$480,000,000,000", "time": "time-pre-market",
+     "epsForecast": "$1.85", "lastYearEPS": "$1.92", "eps": ""},
+    {"symbol": "NA", "name": "No cap", "marketCap": "N/A", "time": "time-not-supplied"},
+]}}
+NASDAQ_ECONOMIC = {"data": {"rows": [
+    {"gmt": "12:30", "country": "United States", "eventName": "Initial Jobless Claims", "actual": "231K", "consensus": "220K", "previous": "218K"},
+    {"gmt": "14:00", "country": "United States", "eventName": "Existing Home Sales", "actual": "&nbsp;", "consensus": "3.9M", "previous": "4.0M"},
+    {"gmt": "09:00", "country": "Germany", "eventName": "Ifo", "actual": "88.1", "consensus": "88", "previous": "87.7"},
+]}}
+FOREXFACTORY = [
+    {"title": "Core PCE Price Index m/m", "country": "USD", "date": "2026-10-23T08:30:00-04:00", "impact": "High", "forecast": "0.2%", "previous": "0.3%"},
+    {"title": "Natural Gas Storage", "country": "USD", "date": "2026-10-23T10:30:00-04:00", "impact": "Low", "forecast": "", "previous": ""},
+    {"title": "ECB Press Conference", "country": "EUR", "date": "2026-10-23T08:45:00-04:00", "impact": "High", "forecast": "", "previous": ""},
+    {"title": "German Ifo", "country": "EUR", "date": "2026-10-23T04:00:00-04:00", "impact": "Medium", "forecast": "", "previous": ""},
+    {"title": "Old news", "country": "USD", "date": "2026-10-19T08:30:00-04:00", "impact": "High", "forecast": "", "previous": ""},
+]
+
+
+def test_parse_earnings_keeps_large_caps():
+    past = events.parse_earnings(NASDAQ_EARNINGS_PAST, "2026-10-22")
+    assert [r["symbol"] for r in past] == ["MSFT"]
+    assert past[0]["time"] == "after close" and past[0]["surprise_pct"] == "6.45"
+    today = events.parse_earnings(NASDAQ_EARNINGS_TODAY, "2026-10-23")
+    assert [r["symbol"] for r in today] == ["XOM"] and today[0]["eps"] == ""
+
+
+def test_parse_economic_us_only_and_cleans_blanks():
+    rows = events.parse_economic(NASDAQ_ECONOMIC, "2026-10-22")
+    assert [r["event"] for r in rows] == ["Initial Jobless Claims", "Existing Home Sales"]
+    assert rows[1]["actual"] == ""
+
+
+def test_parse_forexfactory_filters_impact_and_window():
+    start = datetime(2026, 10, 23, 10, 0, tzinfo=UTC)
+    rows = events.parse_forexfactory(FOREXFACTORY, start, start + timedelta(days=7))
+    assert [r["event"] for r in rows] == ["Core PCE Price Index m/m", "ECB Press Conference"]
+
+
+def test_collect_sorts_reported_and_upcoming(monkeypatch):
+    def fake_get(session, url):
+        if "earnings?date=2026-10-22" in url:
+            return NASDAQ_EARNINGS_PAST
+        if "earnings?date=2026-10-23" in url:
+            return NASDAQ_EARNINGS_TODAY
+        if "economicevents?date=2026-10-22" in url:
+            return NASDAQ_ECONOMIC
+        if "ff_calendar_thisweek" in url:
+            return FOREXFACTORY
+        return None
+
+    monkeypatch.setattr(events, "_get_json", fake_get)
+    since = datetime(2026, 10, 22, 11, 0, tzinfo=UTC)
+    until = datetime(2026, 10, 23, 11, 0, tzinfo=UTC)
+    got = events.collect(since, until)
+    assert [r["symbol"] for r in got["earnings_reported"]] == ["MSFT"]
+    assert [r["symbol"] for r in got["earnings_upcoming"]] == ["XOM"]
+    assert [r["event"] for r in got["econ_released"]] == ["Initial Jobless Claims"]
+    assert [r["event"] for r in got["econ_upcoming"]] == ["Core PCE Price Index m/m", "ECB Press Conference"]
+
+
+CALENDAR = {
+    "earnings_reported": events.parse_earnings(NASDAQ_EARNINGS_PAST, "2026-10-22"),
+    "earnings_upcoming": events.parse_earnings(NASDAQ_EARNINGS_TODAY, "2026-10-23"),
+    "econ_released": [r for r in events.parse_economic(NASDAQ_ECONOMIC, "2026-10-22") if r["actual"]],
+    "econ_upcoming": events.parse_forexfactory(FOREXFACTORY, datetime(2026, 10, 23, 10, tzinfo=UTC),
+                                               datetime(2026, 10, 30, tzinfo=UTC)),
+}
+
+
 # --- prompt & model call ------------------------------------------------------
 
 def _items():
@@ -148,7 +249,8 @@ def _items():
 def test_build_prompt_includes_all_inputs(sample, monkeypatch):
     monkeypatch.setattr(config, "TIMEZONE", "America/New_York")
     local = schedule.local_now(datetime(2026, 10, 23, 10, 40, tzinfo=UTC))
-    prompt = analyst.build_prompt(local, local - timedelta(hours=24), _items(), sample["market"], sample, "Futures +0.2%")
+    prompt = analyst.build_prompt(local, local - timedelta(hours=24), _items(), sample["market"], sample,
+                                  "Futures +0.2%", CALENDAR)
     assert "Friday 23 October 2026, 06:40" in prompt
     assert "pre-market (06:40 ET)" in prompt
     assert "[n1] 10-24 05:00 · rates · Reuters — Fed holds rates steady. Officials signal patience." in prompt
@@ -156,6 +258,10 @@ def test_build_prompt_includes_all_inputs(sample, monkeypatch):
     assert "2s10s +46bp" in prompt
     assert "1. BUY IEF" in prompt  # previous ideas carried in for review
     assert "Futures +0.2%" in prompt
+    assert "- MSFT Microsoft Corporation ($3.10T) 2026-10-22 after close, quarter Sep/2026: EPS $3.30 vs est $3.10 (surprise 6.45%)" in prompt
+    assert "- 2026-10-23 before open: XOM Exxon Mobil Corporation ($480B), est EPS $1.85, last year $1.92" in prompt
+    assert "- 2026-10-22 12:30 Initial Jobless Claims: actual 231K, consensus 220K, previous 218K" in prompt
+    assert "- Fri 23 Oct 08:30 USD Core PCE Price Index m/m [High]: forecast 0.2%, previous 0.3%" in prompt
 
 
 def test_session_status_weekend():
@@ -189,7 +295,7 @@ def test_write_brief_request_and_parse(sample):
 
     client = anthropic.Anthropic(api_key="test", base_url="http://api.test",
                                  http_client=httpx.Client(transport=httpx.MockTransport(handler)))
-    brief = analyst.Analyst(client).write_brief("prompt")
+    brief = analyst.ApiEngine(client).write_brief("prompt")
 
     assert isinstance(brief, Brief) and len(brief.top_ideas) == 3
     body = seen["body"]
@@ -215,7 +321,7 @@ def test_write_brief_raises_on_refusal(sample):
     client = anthropic.Anthropic(api_key="t", base_url="http://api.test",
                                  http_client=httpx.Client(transport=httpx.MockTransport(handler)))
     with pytest.raises(RuntimeError, match="declined"):
-        analyst.Analyst(client).write_brief("prompt")
+        analyst.ApiEngine(client).write_brief("prompt")
 
 
 # --- delivery ---------------------------------------------------------------
@@ -311,32 +417,159 @@ def test_ntfy_headers(monkeypatch):
 
 # --- end to end ---------------------------------------------------------------
 
-def test_generate_end_to_end(monkeypatch, data_dir, sample):
+class FakeEngine:
+    def __init__(self, brief=None, error=None):
+        self.brief, self.error, self.prompts = brief, error, []
+
+    def research(self, local, items):
+        return ""
+
+    def write_brief(self, prompt):
+        self.prompts.append(prompt)
+        if self.error:
+            raise self.error
+        return Brief.model_validate(self.brief)
+
+
+@pytest.fixture
+def offline_sources(monkeypatch, sample):
     monkeypatch.setattr(config, "WEB_RESEARCH", False)
     monkeypatch.setattr(news, "collect", lambda since, until: (_items(), {"Reuters": 1, "Dead feed": 0}))
     monkeypatch.setattr(markets, "snapshot", lambda: sample["market"])
-    prompts = []
+    monkeypatch.setattr(events, "collect", lambda since, until: CALENDAR)
 
-    class FakeAnalyst:
-        def write_brief(self, prompt):
-            prompts.append(prompt)
-            return Brief.model_validate(sample["brief"])
 
-    monkeypatch.setattr(analyst, "Analyst", FakeAnalyst)
+def test_generate_end_to_end(monkeypatch, data_dir, sample, offline_sources):
+    engine = FakeEngine(sample["brief"])
+    monkeypatch.setattr(analyst, "make_engine", lambda: engine)
     assert main(["generate"]) == 0
 
     record = store.latest()
-    assert record["sources"] == {"headlines_considered": 1, "live_sources": 1, "total_sources": 2, "web_research": False}
+    assert record["sources"] == {"headlines_considered": 1, "live_sources": 1, "total_sources": 2,
+                                 "earnings_events": 2, "economic_events": 3, "web_research": False}
+    assert record["brief"]["top_ideas"][0]["reasoning"].startswith("Sample. I start from the data")
     assert [h["id"] for h in record["headlines"]] == ["n1"]  # only headlines the brief cites are stored
     state = schedule.load_state()
     assert state.last_brief_date == record["date"] and state.last_news_cutoff
     assert json.loads((data_dir / "index.json").read_text())[0]["date"] == record["date"]
-    assert "(none — this is the first brief)" in prompts[0]
+    assert "(none — this is the first brief)" in engine.prompts[0]
+    assert "Initial Jobless Claims: actual 231K" in engine.prompts[0]
+
+
+def test_generate_failures_retry_then_notify_once(monkeypatch, data_dir, offline_sources):
+    monkeypatch.setattr(analyst, "make_engine", lambda: FakeEngine(error=RuntimeError("boom")))
+    notices = []
+    monkeypatch.setattr(notify, "deliver", lambda message: notices.append(message["title"]))
+    for attempt in range(1, config.MAX_ATTEMPTS_PER_DAY + 1):
+        with pytest.raises(RuntimeError, match="boom"):
+            main(["generate"])
+        assert schedule.load_state().failures == attempt
+    assert notices == ["Morning brief failed"]  # only after the last attempt
+    assert schedule.plan(schedule.load_state())[0] == "skip"
+
+
+def test_notify_waits_for_send_time_then_records(monkeypatch, data_dir, sample):
+    monkeypatch.setattr(config, "TIMEZONE", "Asia/Singapore")
+    store.save(sample)
+    sent = []
+    monkeypatch.setattr(notify, "deliver", lambda message: sent.append(message) or 1)
+    monkeypatch.setattr(schedule, "notify_due", lambda state, force=False: False)
+    assert main(["notify"]) == 0 and sent == []
+
+    monkeypatch.setattr(schedule, "notify_due", lambda state, force=False: True)
+    assert main(["notify"]) == 0
+    assert sent[0]["title"] == sample["brief"]["notification_title"]
+    assert schedule.load_state().last_notified_date == schedule.local_now().date().isoformat()
+
+
+# --- free engine: Claude Code with a Claude subscription -------------------------
+
+def _fake_cli(tmp_path, payload: dict, exit_code: int = 0) -> str:
+    """A stand-in `claude` binary that records how it was called and prints `payload`."""
+    (tmp_path / "payload.json").write_text(json.dumps(payload))
+    script = tmp_path / "claude"
+    script.write_text(f"""#!{os.sys.executable}
+import json, os, sys
+call = {{"argv": sys.argv[1:], "stdin": sys.stdin.read(), "cwd": os.getcwd(),
+        "has_api_key": "ANTHROPIC_API_KEY" in os.environ, "oauth": os.environ.get("CLAUDE_CODE_OAUTH_TOKEN")}}
+json.dump(call, open({str(tmp_path / "call.json")!r}, "w"))
+print(open({str(tmp_path / "payload.json")!r}).read())
+sys.exit({exit_code})
+""")
+    script.chmod(0o755)
+    return str(script)
+
+
+def test_claude_code_engine_uses_subscription_not_api_key(tmp_path, monkeypatch, sample):
+    monkeypatch.setenv("CLAUDE_CODE_OAUTH_TOKEN", "sk-ant-oat-test")
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "sk-ant-api-should-not-leak")
+    out = {"type": "result", "subtype": "success", "is_error": False, "result": "", "num_turns": 2,
+           "structured_output": sample["brief"]}
+    engine = analyst.ClaudeCodeEngine(_fake_cli(tmp_path, out))
+    brief = engine.write_brief("PROMPT TEXT")
+
+    call = json.loads((tmp_path / "call.json").read_text())
+    assert brief.top_ideas[0].instrument == "IEF"
+    assert call["stdin"] == "PROMPT TEXT"
+    assert call["oauth"] == "sk-ant-oat-test" and call["has_api_key"] is False
+    argv = call["argv"]
+    assert argv[:2] == ["-p", "--model"] and argv[2] == config.MODEL
+    assert json.loads(argv[argv.index("--json-schema") + 1])["title"] == "Brief"
+    assert argv[argv.index("--system-prompt") + 1] == analyst.SYSTEM
+    assert "--bare" not in argv  # --bare ignores the subscription sign-in
+    assert not call["cwd"].startswith(str(config.ROOT))
+
+
+def test_claude_code_engine_falls_back_to_json_in_text(tmp_path, sample):
+    out = {"type": "result", "subtype": "success", "is_error": False,
+           "result": "Here it is:\n```json\n" + json.dumps(sample["brief"]) + "\n```"}
+    brief = analyst.ClaudeCodeEngine(_fake_cli(tmp_path, out)).write_brief("p")
+    assert len(brief.top_ideas) == 3
+
+
+def test_claude_code_engine_reports_cli_errors(tmp_path):
+    out = {"type": "result", "subtype": "error_during_execution", "is_error": True, "result": "Invalid API key"}
+    with pytest.raises(RuntimeError, match="Invalid API key"):
+        analyst.ClaudeCodeEngine(_fake_cli(tmp_path, out, exit_code=1)).write_brief("p")
+
+
+def test_claude_code_research_allows_only_web_tools(tmp_path, monkeypatch):
+    monkeypatch.setattr(config, "TIMEZONE", "America/New_York")
+    out = {"type": "result", "subtype": "success", "is_error": False, "result": "Futures +0.3%"}
+    local = schedule.local_now(datetime(2026, 10, 23, 11, tzinfo=UTC))
+    assert analyst.ClaudeCodeEngine(_fake_cli(tmp_path, out)).research(local, _items()) == "Futures +0.3%"
+    argv = json.loads((tmp_path / "call.json").read_text())["argv"]
+    assert argv[argv.index("--tools") + 1] == "WebSearch,WebFetch"
+
+
+@pytest.mark.parametrize("env, expected", [
+    ({"CLAUDE_CODE_OAUTH_TOKEN": "t", "ANTHROPIC_API_KEY": "k"}, analyst.ClaudeCodeEngine),
+    ({"ANTHROPIC_API_KEY": "k"}, analyst.ApiEngine),
+])
+def test_make_engine_prefers_the_free_subscription(monkeypatch, env, expected):
+    monkeypatch.setattr(config, "ENGINE", "auto")
+    for var in ("CLAUDE_CODE_OAUTH_TOKEN", "ANTHROPIC_API_KEY"):
+        monkeypatch.delenv(var, raising=False)
+    for k, v in env.items():
+        monkeypatch.setenv(k, v)
+    assert isinstance(analyst.make_engine(), expected)
+
+
+def test_make_engine_without_credentials_explains(monkeypatch):
+    monkeypatch.setattr(config, "ENGINE", "auto")
+    monkeypatch.delenv("CLAUDE_CODE_OAUTH_TOKEN", raising=False)
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    with pytest.raises(RuntimeError, match="CLAUDE_CODE_OAUTH_TOKEN"):
+        analyst.make_engine()
 
 
 def test_build_site_with_sample(tmp_path, monkeypatch):
     monkeypatch.setenv("VAPID_PUBLIC_KEY", "BPUBLIC")
+    monkeypatch.setenv("GITHUB_REPOSITORY", "me/market-brief")
     out = site.build(tmp_path / "_site", sample=True)
+    cfg = json.loads((out / "config.json").read_text())
+    assert cfg["repo"] == "me/market-brief" and cfg["sendAt"] == "07:30"
+    assert (out / "shared.js").exists()
     assert (out / "index.html").exists() and (out / "data" / "latest.json").exists()
     assert json.loads((out / "config.json").read_text())["vapidPublicKey"] == "BPUBLIC"
     assert "__BUILD__" not in (out / "sw.js").read_text()
@@ -366,7 +599,7 @@ def test_research_resumes_paused_turns(monkeypatch):
     client = anthropic.Anthropic(api_key="t", base_url="http://api.test",
                                  http_client=httpx.Client(transport=httpx.MockTransport(handler)))
     local = schedule.local_now(datetime(2026, 10, 23, 10, 40, tzinfo=UTC))
-    notes = analyst.Analyst(client).research(local, _items())
+    notes = analyst.ApiEngine(client).research(local, _items())
 
     assert notes == "Futures +0.2%. Brent $71."
     assert bodies[0]["tools"][0]["type"] == "web_search_20260209"

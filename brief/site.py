@@ -32,6 +32,8 @@ def build(out: Path, sample: bool = False) -> Path:
     build_id = datetime.now(timezone.utc).strftime("%Y%m%d%H%M")
     (out / "config.json").write_text(json.dumps({
         "vapidPublicKey": os.getenv("VAPID_PUBLIC_KEY", ""),
+        "repo": os.getenv("GITHUB_REPOSITORY", ""),  # owner/name, for the app's time zone sync
+        "sendAt": config.SEND_AT,
         "build": build_id,
     }))
     # Bump the service worker's cache name so installed apps pick up new app code.

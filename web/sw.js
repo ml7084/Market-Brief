@@ -1,6 +1,9 @@
+importScripts("shared.js");
+
 // Replaced with a build id by `python -m brief build-site`, so each deploy refreshes the app shell.
 const CACHE = "brief-__BUILD__";
-const SHELL = ["./", "index.html", "styles.css", "app.js", "manifest.webmanifest", "icons/icon-192.png", "icons/apple-touch-icon.png"];
+const SHELL = ["./", "index.html", "styles.css", "shared.js", "app.js", "manifest.webmanifest",
+  "icons/icon-192.png", "icons/apple-touch-icon.png"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(SHELL)).then(() => self.skipWaiting()));
@@ -51,12 +54,16 @@ self.addEventListener("push", (event) => {
     msg = { body: event.data ? event.data.text() : "" };
   }
   event.waitUntil(
-    self.registration.showNotification(msg.title || "Market Brief", {
-      body: msg.body || "Your morning brief is ready.",
-      tag: msg.tag || "brief",
-      icon: "icons/icon-192.png",
-      data: { url: new URL(msg.url || "./", self.registration.scope).href },
-    }),
+    Promise.all([
+      self.registration.showNotification(msg.title || "Market Brief", {
+        body: msg.body || "Your morning brief is ready.",
+        tag: msg.tag || "brief",
+        icon: "icons/icon-192.png",
+        data: { url: new URL(msg.url || "./", self.registration.scope).href },
+      }),
+      // Each morning's push is a chance to tell the schedule where the phone is now.
+      self.BriefShared.syncTimeZone().catch(() => null),
+    ]),
   );
 });
 
