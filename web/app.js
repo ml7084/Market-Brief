@@ -62,7 +62,7 @@ function renderIdea(idea) {
     <article class="card idea">
       <div class="idea-head">
         <span class="rank">${esc(idea.rank)}</span>
-        <span class="instrument">${esc(idea.instrument)}</span>
+        <span class="instrument${idea.instrument.length > 12 ? " long" : ""}">${esc(idea.instrument)}</span>
         ${pill(idea.direction, DIRECTION_TONE[idea.direction])}
       </div>
       <h3>${esc(idea.title)}</h3>

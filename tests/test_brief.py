@@ -617,3 +617,14 @@ def test_wrapped_token_and_keys_are_cleaned(tmp_path, monkeypatch, sample):
     monkeypatch.setenv("VAPID_PUBLIC_KEY", "BPUB\nLIC ")
     built = site.build(tmp_path / "_site", sample=True)
     assert json.loads((built / "config.json").read_text())["vapidPublicKey"] == "BPUBLIC"
+
+
+@pytest.mark.parametrize("text, expected", [
+    ("XLE", "XLE"),
+    ("3-6 month T-bills (or SGOV); SHY as a slightly longer alternative", "3-6 month T-bills"),
+    ("Alt L1s (SOL, ADA, AVAX, SUI, TON); BTC via IBIT or spot only on confirmation", "Alt L1s"),
+    ("BZ=F / BNO", "BZ=F"),
+    ("Investment-grade corporate bond ETFs", "Investment-grade…"),
+])
+def test_notification_shortens_long_instruments(text, expected):
+    assert notify.short_instrument(text) == expected

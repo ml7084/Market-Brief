@@ -6,6 +6,7 @@ import base64
 import json
 import logging
 import os
+import re
 
 import requests
 from pywebpush import WebPushException, webpush
@@ -17,11 +18,17 @@ log = logging.getLogger(__name__)
 ARROWS = {"buy": "▲", "add": "▲", "trim": "▼", "sell": "▼", "avoid": "✕", "hedge": "◆"}
 
 
+def short_instrument(text: str, limit: int = 18) -> str:
+    """'3-6 month T-bills (or SGOV); SHY as ...' -> '3-6 month T-bills' for the lock screen."""
+    head = re.split(r" \(|;|,| or | / ", text, maxsplit=1)[0].strip()
+    return head if len(head) <= limit else head[: limit - 1].rstrip() + "…"
+
+
 def notification(record: dict) -> dict:
     """Title/body for the lock screen from a stored brief record."""
     brief = record["brief"]
     lines = [
-        f"{i['rank']}. {ARROWS.get(i['direction'], '•')} {i['instrument']}: {i['one_liner']}"
+        f"{i['rank']}. {ARROWS.get(i['direction'], '•')} {short_instrument(i['instrument'])}: {i['one_liner']}"
         for i in brief["top_ideas"]
     ]
     return {

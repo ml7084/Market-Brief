@@ -43,7 +43,9 @@ class AssetSection(_Strict):
 class Idea(_Strict):
     rank: int
     asset_class: AssetClass
-    instrument: str = Field(description="Ticker or asset, e.g. 'XLE', 'IEF', 'BZ=F / BNO', 'SOL'.")
+    instrument: str = Field(description=(
+        "The one main ticker or symbol, at most 12 characters, e.g. 'SGOV', 'XLE', 'IEF', 'BNO', 'BTC'. "
+        "For a basket or several vehicles, put the main one here and name the alternatives in the thesis."))
     direction: Literal["buy", "add", "trim", "sell", "avoid", "hedge"]
     title: str = Field(description="Short name for the idea, under 60 characters.")
     one_liner: str = Field(description="Under 70 characters; shown on the lock-screen notification.")

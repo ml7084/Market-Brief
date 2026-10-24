@@ -116,7 +116,8 @@ h2.section-title {
   display: grid; place-items: center; font-weight: 700; font-size: 14px;
   background: var(--surface-2); color: var(--ink-2);
 }
-.instrument { font-family: var(--mono); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; }
+.instrument { font-family: var(--mono); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; min-width: 0; }
+.instrument.long { font-family: var(--sans); font-size: 15px; line-height: 1.3; }
 .idea-head .pill { margin-left: auto; }
 .idea h3 { font-size: 17px; line-height: 1.3; margin: 10px 0 6px; }
 .idea p { margin: 0; color: var(--ink-2); }
