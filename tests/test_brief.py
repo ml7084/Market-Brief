@@ -751,3 +751,26 @@ def test_several_device_codes_can_be_pasted_one_per_line(monkeypatch):
         assert endpoints[-1] == iphone["endpoint"] and len(endpoints) == len(set(endpoints))
     monkeypatch.setenv("WEB_PUSH_SUBSCRIPTIONS", json.dumps(mac) + "\n" + json.dumps(iphone))
     assert len(notify._subscriptions()) == 2
+
+
+
+@pytest.mark.parametrize("raw, hint", [
+    ("https://github.com/ml7084/Market-Brief/settings/secrets/actions", "web address"),
+    ('{"endpoint": "https://web.push.apple.com/abc", "keys": {"p256dh"', "part of a code"),
+    ("Copy code", "doesn't contain"),
+])
+def test_unusable_device_code_is_explained(monkeypatch, caplog, raw, hint):
+    monkeypatch.setenv("WEB_PUSH_SUBSCRIPTIONS", raw)
+    monkeypatch.setenv("VAPID_PRIVATE_KEY", vapid.generate()[0])
+    assert main(["notify", "--test"]) == 1          # fails the run, without a traceback
+    assert hint in caplog.text and "Show connection code" in caplog.text
+
+
+def test_codes_are_found_among_stray_text(monkeypatch):
+    phone = {"endpoint": "https://web.push.apple.com/iphone", "keys": {"p256dh": "c", "auth": "d"}}
+    smart = json.dumps(phone).replace('"', "“", 1)  # one quote smartened by Notes
+    for raw in ("here is my code: " + json.dumps(phone) + " thanks",
+                "https://github.com/ml7084/Market-Brief\n" + json.dumps(phone),
+                smart):
+        monkeypatch.setenv("WEB_PUSH_SUBSCRIPTIONS", raw)
+        assert [s["endpoint"] for s in notify._subscriptions()] == [phone["endpoint"]]

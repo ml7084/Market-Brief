@@ -39,18 +39,37 @@ def notification(record: dict) -> dict:
     }
 
 
+class SetupError(RuntimeError):
+    """A configuration mistake the person can fix; reported without a traceback."""
+
+
 def _subscriptions() -> list[dict]:
     """Every device code in WEB_PUSH_SUBSCRIPTIONS: one code, a JSON list, or several codes
-    pasted one after another (e.g. Mac on the first line, iPhone on the next)."""
+    pasted one after another (e.g. Mac on the first line, iPhone on the next). Text around
+    the codes is ignored, so a stray paste doesn't stop the others working."""
     raw = os.getenv("WEB_PUSH_SUBSCRIPTIONS", "").strip()
+    if not raw:
+        return []
+    raw = raw.translate(str.maketrans("“”„‟", '""""'))  # quotes "smartened" by a notes app
     decoder, found, pos = json.JSONDecoder(), [], 0
-    while pos < len(raw):
-        if raw[pos] in " \t\r\n,":
+    while (pos := min((i for i in (raw.find("{", pos), raw.find("[", pos)) if i >= 0), default=-1)) >= 0:
+        try:
+            value, end = decoder.raw_decode(raw, pos)
+        except json.JSONDecodeError:
             pos += 1
             continue
-        value, pos = decoder.raw_decode(raw, pos)
         found.extend(value if isinstance(value, list) else [value])
+        pos = end
     unique = {sub["endpoint"]: sub for sub in found if isinstance(sub, dict) and sub.get("endpoint")}
+    if not unique:
+        if raw.lower().startswith(("http://", "https://", "www.", "github.com")):
+            hint = "It holds a web address: the clipboard had a link in it, not the code."
+        elif "endpoint" in raw:
+            hint = "It holds part of a code: copy it again with the Copy code button."
+        else:
+            hint = "It doesn't contain a connection code."
+        raise SetupError(f"WEB_PUSH_SUBSCRIPTIONS can't be used. {hint} On the iPhone open Brief → "
+                         "Settings → Show connection code → Copy code, and paste that as the secret.")
     return list(unique.values())
 
 

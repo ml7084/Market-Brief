@@ -186,7 +186,15 @@ def main(argv: list[str] | None = None) -> int:
     p.set_defaults(func=cmd_vapid)
 
     args = parser.parse_args(argv)
-    return args.func(args)
+    try:
+        return args.func(args)
+    except Exception as exc:
+        if type(exc).__name__ != "SetupError":
+            raise
+        log.error("%s", exc)
+        if os.getenv("GITHUB_ACTIONS"):  # shows at the top of the workflow run
+            print(f"::error title=Setup::{exc}")
+        return 1
 
 
 if __name__ == "__main__":
