@@ -377,6 +377,21 @@ async function openSettings() {
     action.textContent = "Show connection code";
     action.onclick = () => showSubscription(sub);
     action.hidden = false;
+    // Shows a notification without the server: tells "iOS is hiding it" apart from "it never arrived".
+    $("#push-local-test").hidden = false;
+    $("#push-local-result").textContent = "";
+    $("#push-local-test").onclick = async () => {
+      try {
+        const reg = await navigator.serviceWorker.ready;
+        await reg.showNotification("Test from Brief", {
+          body: "If you can see this, iOS is showing Brief's notifications.", tag: "brief-local-test", icon: "icons/icon-192.png",
+        });
+        $("#push-local-result").textContent = "Sent. Go to your Home Screen: you should see it within a few seconds. " +
+          "If not, open iPhone Settings → Notifications → Brief and turn on Allow Notifications, Lock Screen, Notification Center and Banners.";
+      } catch (err) {
+        $("#push-local-result").textContent = `iOS blocked it: ${err.message}. Open iPhone Settings → Notifications → Brief.`;
+      }
+    };
     // A fresh subscription (and a new code to save on GitHub) fixes most delivery errors.
     $("#push-reset").hidden = false;
     $("#push-reset").onclick = async () => {
@@ -393,6 +408,7 @@ async function openSettings() {
     action.onclick = enablePush;
     action.hidden = installFirst;
     $("#push-reset").hidden = true;
+    $("#push-local-test").hidden = true;
   }
   $("#send-at").textContent = sendAtLabel();
   $("#device-tz").textContent = BriefShared.deviceTimeZone();
