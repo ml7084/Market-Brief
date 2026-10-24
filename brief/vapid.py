@@ -46,9 +46,9 @@ def public_from_private(private: str) -> str:
                                                  serialization.PublicFormat.UncompressedPoint))
 
 
-_MAILTO = re.compile(r"mailto:[^@\s<>]+@[a-z0-9-]+(\.[a-z0-9-]+)+", re.I)
+_MAILTO = re.compile(r"mailto:[a-z0-9._%+-]+@[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,}", re.I)
 _HTTPS = re.compile(r"https://[a-z0-9-]+(\.[a-z0-9-]+)+(/\S*)?", re.I)
-_PLACEHOLDER = re.compile(r"@(example\.(com|org|net)|localhost|yourdomain\.com)$", re.I)
+_PLACEHOLDER = re.compile(r"(@(example\.(com|org|net)|localhost|yourdomain\.com)$)|^mailto:(you|me)@gmail\.com$", re.I)
 
 
 def subject(env=os.environ) -> str:

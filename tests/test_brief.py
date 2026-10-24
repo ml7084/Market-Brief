@@ -664,15 +664,19 @@ def test_vapid_keys_from_npx_web_push_are_accepted():
 
 
 @pytest.mark.parametrize("given, expected", [
-    ("mailto:me@gmail.com", "mailto:me@gmail.com"),
-    ("me@gmail.com", "mailto:me@gmail.com"),                 # bare email
-    ("mailto: me@gmail.com\n", "mailto:me@gmail.com"),       # space and pasted line break
-    ("mailto:<me@gmail.com>", "mailto:me@gmail.com"),        # angle brackets
+    ("mailto:ann.lee@gmail.com", "mailto:ann.lee@gmail.com"),
+    ("ann.lee@gmail.com", "mailto:ann.lee@gmail.com"),             # bare email
+    ("mailto: ann.lee@gmail.com\n", "mailto:ann.lee@gmail.com"),   # space and pasted line break
+    ("mailto:<ann.lee@gmail.com>", "mailto:ann.lee@gmail.com"),    # angle brackets
     ("https://ml7084.github.io/Market-Brief/", "https://ml7084.github.io/Market-Brief/"),
     ("", "https://ml7084.github.io"),                        # not set: the site's own address
     ("mailto:you@yourdomain.com", "https://ml7084.github.io"),  # README placeholder
     ("mailto:market-brief@example.com", "https://ml7084.github.io"),
     ("my email", "https://ml7084.github.io"),
+    # The README's instruction text pasted as the value (seen in the wild)
+    ("mailto: followed by an email you use, e.g. mailto:you@gmail.com", "https://ml7084.github.io"),
+    ("mailto:you@gmail.com", "https://ml7084.github.io"),       # README example copied as-is
+    ("mailto:Thomas.Lu+brief@company.co.uk", "mailto:Thomas.Lu+brief@company.co.uk"),
 ])
 def test_push_subject_is_always_one_apple_accepts(given, expected):
     assert vapid.subject({"VAPID_SUBJECT": given, "GITHUB_REPOSITORY_OWNER": "ml7084"}) == expected
@@ -695,7 +699,7 @@ def test_signed_push_meets_apples_rules(monkeypatch, sample):
     monkeypatch.setenv("WEB_PUSH_SUBSCRIPTIONS", json.dumps(subscription))
     monkeypatch.setenv("VAPID_PRIVATE_KEY", private)
     monkeypatch.setenv("VAPID_PUBLIC_KEY", "wrong")
-    monkeypatch.setenv("VAPID_SUBJECT", " mailto: me@gmail.com ")
+    monkeypatch.setenv("VAPID_SUBJECT", " mailto: brief.owner@gmail.com ")
     monkeypatch.delenv("NTFY_TOPIC", raising=False)
     assert notify.deliver(notify.notification(sample)) == 1
 
@@ -706,7 +710,7 @@ def test_signed_push_meets_apples_rules(monkeypatch, sample):
     pad = lambda s: s + "=" * (-len(s) % 4)
     claims = json.loads(base64.urlsafe_b64decode(pad(body)))
     assert key == public                                   # 1. signed with the key the phone subscribed with
-    assert claims["sub"] == "mailto:me@gmail.com"          # 2. clean mailto:
+    assert claims["sub"] == "mailto:brief.owner@gmail.com"  # 2. clean mailto:
     assert claims["aud"] == "https://web.push.apple.com"   # 3. the push server's origin
     assert claims["exp"] - time.time() <= 24 * 3600        # 4. at most a day ahead
     raw_sig = base64.urlsafe_b64decode(pad(sig))
