@@ -18,6 +18,8 @@ GitHub Actions (daily cron)
   └─ notify.py    Web Push to the installed app (and/or ntfy)
 ```
 
+![The app on iPhone, light and dark mode (sample data)](docs/preview.png)
+
 There's no App Store, Xcode or Apple developer account involved. On iPhone it installs from Safari as a Home Screen web app, which iOS 16.4 and later allows to receive notifications.
 
 > Everything is generated automatically from public data and can be wrong. It is not personalised investment advice.
