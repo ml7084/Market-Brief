@@ -60,20 +60,22 @@ The token is valid for a year. Each brief counts toward your plan's normal usage
 Add the secret `ANTHROPIC_API_KEY` (from [console.anthropic.com](https://console.anthropic.com)) and leave `CLAUDE_CODE_OAUTH_TOKEN` unset. That costs roughly $0.40–0.80 per brief with Opus. If both are set, the free subscription route is used.
 </details>
 
-### 3. Create the push keys
+### 3. Create the push keys and set your starting time zone
 
 ```bash
-pip install -r requirements.txt
-python -m brief vapid
+npx web-push generate-vapid-keys
 ```
 
-Add the output to the repo:
+(or `pip install -r requirements.txt && python -m brief vapid`). Add the output to the repo, along with your current time zone. Secrets go on the **Secrets** tab and variables on the **Variables** tab of **Settings → Secrets and variables → Actions**:
 
 | Type | Name | Value |
 |---|---|---|
-| Secret | `VAPID_PRIVATE_KEY` | from the command |
-| Variable | `VAPID_PUBLIC_KEY` | from the command |
+| Secret | `VAPID_PRIVATE_KEY` | the *Private Key* line |
+| Variable | `VAPID_PUBLIC_KEY` | the *Public Key* line |
 | Variable | `VAPID_SUBJECT` | `mailto:you@yourdomain.com` (Apple wants a real contact) |
+| Variable | `BRIEF_TIMEZONE` | where you are now, e.g. `Asia/Singapore`, `America/New_York`, `Europe/London` |
+
+The app keeps `BRIEF_TIMEZONE` up to date once step 7 is done.
 
 ### 4. Turn on GitHub Pages
 
