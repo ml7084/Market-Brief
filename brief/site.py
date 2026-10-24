@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import os
 import shutil
 from datetime import datetime, timezone
@@ -10,7 +11,20 @@ from pathlib import Path
 
 from . import config, store
 
+log = logging.getLogger(__name__)
 SAMPLE = config.ROOT / "tests" / "fixtures" / "sample_record.json"
+
+
+def push_public_key() -> str:
+    """The key the app subscribes with, derived from VAPID_PRIVATE_KEY so it always matches."""
+    from . import vapid
+
+    _, public, problems = vapid.resolve()
+    for problem in problems:
+        log.warning("push keys: %s", problem)
+        if os.getenv("GITHUB_ACTIONS"):  # shows at the top of the workflow run
+            print(f"::warning title=Push keys::{problem}")
+    return public
 
 
 def build(out: Path, sample: bool = False) -> Path:
@@ -31,7 +45,7 @@ def build(out: Path, sample: bool = False) -> Path:
                 shutil.copy2(src, data_out / name)
     build_id = datetime.now(timezone.utc).strftime("%Y%m%d%H%M")
     (out / "config.json").write_text(json.dumps({
-        "vapidPublicKey": config.clean_secret(os.getenv("VAPID_PUBLIC_KEY", "")),
+        "vapidPublicKey": push_public_key(),
         "repo": os.getenv("GITHUB_REPOSITORY", ""),  # owner/name, for the app's time zone sync
         "sendAt": config.SEND_AT,
         "build": build_id,

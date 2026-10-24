@@ -149,20 +149,12 @@ def cmd_notify(args) -> int:
 
 
 def cmd_vapid(args) -> int:
-    import base64
+    from . import vapid
 
-    from cryptography.hazmat.primitives import serialization
-    from cryptography.hazmat.primitives.asymmetric import ec
-
-    def b64(raw: bytes) -> str:
-        return base64.urlsafe_b64encode(raw).rstrip(b"=").decode()
-
-    key = ec.generate_private_key(ec.SECP256R1())
-    private = key.private_numbers().private_value.to_bytes(32, "big")
-    public = key.public_key().public_bytes(serialization.Encoding.X962, serialization.PublicFormat.UncompressedPoint)
+    private, public = vapid.generate()
     print("Add these to your GitHub repository (Settings → Secrets and variables → Actions):\n")
-    print(f"  Secret   VAPID_PRIVATE_KEY = {b64(private)}")
-    print(f"  Variable VAPID_PUBLIC_KEY  = {b64(public)}")
+    print(f"  Secret   VAPID_PRIVATE_KEY = {private}")
+    print(f"  Variable VAPID_PUBLIC_KEY  = {public}")
     return 0
 
 

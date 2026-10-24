@@ -9,7 +9,7 @@ import httpx2 as httpx
 import pytest
 
 import anthropic
-from brief import analyst, config, events, markets, news, notify, schedule, site, store
+from brief import analyst, config, events, markets, news, notify, schedule, site, store, vapid
 from brief.__main__ import main
 from brief.models import Brief
 
@@ -564,14 +564,16 @@ def test_make_engine_without_credentials_explains(monkeypatch):
 
 
 def test_build_site_with_sample(tmp_path, monkeypatch):
-    monkeypatch.setenv("VAPID_PUBLIC_KEY", "BPUBLIC")
+    private, public = vapid.generate()
+    monkeypatch.setenv("VAPID_PRIVATE_KEY", private)
+    monkeypatch.delenv("VAPID_PUBLIC_KEY", raising=False)  # derived from the private key
     monkeypatch.setenv("GITHUB_REPOSITORY", "me/market-brief")
     out = site.build(tmp_path / "_site", sample=True)
     cfg = json.loads((out / "config.json").read_text())
     assert cfg["repo"] == "me/market-brief" and cfg["sendAt"] == "07:30"
     assert (out / "shared.js").exists()
     assert (out / "index.html").exists() and (out / "data" / "latest.json").exists()
-    assert json.loads((out / "config.json").read_text())["vapidPublicKey"] == "BPUBLIC"
+    assert cfg["vapidPublicKey"] == public
     assert "__BUILD__" not in (out / "sw.js").read_text()
     assert json.loads((out / "data" / "index.json").read_text())[0]["date"] == "2026-10-23"
 
@@ -614,9 +616,11 @@ def test_wrapped_token_and_keys_are_cleaned(tmp_path, monkeypatch, sample):
     analyst.ClaudeCodeEngine(_fake_cli(tmp_path, out)).write_brief("p")
     assert json.loads((tmp_path / "call.json").read_text())["oauth"] == "sk-ant-oat01-" + "a" * 67 + "b" * 30
 
-    monkeypatch.setenv("VAPID_PUBLIC_KEY", "BPUB\nLIC ")
+    private, public = vapid.generate()
+    monkeypatch.delenv("VAPID_PRIVATE_KEY", raising=False)
+    monkeypatch.setenv("VAPID_PUBLIC_KEY", public[:80] + "\n" + public[80:] + " ")
     built = site.build(tmp_path / "_site", sample=True)
-    assert json.loads((built / "config.json").read_text())["vapidPublicKey"] == "BPUBLIC"
+    assert json.loads((built / "config.json").read_text())["vapidPublicKey"] == public
 
 
 @pytest.mark.parametrize("text, expected", [
@@ -628,3 +632,32 @@ def test_wrapped_token_and_keys_are_cleaned(tmp_path, monkeypatch, sample):
 ])
 def test_notification_shortens_long_instruments(text, expected):
     assert notify.short_instrument(text) == expected
+
+
+
+# --- push keys: the public key is always derived from the private one -----------
+
+def test_vapid_resolve_handles_common_mistakes():
+    private, public = vapid.generate()
+    other_private, other_public = vapid.generate()
+
+    assert vapid.resolve({"VAPID_PRIVATE_KEY": private, "VAPID_PUBLIC_KEY": public}) == (private, public, [])
+    # public key left out: derived
+    assert vapid.resolve({"VAPID_PRIVATE_KEY": private})[:2] == (private, public)
+    # wrong public key (e.g. from another pair, or the private key pasted twice): derived wins
+    for wrong in (other_public, private, "Public Key: " + public):
+        got_private, got_public, problems = vapid.resolve({"VAPID_PRIVATE_KEY": private, "VAPID_PUBLIC_KEY": wrong})
+        assert (got_private, got_public) == (private, public) and problems
+    # swapped
+    got = vapid.resolve({"VAPID_PRIVATE_KEY": public, "VAPID_PUBLIC_KEY": private})
+    assert got[:2] == (private, public) and "swapped" in got[2][0]
+    # private key unusable: nothing to subscribe with, and a clear message
+    got = vapid.resolve({"VAPID_PRIVATE_KEY": private[:30], "VAPID_PUBLIC_KEY": "BAD"})
+    assert got[:2] == ("", "") and "43 characters" in got[2][0]
+
+
+def test_vapid_keys_from_npx_web_push_are_accepted():
+    # Format printed by `npx web-push generate-vapid-keys` (README step 3).
+    private, public = "b4jik4US6BeiUtYhtD81OQ8TxPyfLhr0J28emLtnrVQ", \
+        "BNNvip9kkiHTXMnr2LaA2hOMC0r3gbJPvBN4fYF6HW66XDGyoshHuXRCpUCykb_OONrGUgBn7_YqyOVaLg5YPok"
+    assert vapid.resolve({"VAPID_PRIVATE_KEY": private, "VAPID_PUBLIC_KEY": public}) == (private, public, [])

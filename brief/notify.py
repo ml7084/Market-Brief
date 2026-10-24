@@ -11,7 +11,7 @@ import re
 import requests
 from pywebpush import WebPushException, webpush
 
-from . import config
+from . import config, vapid
 
 log = logging.getLogger(__name__)
 
@@ -49,7 +49,7 @@ def _subscriptions() -> list[dict]:
 
 def send_web_push(message: dict) -> int:
     subs = _subscriptions()
-    key = config.clean_secret(os.getenv("VAPID_PRIVATE_KEY", ""))
+    key, _, _ = vapid.resolve()
     if not subs or not key:
         log.info("web push not configured (need WEB_PUSH_SUBSCRIPTIONS and VAPID_PRIVATE_KEY)")
         return 0
@@ -100,7 +100,7 @@ def _b64(text: str) -> str:
 
 
 def deliver(message: dict) -> int:
-    web_push = bool(_subscriptions() and config.clean_secret(os.getenv("VAPID_PRIVATE_KEY", "")))
+    web_push = bool(_subscriptions() and vapid.resolve()[0])
     if not web_push and not os.getenv("NTFY_TOPIC", "").strip():
         # Expected on the very first run, before a phone is connected (README step 6).
         log.warning("no notification channel configured yet; brief published without a push")

@@ -282,7 +282,7 @@ async function renderSetup() {
         <p>This browser doesn’t support web push. On iPhone, use Safari on iOS 16.4 or later and add the app to your Home Screen.</p>`);
     } else if (!config.vapidPublicKey) {
       cards.push(`<h3>Push keys missing</h3>
-        <p>Add the <code>VAPID_PUBLIC_KEY</code> repository variable on GitHub and re-run the workflow (see the README).</p>`);
+        <p>Add the <code>VAPID_PRIVATE_KEY</code> secret on GitHub (README step 3), run the Morning brief workflow, then close and reopen Brief.</p>`);
     } else {
       cards.push(`<h3>Turn on the morning notification</h3>
         <p>Get the market mood and today’s top three ideas on your lock screen at ${esc(sendAtLabel())} every morning.</p>
@@ -324,7 +324,17 @@ async function enablePush() {
     return;
   }
   const reg = await navigator.serviceWorker.ready;
-  const key = b64ToBytes(config.vapidPublicKey);
+  let key;
+  try {
+    key = b64ToBytes(config.vapidPublicKey);
+  } catch {
+    key = new Uint8Array();
+  }
+  if (key.length !== 65 || key[0] !== 4) {
+    alert("The push key from GitHub isn't valid, so notifications can't be set up yet. " +
+      "Check VAPID_PRIVATE_KEY (README step 3), run the Morning brief workflow, then close and reopen Brief.");
+    return;
+  }
   let sub = await reg.pushManager.getSubscription();
   const sameKey = sub?.options?.applicationServerKey &&
     new Uint8Array(sub.options.applicationServerKey).every((byte, i) => byte === key[i]);

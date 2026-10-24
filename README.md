@@ -71,7 +71,7 @@ npx web-push generate-vapid-keys
 | Type | Name | Value |
 |---|---|---|
 | Secret | `VAPID_PRIVATE_KEY` | the *Private Key* line |
-| Variable | `VAPID_PUBLIC_KEY` | the *Public Key* line |
+| Variable | `VAPID_PUBLIC_KEY` | optional: the *Public Key* line (it's calculated from the private key anyway) |
 | Variable | `VAPID_SUBJECT` | `mailto:you@yourdomain.com` (Apple wants a real contact) |
 | Variable | `BRIEF_TIMEZONE` | where you are now, e.g. `Asia/Singapore`, `America/New_York`, `Europe/London` |
 
