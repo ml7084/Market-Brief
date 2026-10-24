@@ -1,0 +1,436 @@
+{
+ "date": "2026-10-23",
+ "generated_at": "2026-10-23T10:43:12+00:00",
+ "timezone": "America/New_York",
+ "window": {
+  "since": "2026-10-22T10:27+00:00",
+  "until": "2026-10-23T10:41+00:00"
+ },
+ "brief": {
+  "notification_title": "Sample brief: yields ease, chips lead, oil slides",
+  "market_summary": "This is sample content for previewing the layout, not real market data. Equity futures point higher, led by semiconductors, while 10-year yields drift lower after a soft inflation print. Brent is heading for a weekly loss on OPEC+ supply signals, and large-cap crypto is firm on steady ETF inflows.",
+  "since_last": "Sample: the market moved from pricing a pause to roughly even odds of a December cut, which pulled the 10-year down 3bp and lifted rate-sensitive growth stocks. Oil lost its geopolitical premium.",
+  "sections": [
+   {
+    "asset_class": "us_equities",
+    "sentiment": "bullish",
+    "summary": "Sample: futures are up about 0.2% with semis leading after strong foundry guidance.",
+    "key_points": [
+     "S&P 500 futures +0.18% pre-market",
+     "SMH +1.35% yesterday, +6.2% over a month",
+     "VIX down to 15.8"
+    ],
+    "headline_ids": [
+     "n2"
+    ]
+   },
+   {
+    "asset_class": "bonds",
+    "sentiment": "bullish",
+    "summary": "Sample: the curve bull-steepened modestly as the front end priced more cuts.",
+    "key_points": [
+     "10Y 4.08% (−3bp)",
+     "2s10s +46bp",
+     "IG and HY spreads steady"
+    ],
+    "headline_ids": [
+     "n1",
+     "n6"
+    ]
+   },
+   {
+    "asset_class": "brent_oil",
+    "sentiment": "bearish",
+    "summary": "Sample: Brent is on track for a weekly decline of about 3% as OPEC+ leans toward adding supply.",
+    "key_points": [
+     "Brent $71.35 (−1.1%)",
+     "1-month −6.8%"
+    ],
+    "headline_ids": [
+     "n3"
+    ]
+   },
+   {
+    "asset_class": "crypto_l1",
+    "sentiment": "bullish",
+    "summary": "Sample: BTC is holding near $98k on ETF inflows, and SOL is outperforming after its upgrade.",
+    "key_points": [
+     "BTC +1.8% (24h)",
+     "SOL +8.4% over the week"
+    ],
+    "headline_ids": [
+     "n4",
+     "n5"
+    ]
+   }
+  ],
+  "top_ideas": [
+   {
+    "rank": 1,
+    "asset_class": "bonds",
+    "instrument": "IEF",
+    "direction": "buy",
+    "title": "Add duration while cut odds rebuild",
+    "one_liner": "Soft PCE reopens Dec cut; 10Y has room toward 3.9%",
+    "thesis": "Sample idea for layout only. A softer core inflation print and dovish Fed commentary shift the balance of risks toward lower intermediate yields. With the 10-year at 4.08% and a positively sloped curve, the intermediate segment offers carry plus upside if cut odds keep rising.",
+    "catalysts": [
+     "Next CPI release",
+     "Fed speakers this week"
+    ],
+    "risks": [
+     "Hot payrolls",
+     "Heavy Treasury supply"
+    ],
+    "entry": "Scale in over 3 sessions below 97.5",
+    "invalidation": "10Y closes above 4.25%",
+    "horizon": "weeks",
+    "conviction": "medium",
+    "sizing": "3-5% of portfolio"
+   },
+   {
+    "rank": 2,
+    "asset_class": "us_equities",
+    "instrument": "SMH",
+    "direction": "add",
+    "title": "Semis on guidance momentum",
+    "one_liner": "Foundry beat extends AI capex cycle; buy dips",
+    "thesis": "Sample idea for layout only. Strong foundry guidance supports the AI capex narrative heading into big-tech earnings, and lower yields help long-duration growth.",
+    "catalysts": [
+     "Mega-cap earnings next week"
+    ],
+    "risks": [
+     "Export-control headlines",
+     "Crowded positioning"
+    ],
+    "entry": "Buy pullbacks toward 305",
+    "invalidation": "Close below 295",
+    "horizon": "weeks",
+    "conviction": "medium",
+    "sizing": "2-3% starter"
+   },
+   {
+    "rank": 3,
+    "asset_class": "brent_oil",
+    "instrument": "XLE",
+    "direction": "trim",
+    "title": "Lighten energy into OPEC+ supply",
+    "one_liner": "Brent losing premium as OPEC+ adds barrels; trim XLE",
+    "thesis": "Sample idea for layout only. With OPEC+ signalling more supply and a softer demand outlook, the path of least resistance for Brent is lower in the near term.",
+    "catalysts": [
+     "OPEC+ meeting",
+     "Weekly EIA inventories"
+    ],
+    "risks": [
+     "Middle East supply disruption"
+    ],
+    "entry": "Trim on any bounce toward 93",
+    "invalidation": "Brent back above $76",
+    "horizon": "weeks",
+    "conviction": "low",
+    "sizing": "Reduce by a third"
+   }
+  ],
+  "prior_ideas_review": "Sample: yesterday's long-BTC idea gained 1.8%. Keep it with the stop raised to $94k.",
+  "watchlist": [
+   {
+    "time": "08:30 ET",
+    "event": "Sample: durable goods orders"
+   },
+   {
+    "time": "10:00 ET",
+    "event": "Sample: UMich sentiment (final)"
+   },
+   {
+    "time": "After close",
+    "event": "Sample: large-cap earnings"
+   }
+  ],
+  "top_headline_ids": [
+   "n1",
+   "n2",
+   "n3",
+   "n4",
+   "n5",
+   "n6"
+  ]
+ },
+ "headlines": [
+  {
+   "id": "n1",
+   "title": "SAMPLE: Treasury yields slip as softer core PCE revives December cut bets",
+   "url": "https://example.com/n1",
+   "source": "Sample Wire",
+   "category": "rates",
+   "published": "2026-10-23T09:58+00:00"
+  },
+  {
+   "id": "n2",
+   "title": "SAMPLE: Chipmakers lead futures higher after upbeat foundry guidance",
+   "url": "https://example.com/n2",
+   "source": "Sample Wire",
+   "category": "equities",
+   "published": "2026-10-23T09:30+00:00"
+  },
+  {
+   "id": "n3",
+   "title": "SAMPLE: Brent extends weekly loss as OPEC+ signals December output hike",
+   "url": "https://example.com/n3",
+   "source": "Sample Energy",
+   "category": "oil",
+   "published": "2026-10-23T08:12+00:00"
+  },
+  {
+   "id": "n4",
+   "title": "SAMPLE: Spot bitcoin ETFs log fifth straight day of inflows",
+   "url": "https://example.com/n4",
+   "source": "Sample Crypto",
+   "category": "crypto",
+   "published": "2026-10-23T07:45+00:00"
+  },
+  {
+   "id": "n5",
+   "title": "SAMPLE: Solana network upgrade goes live; fees fall to record low",
+   "url": "https://example.com/n5",
+   "source": "Sample Crypto",
+   "category": "crypto",
+   "published": "2026-10-23T06:20+00:00"
+  },
+  {
+   "id": "n6",
+   "title": "SAMPLE: Fed's Waller says policy 'still somewhat restrictive'",
+   "url": "https://example.com/n6",
+   "source": "Sample Wire",
+   "category": "rates",
+   "published": "2026-10-23T03:05+00:00"
+  }
+ ],
+ "market": {
+  "quotes": [
+   {
+    "symbol": "^GSPC",
+    "label": "S&P 500",
+    "group": "equities",
+    "kind": "price",
+    "last": 6402.15,
+    "change_1d": 0.42,
+    "change_1w": 1.1,
+    "change_1m": 2.35,
+    "as_of": "2026-10-22T20:00+00:00"
+   },
+   {
+    "symbol": "^IXIC",
+    "label": "Nasdaq Composite",
+    "group": "equities",
+    "kind": "price",
+    "last": 21310.4,
+    "change_1d": 0.71,
+    "change_1w": 1.62,
+    "change_1m": 3.8,
+    "as_of": "2026-10-22T20:00+00:00"
+   },
+   {
+    "symbol": "ES=F",
+    "label": "S&P 500 futures",
+    "group": "equities",
+    "kind": "price",
+    "last": 6418.5,
+    "change_1d": 0.18,
+    "change_1w": 1.05,
+    "change_1m": 2.2,
+    "as_of": "2026-10-22T20:00+00:00"
+   },
+   {
+    "symbol": "^VIX",
+    "label": "VIX",
+    "group": "equities",
+    "kind": "price",
+    "last": 15.8,
+    "change_1d": -4.2,
+    "change_1w": -9.1,
+    "change_1m": -12.0,
+    "as_of": "2026-10-22T20:00+00:00"
+   },
+   {
+    "symbol": "SMH",
+    "label": "Semis (SMH)",
+    "group": "equities",
+    "kind": "price",
+    "last": 312.4,
+    "change_1d": 1.35,
+    "change_1w": 3.1,
+    "change_1m": 6.2,
+    "as_of": "2026-10-22T20:00+00:00"
+   },
+   {
+    "symbol": "XLE",
+    "label": "Energy (XLE)",
+    "group": "equities",
+    "kind": "price",
+    "last": 91.2,
+    "change_1d": -0.85,
+    "change_1w": -2.4,
+    "change_1m": -4.1,
+    "as_of": "2026-10-22T20:00+00:00"
+   },
+   {
+    "symbol": "^TNX",
+    "label": "US 10Y yield",
+    "group": "rates",
+    "kind": "yield",
+    "last": 4.08,
+    "change_1d": -3.0,
+    "change_1w": -9.5,
+    "change_1m": -14.0,
+    "as_of": "2026-10-22T20:00+00:00"
+   },
+   {
+    "symbol": "^FVX",
+    "label": "US 5Y yield",
+    "group": "rates",
+    "kind": "yield",
+    "last": 3.79,
+    "change_1d": -2.5,
+    "change_1w": -8.0,
+    "change_1m": -12.5,
+    "as_of": "2026-10-22T20:00+00:00"
+   },
+   {
+    "symbol": "IEF",
+    "label": "7-10Y Treasuries (IEF)",
+    "group": "rates",
+    "kind": "price",
+    "last": 96.8,
+    "change_1d": 0.24,
+    "change_1w": 0.85,
+    "change_1m": 1.3,
+    "as_of": "2026-10-22T20:00+00:00"
+   },
+   {
+    "symbol": "HYG",
+    "label": "High yield (HYG)",
+    "group": "rates",
+    "kind": "price",
+    "last": 80.1,
+    "change_1d": 0.05,
+    "change_1w": 0.2,
+    "change_1m": 0.4,
+    "as_of": "2026-10-22T20:00+00:00"
+   },
+   {
+    "symbol": "BZ=F",
+    "label": "Brent crude",
+    "group": "oil",
+    "kind": "price",
+    "last": 71.35,
+    "change_1d": -1.1,
+    "change_1w": -3.2,
+    "change_1m": -6.8,
+    "as_of": "2026-10-22T20:00+00:00"
+   },
+   {
+    "symbol": "BNO",
+    "label": "Brent oil fund (BNO)",
+    "group": "oil",
+    "kind": "price",
+    "last": 29.4,
+    "change_1d": -1.05,
+    "change_1w": -3.1,
+    "change_1m": -6.6,
+    "as_of": "2026-10-22T20:00+00:00"
+   },
+   {
+    "symbol": "GC=F",
+    "label": "Gold",
+    "group": "oil",
+    "kind": "price",
+    "last": 2655.0,
+    "change_1d": 0.3,
+    "change_1w": 1.4,
+    "change_1m": 3.1,
+    "as_of": "2026-10-22T20:00+00:00"
+   },
+   {
+    "symbol": "DX-Y.NYB",
+    "label": "US dollar index",
+    "group": "oil",
+    "kind": "price",
+    "last": 101.9,
+    "change_1d": -0.2,
+    "change_1w": -0.6,
+    "change_1m": -1.1,
+    "as_of": "2026-10-22T20:00+00:00"
+   },
+   {
+    "symbol": "BTC",
+    "label": "Bitcoin (BTC)",
+    "group": "crypto",
+    "kind": "price",
+    "last": 98450.0,
+    "change_1d": 1.8,
+    "change_1w": 4.2,
+    "change_1m": 9.5,
+    "as_of": "2026-10-22T20:00+00:00"
+   },
+   {
+    "symbol": "ETH",
+    "label": "Ether (ETH)",
+    "group": "crypto",
+    "kind": "price",
+    "last": 3620.0,
+    "change_1d": 2.4,
+    "change_1w": 5.1,
+    "change_1m": 7.2,
+    "as_of": "2026-10-22T20:00+00:00"
+   },
+   {
+    "symbol": "SOL",
+    "label": "Solana (SOL)",
+    "group": "crypto",
+    "kind": "price",
+    "last": 182.3,
+    "change_1d": 3.1,
+    "change_1w": 8.4,
+    "change_1m": 14.9,
+    "as_of": "2026-10-22T20:00+00:00"
+   },
+   {
+    "symbol": "ADA",
+    "label": "Cardano (ADA)",
+    "group": "crypto",
+    "kind": "price",
+    "last": 0.612,
+    "change_1d": 0.9,
+    "change_1w": 1.2,
+    "change_1m": -2.1,
+    "as_of": "2026-10-22T20:00+00:00"
+   }
+  ],
+  "treasury_curve": {
+   "date": "10/22/2026",
+   "curve": {
+    "3 Mo": 4.05,
+    "6 Mo": 3.95,
+    "1 Yr": 3.8,
+    "2 Yr": 3.62,
+    "5 Yr": 3.79,
+    "10 Yr": 4.08,
+    "30 Yr": 4.55
+   },
+   "change_bp": {
+    "2 Yr": -2.0,
+    "10 Yr": -3.0
+   },
+   "spread_2s10s_bp": 46.0,
+   "spread_3m10y_bp": 3.0
+  },
+  "missing": [],
+  "fetched_at": "2026-10-23T10:41+00:00"
+ },
+ "sources": {
+  "headlines_considered": 0,
+  "live_sources": 0,
+  "total_sources": 0,
+  "web_research": false
+ },
+ "model": "sample"
+}

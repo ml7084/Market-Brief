@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Market Brief</title>
+  <meta name="description" content="Your morning markets brief: US equities, bonds, Brent and major L1 crypto.">
+  <meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1116" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Brief">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <span class="brand"><img src="icons/icon-192.png" alt="" width="22" height="22"> Market Brief</span>
+    <button id="history-open" class="ghost" type="button">Past briefs</button>
+  </header>
+
+  <div id="setup" class="setup" hidden></div>
+
+  <main id="app" aria-live="polite">
+    <div class="loading">Loading today’s brief…</div>
+  </main>
+
+  <footer class="footer">
+    <p class="disclaimer">Generated automatically by Claude from public news and market data. It can be wrong or out of date. This is not personalised investment advice: check the facts and size positions to your own risk tolerance before trading.</p>
+    <p id="meta" class="meta"></p>
+    <button id="settings-open" class="link" type="button">Notification settings</button>
+  </footer>
+
+  <dialog id="history">
+    <form method="dialog" class="dialog-head"><h2>Past briefs</h2><button class="ghost">Close</button></form>
+    <ul id="history-list" class="history-list"></ul>
+  </dialog>
+
+  <dialog id="subscription">
+    <form method="dialog" class="dialog-head"><h2>Connect this iPhone</h2><button class="ghost">Done</button></form>
+    <ol class="steps">
+      <li>Tap <strong>Copy code</strong>.</li>
+      <li>On GitHub, open your repo → <strong>Settings → Secrets and variables → Actions</strong>.</li>
+      <li>Create (or update) the secret <code>WEB_PUSH_SUBSCRIPTIONS</code> and paste the code.</li>
+      <li>Run the <strong>Morning brief</strong> workflow with “test notification” ticked to check it works.</li>
+    </ol>
+    <textarea id="subscription-code" readonly rows="6"></textarea>
+    <button id="copy-code" class="primary" type="button">Copy code</button>
+  </dialog>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>

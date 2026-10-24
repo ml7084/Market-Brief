@@ -1,0 +1,142 @@
+name: Morning brief
+
+on:
+  schedule:
+    # Two UTC times so the brief lands at the same local time all year: the gate
+    # step skips whichever run falls before BRIEF_SEND_AFTER or after today's brief.
+    # Defaults suit New York (06:40 local in summer and winter). For another time
+    # zone see "Change the delivery time" in the README.
+    - cron: "40 10 * * *"
+    - cron: "40 11 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Generate and send even if today's brief already went out"
+        type: boolean
+        default: true
+      test_notification:
+        description: "Only send a test notification (no brief)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: morning-brief
+  cancel-in-progress: false
+
+env:
+  BRIEF_TIMEZONE: ${{ vars.BRIEF_TIMEZONE }}
+  BRIEF_SEND_AFTER: ${{ vars.BRIEF_SEND_AFTER }}
+  BRIEF_MODEL: ${{ vars.BRIEF_MODEL }}
+  BRIEF_EFFORT: ${{ vars.BRIEF_EFFORT }}
+  BRIEF_WEB_RESEARCH: ${{ vars.BRIEF_WEB_RESEARCH }}
+  INVESTOR_PROFILE: ${{ vars.INVESTOR_PROFILE }}
+  VAPID_PUBLIC_KEY: ${{ vars.VAPID_PUBLIC_KEY }}
+  VAPID_SUBJECT: ${{ vars.VAPID_SUBJECT }}
+  NTFY_SERVER: ${{ vars.NTFY_SERVER }}
+  WEB_PUSH_SUBSCRIPTIONS: ${{ secrets.WEB_PUSH_SUBSCRIPTIONS }}
+  VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+  NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+  NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    outputs:
+      run: ${{ steps.gate.outputs.run }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Decide whether to run
+        id: gate
+        run: |
+          if [ "${{ inputs.test_notification }}" = "true" ]; then
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          elif [ "${{ inputs.force }}" = "true" ]; then
+            python -m brief gate --force
+          else
+            python -m brief gate
+          fi
+
+      - name: Install dependencies
+        if: steps.gate.outputs.run == 'true' || inputs.test_notification
+        run: pip install -r requirements.txt
+
+      - name: Send test notification
+        if: inputs.test_notification
+        run: python -m brief notify --test
+
+      - name: Generate brief
+        if: steps.gate.outputs.run == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
+        run: python -m brief generate
+
+      - name: Save brief to the repository
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git commit -m "Brief for $(jq -r .date data/latest.json)"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Build site
+        if: steps.gate.outputs.run == 'true'
+        run: python -m brief build-site --out _site
+
+      - uses: actions/configure-pages@v5
+        if: steps.gate.outputs.run == 'true'
+
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.gate.outputs.run == 'true'
+        with:
+          path: _site
+
+      - name: Tell the phone the run failed
+        if: failure() && steps.gate.outputs.run == 'true'
+        run: pip install -q -r requirements.txt && python -m brief notify --failure
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}  # includes the brief committed by the build job
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Send notification
+        env:
+          SITE_URL: ${{ vars.SITE_URL || steps.deployment.outputs.page_url }}
+        run: python -m brief notify
+
+      - name: Tell the phone the run failed
+        if: failure()
+        run: pip install -q -r requirements.txt && python -m brief notify --failure
