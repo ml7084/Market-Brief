@@ -1,734 +1,667 @@
 {
- "date": "2026-10-27",
- "generated_at": "2026-10-27T16:05:49+00:00",
+ "date": "2026-10-28",
+ "generated_at": "2026-10-28T12:42:52+00:00",
  "timezone": "America/New_York",
  "window": {
-  "since": "2026-10-26T14:24+00:00",
-  "until": "2026-10-27T15:59+00:00"
+  "since": "2026-10-27T15:44+00:00",
+  "until": "2026-10-28T12:36+00:00"
  },
  "brief": {
-  "notification_title": "Tech leads, oil eases; Fed and Big Tech up next",
-  "market_summary": "At midday in New York, stocks are higher and AI names are leading. The S&P 500 is up 0.70% at 7,730.61, the Nasdaq is up 1.27% and SMH is up 2.88%. The lift comes from the Anthropic IPO filing and Broadcom arranging chip financing for Anthropic, plus US data that came in well above forecasts. Treasuries barely moved: the 10Y is at 4.986%, flat on the day but 25bp lower over a month, as markets wait for Wednesday's FOMC. The Fed is expected to hold, but a December hike is largely priced. Brent's snapshot shows -5.5% to $109.43, but that compares two different futures contracts. The real move was about -1% (BNO -0.97%, December Brent near $114.9), on talks with Iran over Hormuz. Bitcoin is flat at $80.5K while ETH and the smaller L1s keep sliding.",
-  "since_last": "1) US data came in hot. Conference Board confidence was 91.7 vs 81.0 expected, durable goods +1.8% vs +0.6%, the Dallas Fed index 13.4 vs 8.8 and the Chicago Fed index 0.07 vs -0.10. The underlying business-investment numbers were softer, though: core capital goods +0.5% vs +0.7%.\n2) The AI trade revived. The Anthropic IPO filing, Broadcom's financing for Anthropic, and Nvidia and AMD investing $4bn in Meta as Meta raises $95bn (n104, n48) sent SMH up 2.9%.\n3) Earnings were mostly beats. UPS beat and raised guidance; Coca-Cola beat and raised but North American volume was weak; PayPal beat on EPS and missed on revenue; SoFi is up 15%. Boeing missed (adjusted -$0.34 vs -$0.21) and is down 9% because the 737 ramp slips to late 2027.\n4) Oil: an Oman-brokered outline to restore free navigation through Hormuz and Iranian talk of terms to end the war (n3) are pushing prices down. Attacks near Ras Tanura (n113) and by the Houthis are holding them up. OPEC+ is expected to keep quotas unchanged on Sunday (n43).\n5) Crypto: spot BTC ETFs took in +$110.3m on 26 Oct, ending a two-day outflow streak. ETH ETFs lost -$88.6m, though that day's data may be incomplete.",
+  "notification_title": "Fed day: chips lift on Hynix, MSFT and GOOGL tonight",
+  "market_summary": "US futures are modestly higher (ES 7,776, +0.23%; NQ +0.40%). Chips are leading again after SK Hynix posted a record quarter and said memory shortages will last to 2030. This follows Tuesday's tech rally: Nasdaq +1.18%, SMH +3.02%. Treasuries are flat into the 14:00 ET FOMC. The 10Y is at 4.999% after a 14.7bp rally this week, and the market expects a hawkish hold with a December hike 73–82% priced. Brent fell about $2 on diplomacy hopes, then bounced to around $115 overnight on a Houthi claim of a strike at Ras Tanura. My snapshot shows $111.31, which looks like a contract-roll artifact. In crypto, BTC is holding about $80.7k on two days of spot ETF inflows, while ETH and SOL keep leaking.",
+  "since_last": "- **AI trade:** the case got stronger. Vertiv beat ($2.21 vs $1.82) and raised 2026 EPS guidance to $7.15 against $6.73 consensus; it is +15% pre-market. SK Hynix made KRW 83.33T of operating profit at an 80% margin.\n- **Earnings that disappointed:** non-AI reporters were punished. NXP is −8.5% on weak guidance, Enphase −15.8%, Robinhood −7–8% and Boston Scientific −3.6%.\n- **Consumer confidence:** the Conference Board index jumped to 91.7 (consensus 81.2), but Ipsos sentiment fell to its lowest since 2011.\n- **Rates:** the 2Y auction cleared at 4.708% vs 4.787% last time, and the 10Y is back at 5.0%.\n- **Oil:** the WSJ reports the US told Gulf states to prepare for a possible short campaign against Iran after the 3 November midterms. ING warns oil drops if that doesn't happen.\n- **Crypto ETFs:** BTC ETFs took in +$176M, the second straight inflow day. ETH ETFs lost $60M and SOL ETFs lost $19.2M, their biggest October outflow.",
   "economic_data": [
    {
-    "release": "Conference Board Consumer Confidence (Oct)",
+    "release": "CB Consumer Confidence (Oct)",
     "status": "released",
-    "when": "Tue 10:00 ET",
+    "when": "Tue 27 Oct 10:00 ET",
     "actual": "91.7",
-    "expected": "81.0",
-    "previous": "81.9",
-    "takeaway": "This was the first rise in four months (n38) and a very large beat; lower gas prices helped (n57). Strong consumers make it easier for Warsh to keep a hiking bias, which supports the 84% December-hike pricing. It is good for cyclicals but not for rate cuts."
+    "expected": "81.2",
+    "previous": "84.2 (revised from 81.9)",
+    "takeaway": "A big beat: Present Situation rose to 120.4 and Expectations to 72.6. Ipsos sentiment fell to a 2011 low, so the consumer picture is split. Even so, a strong headline gives Warsh no reason to sound dovish today and supports December hike pricing."
    },
    {
     "release": "Durable Goods Orders (Sep, m/m)",
     "status": "released",
-    "when": "Tue 08:30 ET",
-    "actual": "+1.8%",
-    "expected": "+0.6%",
-    "previous": "+0.1%",
-    "takeaway": "Non-defence aircraft orders (+28.4%) drove most of the headline. Read the core figures below rather than the headline."
+    "when": "08:30 ET (the feed's timestamp is ambiguous between Tue and today)",
+    "actual": "+1.8%; core +0.5%; nondefense ex-air +0.5%",
+    "expected": "+2.0%; core +0.6%; ex-air +0.7%",
+    "previous": "+0.1%; core +0.3%; ex-air +1.6%",
+    "takeaway": "Small misses across the board. Core business capex is slowing from 1.6% to 0.5%. That is not enough to change Fed pricing, but it fits a softening non-AI capex cycle, consistent with NXP's weak guidance."
    },
    {
-    "release": "Core Capital Goods Orders (Sep)",
+    "release": "New Home Sales (Sep)",
     "status": "released",
-    "when": "Tue 08:30 ET",
-    "actual": "+0.5%",
-    "expected": "+0.7%",
-    "previous": "n/a in material",
-    "takeaway": "This is a slight miss. Ex-transport orders were +0.5% vs +0.6%. Business investment outside AI is firm but not booming, so the data is less hot than the headline suggests."
+    "when": "Tue 10:00 ET",
+    "actual": "676K",
+    "expected": "651K",
+    "previous": "680K",
+    "takeaway": "Housing is holding up despite the 30-year mortgage rate at 7.37% (MBA). Another sign of resilient demand, which leans hawkish."
    },
    {
-    "release": "Chicago Fed National Activity Index (Sep)",
+    "release": "2-Year Note Auction",
     "status": "released",
-    "when": "Tue 08:30 ET",
-    "actual": "0.07",
-    "expected": "-0.10",
-    "previous": "-0.08",
-    "takeaway": "Activity is back at about trend growth. Together with GDPNow at 3.5%, it argues against any talk of cuts."
-   },
-   {
-    "release": "Dallas Fed Manufacturing Index (Oct)",
-    "status": "released",
-    "when": "Tue 10:30 ET",
-    "actual": "13.4",
-    "expected": "8.8",
-    "previous": "9.8",
-    "takeaway": "Texas factories are accelerating, helped by $100+ oil. It adds to the evidence that growth is not slowing."
-   },
-   {
-    "release": "2-Year Note Auction ($69bn)",
-    "status": "released",
-    "when": "Mon/Tue 13:00 ET",
+    "when": "Tue 13:00 ET",
     "actual": "4.708%",
-    "expected": "n/a (0.3bp tail)",
+    "expected": "n/a",
     "previous": "4.787%",
-    "takeaway": "Demand was soft: bid-to-cover 2.59 vs a 2.64 average, and indirect bidders took 45.7% vs a 58.3% average (graded C-). Buyers are cautious about front-end duration before the Fed."
+    "takeaway": "It cleared about 8bp lower than last month, in line with the 4.70% par yield, so demand for the front end was decent. The feed also lists the 5Y auction at 4.708% (prior 5.033%). That duplicates the 2Y figure and sits about 11bp below the 4.82% 5Y par yield, so I treat it as a data error."
    },
    {
-    "release": "3M / 6M Bill Auctions",
+    "release": "API Crude Stocks (week to 23 Oct)",
+    "status": "released",
+    "when": "Tue 16:30 ET",
+    "actual": "-2.03M bbl",
+    "expected": "+0.8M (feed) / -0.8M (OilPrice); sources disagree",
+    "previous": "-4.93M bbl",
+    "takeaway": "A second straight crude draw, though gasoline and distillate stocks rose. EIA at 10:30 ET today needs to confirm before I read it as tightening."
+   },
+   {
+    "release": "Atlanta Fed GDPNow (Q3)",
     "status": "released",
     "when": "Tue",
-    "actual": "4.050% / 4.210%",
-    "expected": "n/a",
-    "previous": "4.095% / 4.220%",
-    "takeaway": "Bills still yield above 4%, which pays you to wait out the event cluster."
+    "actual": "3.4%",
+    "expected": "3.5%",
+    "previous": "3.5%",
+    "takeaway": "The economy is running hot going into Thursday's advance GDP (forecast 3.2%). There is no growth reason for the Fed to soften."
    },
    {
-    "release": "FOMC Decision + Warsh Press Conference",
+    "release": "FOMC decision and Warsh press conference",
     "status": "upcoming",
     "when": "Wed 14:00 / 14:30 ET",
     "actual": "",
-    "expected": "Hold, upper bound 4.00% (range 3.75-4.00%)",
-    "previous": "4.00% (hiked in Sep)",
-    "takeaway": "A hold is near-certain (93-94% of surveyed economists). What matters is whether Warsh endorses the roughly 84% priced December hike. If he does, the dollar firms, the front end sells off and long-duration tech is pressured. If he leans dovish, duration and BTC rally."
+    "expected": "Hold at 3.75–4.00% (about 93% odds)",
+    "previous": "3.75–4.00% (hiked in Sep)",
+    "takeaway": "A hold is certain. What matters is December guidance against 73–82% hike odds and any dissents (BMO flags Hammack). A firmer hike signal lifts the 2Y and the dollar and hurts long-duration tech and crypto; any hint of patience rallies duration."
    },
    {
     "release": "Advance GDP Q3 (q/q annualised)",
     "status": "upcoming",
-    "when": "Thu 08:30 ET",
+    "when": "Thu 29 Oct 08:30 ET",
     "actual": "",
-    "expected": "3.2% (other polls ~3.0%; GDPNow 3.5%)",
-    "previous": "1.5% per calendar (2.2% per other sources)",
-    "takeaway": "A print at or above 3.5% on top of today's data would cement a December hike and test the 10Y's recent rally."
+    "expected": "3.2%",
+    "previous": "1.5%",
+    "takeaway": "A print at or above 3.5% (GDPNow) on top of a hawkish Fed would challenge the 10Y's move back to 5.0%."
    },
    {
-    "release": "Core PCE Price Index (Sep, m/m)",
+    "release": "Core PCE (Sep, m/m)",
     "status": "upcoming",
-    "when": "Thu 08:30 ET",
+    "when": "Thu 29 Oct 08:30 ET",
     "actual": "",
-    "expected": "+0.3% (3.1% y/y); headline +0.5% m/m, 3.6% y/y",
-    "previous": "+0.2%",
-    "takeaway": "This is the key inflation print. A 0.4% would push the 10Y back toward 5.15%, my trigger to start adding duration. A 0.2% would support bonds."
+    "expected": "0.3%",
+    "previous": "0.2%",
+    "takeaway": "This is the inflation print that decides December; the Cleveland Fed nowcast has core at 3.1% y/y. A 0.4% would push December hike odds toward certainty and test my 5.15% 10Y trigger."
    },
    {
     "release": "Employment Cost Index (Q3)",
     "status": "upcoming",
-    "when": "Fri 08:30 ET",
+    "when": "Fri 30 Oct 08:30 ET",
     "actual": "",
     "expected": "0.8%",
     "previous": "0.9%",
-    "takeaway": "If wage growth cools, it partly offsets hawkish inflation worries."
+    "takeaway": "Wage pressure easing to 0.8% would be the one dovish input this week. A surprise up would reinforce the hike path."
    }
   ],
   "earnings": [
    {
+    "ticker": "VRT",
+    "company": "Vertiv",
+    "status": "reported",
+    "timing": "Wed before open",
+    "result": "Adjusted EPS $2.21 vs $1.82; revenue $4.31B vs $3.75B. Raised 2026 EPS guidance to $7.15 (consensus $6.73) and revenue to $14.65B ($13.99B expected).",
+    "takeaway": "A clean beat and raise from a data-centre power and cooling supplier. AI infrastructure spending is still accelerating, which supports semis and industrials tied to the buildout. It is +15% pre-market."
+   },
+   {
+    "ticker": "HXSCL",
+    "company": "SK Hynix (Korea-listed; ADR traded pre-market)",
+    "status": "reported",
+    "timing": "Wed (Asia)",
+    "result": "Record revenue of KRW 104.62T; operating profit KRW 83.33T (+632% y/y, 80% margin), above estimates. Plans about KRW 100T of shareholder returns and sees memory shortages to 2030.",
+    "takeaway": "The most important AI read-through of the week: memory has pricing power. The ADR is +7–8%, Micron +2% pre-market and Kospi up 7–10%. Positive for SMH and for Sandisk (reports Thu)."
+   },
+   {
+    "ticker": "V",
+    "company": "Visa",
+    "status": "reported",
+    "timing": "Tue after close",
+    "result": "Non-GAAP EPS $3.48 vs $3.43; revenue $12.1B (+13%). GAAP EPS of $3.19 includes a $469M litigation provision. A weaker FY27 outlook is reported only by an unverified source, and the stock was −2.3% after hours.",
+    "takeaway": "A small beat, so the guidance tone matters more. Spending volumes are fine, which matches the strong CB confidence. Mastercard (Thu) is the cross-check."
+   },
+   {
+    "ticker": "HOOD",
+    "company": "Robinhood",
+    "status": "reported",
+    "timing": "Tue after close",
+    "result": "Adjusted EPS $0.60 vs $0.56 per the calendar, but diluted EPS was $0.51 (−16% y/y) and profit missed per other coverage. Record revenue of $1.4B (+12%).",
+    "takeaway": "About −7–8% pre-market. Weak crypto trading volumes are hurting profit (n140), which confirms soft retail crypto activity."
+   },
+   {
+    "ticker": "NXPI",
+    "company": "NXP Semiconductors",
+    "status": "reported",
+    "timing": "Tue after close",
+    "result": "EPS $4.20 vs $4.11; revenue $3.79B. Q4 revenue guidance midpoint ($3.85B) and operating income guidance were below consensus.",
+    "takeaway": "−8.5%. Auto and industrial chips are not sharing in the AI boom. Semis are splitting, so I favour AI-heavy exposure over the broad cycle."
+   },
+   {
     "ticker": "BA",
     "company": "Boeing",
     "status": "reported",
-    "timing": "Tue before open",
-    "result": "Adjusted EPS -$0.34 vs -$0.21 expected (a miss). Revenue $24.19bn vs $23.84bn. Free cash flow $0.5bn; record $745bn backlog. No significant 737 MAX ramp until late 2027; 2026 delivery target of 500 likely missed.",
-    "takeaway": "The stock is down about 9%. Investors were paying for the production ramp, and it has slipped a year. The price-weighted Dow (+0.16%) is lagging the S&P because of it. The XLI read-through is limited (XLI +0.41%)."
+    "timing": "Tue",
+    "result": "EPS −$0.34 vs −$0.21 expected (a wider loss).",
+    "takeaway": "This helped keep the Dow flat (+0.03%) while the S&P rose 0.60%. It is a stock-specific drag, not a macro signal."
    },
    {
-    "ticker": "UPS",
-    "company": "United Parcel Service",
-    "status": "reported",
-    "timing": "Tue before open",
-    "result": "Adjusted EPS $1.69 vs $1.63. Revenue ~$22.9bn vs $22.29bn. Full-year guidance raised for the second straight quarter: ~$92.6bn revenue, ~$7.28 EPS.",
-    "takeaway": "The stock is up about 2%. Freight volumes are holding up, consistent with today's strong activity data."
-   },
-   {
-    "ticker": "KO",
-    "company": "Coca-Cola",
-    "status": "reported",
-    "timing": "Tue before open",
-    "result": "Adjusted EPS $0.91 vs $0.87-0.88 expected. Revenue $13.4bn (+7%) vs $12.9bn. Comparable EPS growth guidance raised to at least 11%. North American volume was weak.",
-    "takeaway": "Shares slipped despite beating and raising, after a 32% gain this year. Staples (XLP -0.68%) are being sold as money rotates back into tech."
-   },
-   {
-    "ticker": "PYPL",
-    "company": "PayPal",
-    "status": "reported",
-    "timing": "Tue before open",
-    "result": "Adjusted EPS $1.45 vs $1.31. Revenue $8.58bn vs $8.71bn (a miss). Full-year EPS guidance raised to ~$5.60, with job cuts.",
-    "takeaway": "This is a cost-cutting story, not a growth story. The stock swung from about -2% pre-market to about +2% intraday."
-   },
-   {
-    "ticker": "SOFI",
-    "company": "SoFi Technologies",
-    "status": "reported",
-    "timing": "Tue before open",
-    "result": "Adjusted EPS $0.18 vs $0.17. Revenue $1.37bn vs $1.28bn. Guidance raised.",
-    "takeaway": "Up about 15%, so retail-fintech risk appetite is alive. Robinhood reports tonight against that bar."
-   },
-   {
-    "ticker": "CLS",
-    "company": "Celestica",
-    "status": "reported",
-    "timing": "Mon after close",
-    "result": "EPS $3.16 vs $2.89 (+9.3% surprise). Outlook raised on AI data-centre demand.",
-    "takeaway": "Up about 9.7% after hours, confirming AI hardware demand before the Microsoft and Alphabet capex updates on Wednesday."
-   },
-   {
-    "ticker": "CDNS",
-    "company": "Cadence Design Systems",
-    "status": "reported",
-    "timing": "Mon after close",
-    "result": "EPS $1.59 vs $1.61 (-1.2%).",
-    "takeaway": "A small miss, but the stock rose about 2.6% after hours, so investors focused on chip-design demand rather than the penny miss."
-   },
-   {
-    "ticker": "HIG / CINF",
-    "company": "Hartford / Cincinnati Financial",
-    "status": "reported",
-    "timing": "Mon",
-    "result": "Hartford $3.50 vs $3.15 (+11%). Cincinnati Financial $2.86 vs $1.99 (+44%). Principal Financial missed ($2.22 vs $2.46).",
-    "takeaway": "Property and casualty insurers' underwriting is strong this quarter. XLF is flat (-0.14%), so it isn't moving the sector."
-   },
-   {
-    "ticker": "V / HOOD / STX",
-    "company": "Visa / Robinhood / Seagate",
-    "status": "upcoming",
-    "timing": "Tue after close",
-    "result": "Estimated EPS: Visa $3.43 (vs $2.98 a year ago), Robinhood $0.56, Seagate $7.17 (vs $2.51).",
-    "takeaway": "Visa is a check on consumer spending after the confidence beat. Robinhood reads across to crypto trading and tokenized stocks (n100). Seagate tests AI storage demand before Sandisk on Thursday."
-   },
-   {
-    "ticker": "MSFT / GOOGL",
-    "company": "Microsoft / Alphabet",
+    "ticker": "MSFT",
+    "company": "Microsoft",
     "status": "upcoming",
     "timing": "Wed after close",
-    "result": "Estimated EPS: Microsoft $4.71 (vs $4.13), Alphabet $2.94 (vs $2.87). Microsoft will disclose Azure revenue (n33).",
-    "takeaway": "They report about two hours after Warsh speaks. Capex guidance drives the semis rally (SMH is -7% over a month). Weak cloud growth or a capex pullback would undo today's AI bounce."
+    "result": "EPS estimate $4.71 vs $4.13 last year. Options imply a 5%+ move.",
+    "takeaway": "Azure growth and capex guidance are the demand side of SK Hynix's story. A capex raise confirms the chip trade; a pause would hit SMH harder than MSFT itself."
    },
    {
-    "ticker": "XOM / CVX",
-    "company": "ExxonMobil / Chevron",
+    "ticker": "GOOGL",
+    "company": "Alphabet",
+    "status": "upcoming",
+    "timing": "Wed after close",
+    "result": "EPS estimate $2.94 vs $2.87 last year. Options imply a 5%+ move.",
+    "takeaway": "Watch cloud growth, capex and the new strategy of selling TPUs through partners (n72). Together with MSFT, about $7.8T of market cap reports tonight, so index direction into Thursday's PCE rests here."
+   },
+   {
+    "ticker": "AMZN",
+    "company": "Amazon",
+    "status": "upcoming",
+    "timing": "Thu after close",
+    "result": "EPS estimate $2.01 (calendar) / about $1.96 (Yahoo); revenue about $202.2B; implied move about 7%.",
+    "takeaway": "The third hyperscaler capex read this week. It lands the same night as Intel and Sandisk, a cluster of AI-supply-chain reports."
+   },
+   {
+    "ticker": "XOM",
+    "company": "ExxonMobil",
     "status": "upcoming",
     "timing": "Fri before open",
-    "result": "Estimated EPS: Exxon $3.90 (vs $1.88), Chevron $4.78 (vs $1.85).",
-    "takeaway": "This is the gate for adding the second half of XLE. Watch buyback and capex plans at $100+ oil and whether management assumes the war premium lasts."
+    "result": "EPS estimate $3.90 vs $1.88 last year. Chevron (same morning) estimate $4.78 vs $1.85.",
+    "takeaway": "The bar has doubled, so beats are expected. Buyback and capex commentary at $100+ oil decides my XLE add. PSX (today, est. $11.97), Shell and TotalEnergies (Thu) come first."
    }
   ],
   "sections": [
    {
     "asset_class": "us_equities",
-    "sentiment": "bullish",
-    "summary": "Broad gains led by AI. The Nasdaq is up 1.27% and semis 2.88% on the Anthropic IPO, Broadcom's chip financing for Anthropic and Nvidia and AMD's stakes in Meta. Defensives are lagging and energy is down 1.8% as oil eases. The VIX is 17.54. Mega-cap earnings and the Fed land within 24 hours of each other on Wednesday, so this rally has not yet been tested.",
+    "sentiment": "mixed",
+    "summary": "Tuesday was a growth-led rally: S&P +0.60%, Nasdaq +1.18%, SMH +3.02%, Russell +1.16%. Energy (−2.05%) and staples (−0.92%) lagged. Futures are adding to it on SK Hynix and Vertiv, but earnings reactions are sharply split between AI winners and everyone else. The Fed at 14:00 and MSFT/GOOGL after the close set direction for the rest of the week.",
     "key_points": [
-     "S&P 500 7,730.61 (+0.70%), Nasdaq 26,501.62 (+1.27%), Dow 52,443.73 (+0.16%, held back by Boeing -9%), Russell 2000 +0.92%.",
-     "Leaders: SMH +2.88%, XLK +1.89%, Broadcom +4.1%. Laggards: XLE -1.79%, XLP -0.68%. SMH is still -7.1% over a month.",
-     "Earnings were mostly beat-and-raise (UPS, Coca-Cola, PayPal EPS, SoFi, Celestica). Boeing is the big miss.",
-     "Risks: a 50% tariff threat on Canadian autos (n6), and AI-bubble worries (n18, n4) ahead of Microsoft and Alphabet on Wednesday."
+     "ES 7,776 (+0.23%) and NQ 29,931 (+0.40%) pre-market; VIX 17.42, up 8.6% over the month despite the rally.",
+     "Winners: Vertiv +15%, SK Hynix ADR +7.4%, GE HealthCare +5.4% (beat and raise). Losers: Enphase −15.8%, NXP −8.5%, Robinhood −7–8%, F5 −6.6%.",
+     "SMH is still −7.0% over 1M and NQ futures −2.23%. The AI rebound is recovering lost ground, not making new highs.",
+     "MSFT (est. $4.71) and GOOGL (est. $2.94) tonight, with options implying 5%+ moves; KLAC (est. $1.18) also reports."
     ],
     "headline_ids": [
-     "n40",
-     "n104",
-     "n48",
-     "n7",
-     "n16",
-     "n28",
-     "n107",
-     "n4",
-     "n6",
-     "n31"
+     "n1",
+     "n42",
+     "n62",
+     "n33",
+     "n125",
+     "n140",
+     "n118"
     ]
    },
    {
     "asset_class": "bonds",
-    "sentiment": "mixed",
-    "summary": "Treasuries ignored a round of strong data. The 10Y is flat at 4.986% after a 25bp rally over the past month. The front end is cautious: the 2Y auction tailed slightly and foreign demand was weak, with a December hike about 84% priced. Credit is firm, with HYG up 0.38% and LQD up 0.29%.",
+    "sentiment": "neutral",
+    "summary": "Treasuries are flat ahead of the Fed: 10Y 4.999%, 30Y 5.30%, 2Y 4.70%. The past month has been a strong rally (10Y −25.6bp, 30Y −29.4bp) while the 3-month bill barely moved. That front end is pinned by hike expectations while the long end rallied. A hawkish hold is consensus, so the risk is that positioning built up for further falls in yields gets unwound (n103) before Thursday's PCE and the 7-year auction.",
     "key_points": [
-     "5Y 4.826% (+0.2bp), 10Y 4.986% (flat), 30Y 5.307% (+0.6bp). Over the month: 10Y -25.4bp, 5Y -24.2bp.",
-     "Official curve (26 Oct): 2s10s +32bp, 3m10y +78bp. The 6M bill rose 5bp, a sign hikes are being priced.",
-     "2Y auction 4.708%, 0.3bp tail; indirects 45.7% vs 58.3% average. Bills: 3M 4.050%, 6M 4.210%.",
-     "Other central banks are tightening too: the BoC is about 80% priced to hike, the RBNZ to hike, and UK CPI is 3.5%. JPMorgan's Michele sees 7-8% bond returns over 12 months (n149)."
+     "Par curve: 3M 4.22%, 2Y 4.70%, 10Y 4.99%; 2s10s +29bp, 3m10y +77bp.",
+     "The 2Y auction cleared at 4.708% vs 4.787% prior. The 5Y auction figure in my feed (4.708%) looks erroneous.",
+     "Credit firmed on Tuesday: LQD +0.27%, HYG +0.52%. Spreads are not signalling stress.",
+     "The September 7Y auction cleared at 5.085%, the highest since 2009. Thursday's $44B sale tests appetite for duration again."
     ],
     "headline_ids": [
-     "n2",
-     "n5",
-     "n128",
-     "n155",
-     "n149",
-     "n150",
-     "n151",
-     "n127"
+     "n103",
+     "n121",
+     "n147",
+     "n26",
+     "n36",
+     "n110",
+     "n124"
     ]
    },
    {
     "asset_class": "brent_oil",
     "sentiment": "mixed",
-    "summary": "The snapshot's -5.51% to $109.43 compares the January contract with Monday's December close (above $116). That gap is curve structure, not a crash. December Brent was about $114.9 (-0.8%) and BNO is -0.97%. Diplomacy, including an Omani outline to reopen Hormuz and Iranian talk of end-of-war terms, is pushing against continued attacks on Saudi infrastructure.",
+    "summary": "Brent swung both ways: down nearly $2 on diplomacy hopes, then up to about $115–116 overnight on the Houthis' claimed missile hit on Ras Tanura. Saudi Arabia hasn't confirmed a hit and says a nearby fire was contained. My snapshot shows Brent at $111.31 (−2.26%) while WTI is +1.98% at $101.88. That inconsistency likely reflects a contract roll and the dip the WSJ reported this morning (n85), so I don't trust the daily change. The bigger driver is the post-midterm Iran risk the market is positioning for.",
     "key_points": [
-     "BZ=F (January) $109.43. December was about $114.9 on Tuesday morning. That is roughly $5 of backwardation between consecutive months, a sign of acute shortage.",
-     "WTI $100.06 (-1.67%). BNO $69.39 (-0.97% on the day, +15.0% over a month vs +3.9% for the continuous Brent series).",
-     "Supporting prices: a fire near Ras Tanura after an attack (n113), Houthi strikes, the US SPR at its lowest since 1982, and UBS seeing Brent near $110 by year-end (n95).",
-     "Pushing prices down: Iran talks (n3), an estimated ~$20 geopolitical premium, and OPEC+ expected to keep quotas unchanged Sunday (n43). API and EIA inventory reports are due Tuesday and Wednesday."
+     "The WSJ reports the US told Gulf states to prepare for a possible short, intense campaign against Iran after 3 November. ING says oil likely drops if that doesn't happen (n175).",
+     "API showed a 2.03M bbl crude draw; EIA is at 10:30 ET today. Fujairah has resumed loadings (n169) and Venezuelan exports are above 1M bpd (n168).",
+     "BNO +15.5% over 1M vs XLE +9.8%: equities are pricing a shorter spike than futures.",
+     "Energy windfall is showing up in results: Equinor's profit tripled and Bahri's rose tenfold. XOM and CVX report Friday."
     ],
     "headline_ids": [
-     "n3",
-     "n113",
-     "n43",
-     "n95",
-     "n49",
-     "n108",
-     "n112",
-     "n140"
+     "n61",
+     "n85",
+     "n175",
+     "n104",
+     "n13",
+     "n169",
+     "n148"
     ]
    },
    {
     "asset_class": "crypto_l1",
-    "sentiment": "bearish",
-    "summary": "Bitcoin is holding near $80.5K, supported by renewed ETF inflows, but it is not participating in the equity rally. ETH and the smaller L1s keep losing ground, with ETF outflows from ETH and SOL. Hawkish-Fed risk, a firmer dollar and net-short whale positioning argue against buying the dip before Wednesday.",
+    "sentiment": "mixed",
+    "summary": "BTC is holding $80.7k (+0.82% on the day, −2.49% on the week) on two straight days of spot ETF inflows. It is still on track for a weak October as US spot demand fades (n100, n146). ETH, SOL and the smaller L1s keep underperforming on ETF outflows. I read the market as a flight to quality inside crypto, not a broad recovery. The Fed tone at 14:00 is the near-term swing factor.",
     "key_points": [
-     "BTC $80,506 (+0.2%, -5.6% over a month). ETH $2,345.66 (-14.0% over a month). SOL $100.87 (-18.4%). SUI -26.8% and TON -24.2% over a month.",
-     "Spot ETF flows on 26 Oct: BTC +$110.3m after a $774m outflow streak; ETH -$88.6m; SOL -$8.2m. Prior week: BTC +$442.7m, ETH -$225.0m.",
-     "Hyperliquid whales have turned net short (n12). Ark sold $15m of its own BTC ETF (n73). Big BTC options expiry ahead (~$10.8bn, n111).",
-     "XRP +1.7% on Ripple's RLUSD deal with Robinhood (n50). Coinbase, Strategy and Robinhood report this week."
+     "ETF flows on 27 Oct: BTC +$176M (IBIT +$151.5M); ETH −$60M, the second day of outflows; SOL −$19.2M, its biggest October outflow.",
+     "1M: ETH −11.2% ($2,341), SOL −13.4% ($101.69), SUI −19.8%, TON −26.0%. BNB is the exception at −0.2% ($754).",
+     "Robinhood's profit miss came from a crypto trading slump, confirming weak retail activity.",
+     "Positive for the networks but not price-moving yet: Moody's rated Ripple's RLUSD A2 (n16), and Mirae issued tokenized notes on Solana (n67)."
     ],
     "headline_ids": [
-     "n88",
-     "n12",
-     "n73",
-     "n111",
-     "n50",
-     "n124",
-     "n45",
-     "n100"
+     "n46",
+     "n100",
+     "n146",
+     "n123",
+     "n140",
+     "n16",
+     "n67",
+     "n27"
     ]
    }
   ],
-  "instructor_take": "My read is that today's rally is real, but the market is pricing it as if Wednesday were a non-event, and I don't think it is. Look at the sequence. Warsh speaks at 14:30 ET Wednesday, Microsoft and Alphabet report about two hours later, and core PCE and GDP land at 08:30 Thursday. That is three binary events in about 18 hours, all landing on the same crowded AI-and-duration trade. The crowd is anchored on \"93% hold.\" The tradeable question is whether Warsh confirms a December hike, and today's data makes that easier for him: confidence beat by 10 points and the Dallas Fed, Chicago Fed and durable-goods headline all beat. What a less experienced investor misses is that the 10Y has rallied 25bp in a month, mostly on hopes that oil will fall, while hike odds rose. That gap closes either through peace in the Gulf or through a hot PCE, and I can't tell you which comes first. So I'm not adding equity or crypto risk today. I'm keeping cash in bills at about 4%, holding the energy position I already have, and staying out of the crypto assets with the weakest ETF flows. Read that -5.5% Brent figure with care: it is mostly the gap between two contract months, and BNO's -1% is the honest move. If we get through Thursday with the 10Y above 5.15% or the S&P down 3-5%, that is when I'd want to put money to work, not chase a 2.9% semis pop the day before the hardest test of the week.",
+  "instructor_take": "I think the hold at 14:00 is already priced; what matters is how Warsh frames December. With 73–82% hike odds priced, a hawkish hold is the consensus, so the market only moves if he leans harder or softer than that. I'll watch the 2-year's reaction, not the headline.\n\nThe stronger signal this morning is in earnings. SK Hynix says memory shortages run to 2030 and Vertiv raised guidance well above consensus. Meanwhile NXP, Enphase and Durable goods' core capex (+0.5%) show the rest of the cycle cooling. That split is the story: AI capex is the economy's strongest engine, and tonight Microsoft and Alphabet tell us whether it keeps growing. I wouldn't front-run that with a full position; I'd stage in.\n\nThe crowd may be missing how much of oil's premium rests on one expected event, a US campaign against Iran after 3 November. When a known catalyst is fully expected, the asymmetry flips: if it doesn't happen, oil drops (ING's point). That's why I hold energy at half size rather than chasing it.\n\nIn crypto, money is crowding into BTC and leaving ETH and SOL. I respect that rather than trying to call the bottom in alts.\n\nMy positioning: most dry powder stays in bills through Thursday's PCE, and I add risk in thirds after each event clears rather than before. I could be wrong if Warsh opens the door to cuts. Then duration and growth stocks both rally and bills become the laggard. I'd accept that opportunity cost given four central-bank and data events in 48 hours.",
   "top_ideas": [
    {
     "rank": 1,
     "asset_class": "bonds",
     "instrument": "SGOV",
     "direction": "buy",
-    "title": "Park dry powder in T-bills through Fed, PCE",
-    "one_liner": "Bills pay ~4%+ to wait out Warsh, Big Tech and PCE",
-    "thesis": "With an FOMC press conference, Microsoft and Alphabet earnings and core PCE all within 18 hours, the best reward for the risk sits in the shortest bills. SGOV earns about 4.05-4.2% with almost no price risk, and if a December hike arrives, its yield resets higher within weeks. It also keeps cash ready for a post-event pullback.",
-    "reasoning": "Start with the evidence. Today's beats (confidence 91.7 vs 81.0, Dallas Fed 13.4 vs 8.8) strengthen the case for the roughly 84% priced December hike. The 6M bill rose 5bp on the official curve while the 10Y sat flat. The concept is duration risk versus reinvestment: a bill fund rolls into higher yields if the Fed hikes, while longer bonds lose price. I prefer SGOV to IEF because the 10Y has already rallied 25bp in a month, so there is less cushion if PCE comes in hot. The weak 2Y auction (indirects 45.7% vs 58.3%) also tells me buyers aren't eager for duration before the Fed. I prefer it to stocks this week because the S&P is roughly flat over the month, so you aren't missing a trend, and the risk is concentrated in two days. Two things would change my mind: Warsh opening the door to cuts, or the 10Y closing above 5.15% after PCE, which would make longer bonds cheap enough to start buying. The risk is opportunity cost if everything goes smoothly and stocks run, and I'm willing to pay that.",
+    "title": "Keep dry powder in T-bills through Fed and PCE",
+    "one_liner": "Earn about 4% in bills while Fed, PCE and Big Tech play out",
+    "thesis": "Bills yield about 4.0–4.2% (13-week 4.04%, 6-month par 4.34%) with no duration risk. That is the right place for undeployed cash through today's FOMC, Thursday's GDP/PCE and 7-year auction, and Friday's ECI. The 10Y has already rallied 25bp in a month to 5.0%, so the easy duration gain is behind us and the hawkish-hold risk sits ahead.",
+    "reasoning": "I start with the front end: a 3-month bill at 4.22% is above the 4.00% top of the funds range because a December hike is 73–82% priced. Cash is paid to wait for that hike. On the duration side, the 10Y fell from about 5.25% to 4.999% this month, and Bloomberg notes these bullish bets now face reversal risk if Warsh sounds hawkish (n103). Thursday adds a 0.3% core PCE forecast and a 7-year auction, after September's cleared at 5.085%, the highest since 2009. I'd rather be paid 4% to wait than take mark-to-market risk on IEF or TLT into that cluster. I'm applying the idea of optionality: cash in bills costs almost nothing to hold and keeps every entry below available. What changes my mind is a dovish Warsh, which would argue for moving a third into IEF. The other trigger is a 10Y close above 5.15% after PCE, which is a better entry for duration, not a reason to panic. A less experienced investor often treats parked cash as idle; on a week like this it is a position with a defined return.",
     "catalysts": [
-     "Wed 14:00/14:30 ET FOMC and Warsh press conference",
-     "Wed after close: Microsoft, Alphabet",
-     "Thu 08:30 ET core PCE and advance GDP",
-     "Fri 08:30 ET Employment Cost Index"
+     "FOMC decision Wed 14:00 ET; Warsh press conference 14:30",
+     "Advance GDP and core PCE Thu 08:30 ET",
+     "$44B 7-year auction Thu 13:00 ET",
+     "ECI Fri 08:30 ET"
     ],
     "risks": [
-     "Opportunity cost if the S&P extends its rally after the Fed and earnings",
-     "A surprise dovish Fed lowers bill yields slightly (minor)"
+     "Opportunity cost if MSFT/GOOGL trigger a strong equity rally",
+     "Bill yields drift lower if Warsh signals the hiking cycle is over",
+     "Missing a sharp duration rally if PCE is soft"
     ],
-    "entry": "Buy now with the earmarked cash; timing doesn't matter for a bill fund. Hold through Friday.",
-    "invalidation": "Warsh signals near-term cuts: rotate a third into IEF. The 10Y closes above 5.15% after PCE: begin scaling a third into IEF. The S&P falls 3-5% with the VIX above 22: deploy part into equities.",
+    "entry": "Hold existing SGOV. Buy with any newly earmarked cash today; timing doesn't matter for a bill fund.",
+    "invalidation": "Warsh signals near-term cuts: rotate a third into IEF. 10Y closes above 5.15% after PCE: scale a third into IEF. S&P falls 3–5% with VIX above 22: deploy part into equities.",
     "horizon": "weeks",
     "conviction": "high",
-    "sizing": "The cash earmarked for new risk this month, typically 10-20% of the portfolio."
+    "sizing": "All cash earmarked for deployment over the next 1–2 months, typically 10–20% of the portfolio"
    },
    {
     "rank": 2,
-    "asset_class": "brent_oil",
-    "instrument": "XLE",
-    "direction": "add",
-    "title": "Hold half of XLE; add the rest after XOM/CVX",
-    "one_liner": "Keep XLE half; add second half only after XOM/CVX Friday",
-    "thesis": "Producers' earnings are roughly doubling year on year at $100+ crude, and the oil futures curve still shows acute shortage. Diplomacy over Hormuz is now the main risk, so hold the first half bought near $69 and make the second half conditional on Friday's reports and Brent holding $105.",
-    "reasoning": "The fundamentals are strong. Consensus EPS is $3.90 for Exxon vs $1.88 a year ago and $4.78 for Chevron vs $1.85. The US SPR is at its lowest since 1982, and attacks near Ras Tanura show supply is still being hit. I own this through producers rather than BNO because the stocks don't price in the full war premium. If peace breaks out, XLE should fall less than crude, and it pays a dividend while you wait. What has changed since Monday is the diplomacy: Oman has an outline to restore navigation through Hormuz and Iran's leadership is discussing terms (n3). One analyst puts the premium at about $20, so a deal could hit crude hard and quickly. That is why I'm not adding before Friday. Don't be fooled by the -5.5% Brent figure; that is the December-to-January contract gap, and BNO's -1% is the real move. If XLE closes below $65.50 or front-month Brent settles below $100, the market is telling me the premium is unwinding and I'd exit. A signed Hormuz navigation agreement would also make me exit.",
+    "asset_class": "us_equities",
+    "instrument": "SMH",
+    "direction": "buy",
+    "title": "Stage into semis on the memory upcycle",
+    "one_liner": "Buy SMH in thirds as Fed and MSFT/GOOGL confirm AI capex",
+    "thesis": "SK Hynix's 80% operating margin and its call for shortages to 2030, plus Vertiv's guidance raise, show AI hardware demand still outrunning supply. SMH remains 7% below its level a month ago. Tonight's MSFT/GOOGL capex commentary is the demand-side confirmation, so I scale in around it rather than all at once.",
+    "reasoning": "The evidence chain runs supply, then demand, then price. On supply, Hynix's record quarter (KRW 83.33T operating profit, +632% y/y) and its shortage call mean memory makers have pricing power for years, not quarters. Seagate's beat ($7.34 vs $7.17) points the same way. On demand, Vertiv raising 2026 EPS guidance to $7.15 vs $6.73 consensus says data-centre buildouts are accelerating. On price, SMH at $557.98 is still −7% over the month, so it is recovering lost ground rather than chasing a high. I prefer SMH to Micron alone because tonight's binary event, hyperscaler capex, hits single names harder. I prefer it to XLK because NXP's −8.5% shows non-AI chips are weak, and SMH's weight sits in the AI leaders. I stage it because options price 5%+ moves in MSFT and GOOGL, and a hawkish Fed with the 10Y at 5% can compress multiples for a day. I'm wrong if the hyperscalers flatten capex guidance or SMH loses $530: the supply story only pays if demand keeps showing up.",
     "catalysts": [
-     "Tue/Wed API and EIA inventories",
-     "Fri before open: Exxon and Chevron (Phillips 66 Wed)",
-     "Sun 1 Nov OPEC+ meeting (quotas expected unchanged)",
-     "Iran, Oman and Saudi diplomacy headlines"
+     "FOMC Wed 14:00 ET",
+     "MSFT, GOOGL, KLAC Wed after close",
+     "AMZN, INTC, SNDK Thu after close",
+     "Core PCE Thu 08:30 ET"
     ],
     "risks": [
-     "A Hormuz reopening deal removes the ~$20 premium",
-     "Risk-on rotation out of energy into tech (XLE -1.8% today vs BNO -1%)",
-     "Exxon and Chevron guide conservatively on capex or buybacks"
+     "MSFT or GOOGL signal capex discipline; AI hardware sells off even on beats",
+     "A hawkish Fed plus a hot PCE pushes the 10Y back above 5.15% and hits long-duration growth",
+     "Pre-market enthusiasm fades and gaps reverse: SMH already rose 3% Tuesday"
     ],
-    "entry": "Hold the first half (bought near $69; now $68.39). Add the second half after Friday's Exxon and Chevron reports if they confirm and January Brent holds $105 or higher, or near $67 if Brent holds above $105.",
-    "invalidation": "XLE closes below $65.50, front-month Brent settles below $100, or a signed Hormuz navigation agreement.",
+    "entry": "Don't buy the opening gap. Buy the first third after the Fed reaction (after 14:30 ET) if SMH holds above about $550. Add the second third Thursday if MSFT/GOOGL raise or affirm capex. Add the last third after AMZN/INTC/SNDK Thursday night if the trend holds.",
+    "invalidation": "SMH closes below $530 (about 5% under Tuesday's close), or MSFT and GOOGL both guide capex flat or lower.",
     "horizon": "weeks",
     "conviction": "medium",
-    "sizing": "3-4% target position. Half (about 1.5-2%) on now."
+    "sizing": "2–3% of the portfolio in total, built in three equal tranches"
    },
    {
     "rank": 3,
-    "asset_class": "crypto_l1",
-    "instrument": "ETH",
-    "direction": "avoid",
-    "title": "Stay out of ETH and alt L1s until flows turn",
-    "one_liner": "ETH ETF outflows persist; no buying until $2,700 with inflows",
-    "thesis": "Money is flowing into spot BTC ETFs and out of ETH and SOL ETFs, and the smaller L1s are down 18-27% over a month. With hawkish-Fed risk and whales positioned net short, there is no catalyst to own the weakest part of crypto this week.",
-    "reasoning": "Relative strength is the concept: when the marginal buyer (ETF flows) favours one asset over its peers, the laggards keep lagging. Spot BTC ETFs took in $442.7m last week and $110.3m on Monday. ETH ETFs lost $225.0m and then $88.6m, and Solana funds saw outflows in nine of ten October sessions. Prices confirm it: ETH is -14.0% and SOL -18.4% over the month against BTC's -5.6%. Crypto didn't join today's equity rally, and a hawkish Warsh plus a firmer dollar (DXY 102.25) are headwinds for assets with no yield. I'll be candid that the 26 Oct ETH flow data may be incomplete; one source showed a $16.1m Fidelity inflow. One day doesn't change the trend. If you want crypto exposure, BTC through IBIT is the stronger asset, but I'd wait until after Wednesday. I'd change my mind if ETH reclaims $2,700 with three or more straight days of net ETF inflows.",
+    "asset_class": "brent_oil",
+    "instrument": "XLE",
+    "direction": "add",
+    "title": "Hold half of XLE; add only after XOM/CVX confirm",
+    "one_liner": "Keep the half XLE position; add after Friday's Exxon and Chevron",
+    "thesis": "Brent at about $111–116 and record shipping and producer profits support energy earnings. XLE (+9.8% over 1M) has priced far less of the spike than BNO (+15.5%), which cushions it if the geopolitical premium fades. The premium now hinges on post-midterm Iran escalation, so I keep the second half conditional on earnings and Brent holding above $105.",
+    "reasoning": "I start with cash flows rather than headlines. XOM's EPS estimate of $3.90 and CVX's $4.78 are roughly double last year's, and Equinor (profit tripled) and Bahri (tenfold) show the windfall is real. The equity has priced a shorter spike than the futures: XLE +9.8% over 1M vs BNO +15.5%. That gap is why I own the stocks rather than BNO. If the premium deflates, XLE gives back less, and it keeps the buybacks and dividends. The catch is concentration in one event. The WSJ says the US told Gulf states to prepare for a campaign after 3 November, and ING warns oil drops if it doesn't happen. A known, widely expected catalyst has asymmetric downside, so I won't size up before it. I'd drop the trade on a signed Hormuz or US–Iran deal, a front-month Brent settle below $100, or XLE closing below $65.50. One caveat on data: today's Brent snapshot ($111.31) conflicts with overnight reports of $114–116. I'm judging Brent by settles, not one quote.",
     "catalysts": [
-     "Wed FOMC",
-     "Robinhood (Tue after close), Coinbase and Strategy earnings this week",
-     "Large BTC options expiry (n111)",
-     "Daily spot ETF flow prints (SoSoValue)"
+     "PSX before open today (est. $11.97)",
+     "EIA crude inventories Wed 10:30 ET",
+     "Shell, TotalEnergies Thu before open",
+     "XOM, CVX Fri before open",
+     "US midterms Tue 3 Nov"
     ],
     "risks": [
-     "Short squeeze if Warsh is dovish and whales are caught net short",
-     "A sharp rebound from oversold levels in the smaller L1s"
+     "No post-midterm escalation: the premium unwinds quickly, as ING flags",
+     "A diplomatic breakthrough on Iran or Hormuz navigation",
+     "Earnings beats already priced: buyback guidance disappoints"
     ],
-    "entry": "No new buying. If you already hold, trim bounces toward $2,500 rather than adding.",
-    "invalidation": "ETH reclaims $2,700 with three or more consecutive days of net spot ETH ETF inflows.",
+    "entry": "Hold the first half (bought near $69; now $68.21). Add the second half after Friday's XOM/CVX reports if both beat with intact buybacks and front-month Brent holds $105 or higher. Better if XLE dips toward $67 at the time.",
+    "invalidation": "XLE closes below $65.50, front-month Brent settles below $100, or a signed Hormuz navigation or US–Iran agreement.",
     "horizon": "weeks",
     "conviction": "medium",
-    "sizing": "0% new exposure. Existing holders keep ETH plus alts to 2% or less of the portfolio."
+    "sizing": "1.5–2% now, up to 3–4% after the add"
    }
   ],
-  "prior_ideas_review": "SGOV (buy): working as intended. It is earning carry with no drawdown, and the 3M bill auctioned at 4.050%. Neither trigger has fired: the Fed has not hinted at cuts and the 10Y is 4.986%, not above 5.15%. Keep.\n\nXLE (add): the first half bought near $69 is at $68.39, about -1%. Neither invalidation has been hit: XLE is above $65.50 and January Brent is $109.43, above $100. De-escalation risk is rising, so keep the position but make the second half conditional on Friday's reports and Brent holding $105.\n\nETH (avoid): working. ETH is $2,345.66, -3.2% on the week, and never bounced to $2,500 to offer a trim. ETF outflows continued. Keep.",
+  "prior_ideas_review": "- **SGOV (keep):** working as designed. The 13-week bill is steady at 4.04%, and none of the triggers fired: the 10Y is at 4.999% (below 5.15%), the S&P rose 0.60% and the VIX is 17.42. Unchanged as idea 1.\n- **XLE (keep, plan unchanged):** the first half bought near $69 is now $68.21 (−1.1%) after Tuesday's −2.05% drop on diplomacy hopes. The invalidation levels ($65.50, Brent below $100) are not close. I'm keeping the add conditional on Friday's XOM/CVX, now with an explicit caution about the post-midterm event risk.\n- **Avoid ETH (correct; still holds):** ETH is $2,341, −3.9% on the week, with a second day of ETF outflows (−$60M). It never bounced to $2,500, so there was nothing to trim. The case still holds and the invalidation ($2,700 reclaimed with three days of inflows) is far off. It drops out of today's top three to make room for the semis setup, but my stance is unchanged: no new ETH or alt-L1 buying, and trim any bounce toward $2,500.",
   "lesson": {
-   "concept": "Backwardation and the futures roll",
-   "explanation": "When a supply shock hits, buyers pay more for oil delivered now than for oil delivered later, so each later futures month trades cheaper. That shape is called backwardation. A 'continuous' futures price drops mechanically each time the quoted contract switches to the next, cheaper month, even if nothing happened in the market. A fund like BNO that sells the expiring contract and buys the next one buys it cheaper, and if prices hold, it earns that difference over time, which is called roll yield.",
-   "todays_example": "The snapshot shows Brent -5.51% to $109.43. That compares the January contract with Monday's December close (above $116); December itself traded at about $114.9, -0.8%. The real move was about -1% (BNO -0.97%). Over the past month, BNO is +15.0% while the continuous Brent series is only +3.9%. The gap is roll yield from a market in steep backwardation."
+   "concept": "Hawkish hold: markets trade the surprise, not the decision",
+   "explanation": "Prices react to the gap between what happens and what was already expected. FedWatch shows those expectations as probabilities. A 'hawkish hold' means the Fed leaves rates unchanged but signals more tightening to come. If that's already the consensus, the announcement itself moves little; the reaction comes from details that shift the odds, such as dissents, statement wording or the press conference.",
+   "todays_example": "Hold odds are about 93% and December hike odds 73–82%. The 2Y at 4.70%, 70bp above the 4.00% funds ceiling, shows hikes already priced into the front end. If Warsh makes December sound near-certain, expect the 2Y up and tech and crypto down. If he sounds patient, long Treasuries extend their 25bp monthly rally. The decision itself is the least informative part of 14:00."
   },
   "watchlist": [
    {
-    "time": "Tue after close",
-    "event": "Earnings: Visa, Robinhood, Seagate, NXP, Enphase, Waste Management, EQT, Baker Hughes"
-   },
-   {
-    "time": "Tue 16:30 ET",
-    "event": "API weekly crude inventories"
-   },
-   {
-    "time": "Wed 08:30 ET",
-    "event": "UK Autumn Budget"
-   },
-   {
     "time": "Wed before open",
-    "event": "Earnings: GE Vernova, Amphenol, Vertiv, ADP, Phillips 66"
+    "event": "Earnings: PSX (est. $11.97), GEV (est. $4.03), ADP, APH, Santander, GSK; UBS already out (pretax +27%)"
    },
    {
-    "time": "Wed",
-    "event": "Bank of Canada decision (~80% priced for 25bp hike); EIA weekly inventories 10:30 ET"
+    "time": "Wed 10:30 ET",
+    "event": "EIA weekly crude inventories (API showed −2.03M)"
    },
    {
     "time": "Wed 14:00 / 14:30 ET",
-    "event": "FOMC decision and Warsh press conference (hold expected; watch the December-hike signal)"
+    "event": "FOMC decision (hold at 3.75–4.00% expected); Warsh press conference; watch dissents and December guidance"
    },
    {
     "time": "Wed after close",
-    "event": "Earnings: Microsoft, Alphabet, KLA, ServiceNow, T-Mobile, Fortinet"
+    "event": "MSFT (est. $4.71), GOOGL (est. $2.94), KLAC, NOW, FTNT, TMUS, CMG"
    },
    {
     "time": "Thu 08:30 ET",
-    "event": "Advance Q3 GDP (3.2% expected), core PCE m/m (0.3%), jobless claims (198K)"
+    "event": "Q3 advance GDP (3.2%), September core PCE m/m (0.3%), jobless claims (198K)"
    },
    {
     "time": "Thu 09:15 ET",
-    "event": "ECB decision (2.65% hold expected) and press conference"
+    "event": "ECB decision (2.65% expected); press conference 09:45"
    },
    {
-    "time": "Thu",
-    "event": "Earnings: Eli Lilly, Mastercard, Caterpillar, Merck, Shell, TotalEnergies before open; Amazon, Intel, Sandisk after close"
+    "time": "Thu before open",
+    "event": "LLY, MA, MRK, CAT, Shell, TotalEnergies, Linde"
+   },
+   {
+    "time": "Thu 13:00 ET",
+    "event": "$44B 7-year note auction (September cleared at 5.085%)"
+   },
+   {
+    "time": "Thu after close",
+    "event": "AMZN (implied move about 7%), INTC, SNDK (est. $46.19), GILD"
    },
    {
     "time": "Thu 22:30 ET",
-    "event": "BoJ decision and Outlook Report (hold expected)"
+    "event": "BoJ decision and outlook report; press conference Fri 01:30 ET"
    },
    {
     "time": "Fri 08:30 ET",
-    "event": "Employment Cost Index Q3 (0.8% expected)"
+    "event": "Q3 Employment Cost Index (0.8% expected); Chicago PMI 09:45"
    },
    {
     "time": "Fri before open",
-    "event": "Earnings: Exxon, Chevron, AbbVie, BP: the trigger for adding the rest of XLE"
+    "event": "XOM (est. $3.90), CVX (est. $4.78), ABBV, BP: the XLE add decision"
    },
    {
-    "time": "This week (dates unconfirmed)",
-    "event": "Coinbase and Strategy earnings; large BTC options expiry (n111)"
+    "time": "Daily, evening ET",
+    "event": "Spot BTC/ETH/SOL ETF flows (Farside/SoSoValue): ETH needs three inflow days to change the avoid call"
    },
    {
-    "time": "Sun 1 Nov",
-    "event": "OPEC+ meeting (December quotas expected unchanged)"
+    "time": "Mon 2 Nov after close",
+    "event": "AAPL (date unconfirmed elsewhere), PLTR"
+   },
+   {
+    "time": "Tue 3 Nov",
+    "event": "US midterm elections: the window for possible Iran escalation opens afterwards"
    }
   ],
   "top_headline_ids": [
-   "n2",
-   "n3",
-   "n60",
-   "n7",
-   "n104",
-   "n48",
-   "n113",
-   "n43",
-   "n88",
-   "n12"
+   "n1",
+   "n42",
+   "n33",
+   "n103",
+   "n175",
+   "n61",
+   "n85",
+   "n140",
+   "n100",
+   "n34"
   ]
  },
  "headlines": [
   {
-   "id": "n2",
-   "title": "Fed expected to hold rates steady, but Warsh may point way to more hikes",
-   "url": "https://www.cnbc.com/2026/10/27/federal-reserve-rates-kevin-warsh.html",
-   "source": "CNBC Top News",
+   "id": "n1",
+   "title": "SK Hynix delivered on third-quarter results — but the outlook is what really mattered to Wall Street and the AI trade",
+   "url": "https://www.marketwatch.com/story/sk-hynix-delivered-on-third-quarter-results-but-the-outlook-is-what-really-mattered-to-wall-street-and-the-ai-trade-2fde9a57?mod=mw_rss_topstories",
+   "source": "MarketWatch Top Stories",
    "category": "equities",
-   "published": "2026-10-27T15:52+00:00"
+   "published": "2026-10-28T12:34+00:00"
   },
   {
-   "id": "n3",
-   "title": "Oil prices fall after Iran supreme leader and top security official discuss conditions to end war",
-   "url": "https://www.cnbc.com/2026/10/27/oil-today-iran-us-crude-wti-brent-trump.html",
-   "source": "CNBC Top News",
-   "category": "equities",
-   "published": "2026-10-27T15:51+00:00"
-  },
-  {
-   "id": "n4",
-   "title": "Anthropic's IPO is risky business",
-   "url": "https://www.cnbc.com/2026/10/27/anthropic-five-surprising-risks-s1.html",
-   "source": "CNBC Top News",
-   "category": "equities",
-   "published": "2026-10-27T15:51+00:00"
-  },
-  {
-   "id": "n5",
-   "title": "Fed rate hikes are coming, but not this week: CNBC survey",
-   "url": "https://www.cnbc.com/2026/10/27/federal-reserve-rate-hike-timing-expectations.html",
-   "source": "CNBC Economy",
-   "category": "macro",
-   "published": "2026-10-27T15:51+00:00"
-  },
-  {
-   "id": "n6",
-   "title": "Honda warns 50% Canada auto tariffs would be catastrophic for auto industry",
-   "url": "https://www.cnbc.com/2026/10/27/honda-warns-50percent-canada-auto-tariffs-would-be-catastrophic.html",
-   "source": "CNBC Top News",
-   "category": "equities",
-   "published": "2026-10-27T15:48+00:00"
-  },
-  {
-   "id": "n7",
-   "title": "Boeing stock sinks 9% as company says it won't significantly ramp up 737 Max production until late 2027",
-   "url": "https://www.cnbc.com/2026/10/27/-boeing-ba-q3-2026-earnings.html",
-   "source": "CNBC Top News",
-   "category": "equities",
-   "published": "2026-10-27T15:45+00:00"
-  },
-  {
-   "id": "n12",
-   "title": "Bitcoin Price Faces Pullback Risk as Hyperliquid Whales Turn Net Short",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQeW5pQnpqLVpOUHVDdjBidjFPMkd0NEtOWm9jUGFrMVJsLVcxeTY4QUNSX0dWN2V6MlM2TzlaSDQwTzBacTdfeU01WDZCSmEzQUR4X0lTTmRJY1pGVWJuVnFnNDRzTjJBN29hc3d2ZmRTeEdraWw3dFBlak80YnFCNXpxUzR4bUw1cTNxbExDdzJoNUd0eDdNQXBzR3Ztdi01NER4VWJLTVVFWVJHY2c?oc=5",
-   "source": "The Crypto Times",
-   "category": "crypto",
-   "published": "2026-10-27T15:32+00:00"
+   "id": "n13",
+   "title": "A Missile Claim at Ras Tanura, a $2 Slide, and a Small Rebound: Why Your Pump Price Barely Moved",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPNXIwSGtjSmZSN2JadXVJMzBLSmV6UDZsczJrU29wQ0hSZTE2Sm1Fc0U3ZlpES25IRkNPX1FHNm0xU3NLNllJWlcxT0xyeXFpR3hhU3B0d0NwUHlyMGlndUx6OTI0OXIzV2MxSzNxbG1Ta2NiOExISHMzYWJmZXRYRzBoN1FmdjdsQjVpSGxmVTF2X0FidGx6WVRyYjYwZ0F0ZHE1WXhadGcxUzhOeDhpdFhjUmQ4QjVJZFdzNEZyX2pGZkcwMUhPMA?oc=5",
+   "source": "Energy News Beat",
+   "category": "oil",
+   "published": "2026-10-28T12:22+00:00"
   },
   {
    "id": "n16",
-   "title": "UPS beats quarterly expectations, raises full-year guidance again",
-   "url": "https://www.cnbc.com/2026/10/27/ups-ups-q3-2026-earnings.html",
-   "source": "CNBC Top News",
-   "category": "equities",
-   "published": "2026-10-27T15:29+00:00"
+   "title": "Moody's Rates Ripple's $2.6B RLUSD Stablecoin A2, a Day After OCC Bank Approval",
+   "url": "https://decrypt.co/382030/moodys-rates-ripples-2-6b-rlusd-stablecoin-a2-a-day-after-occ-bank-approval",
+   "source": "Decrypt",
+   "category": "crypto",
+   "published": "2026-10-28T12:16+00:00"
   },
   {
-   "id": "n28",
-   "title": "Coca-Cola hikes earnings outlook, even as it sees lackluster demand in North America",
-   "url": "https://www.cnbc.com/2026/10/27/coca-cola-ko-q3-2026-earnings.html",
-   "source": "CNBC Top News",
-   "category": "equities",
-   "published": "2026-10-27T15:04+00:00"
+   "id": "n26",
+   "title": "Fed is widely expected to hold interest rates steady, with December hike in sight",
+   "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBjZlI5MmQyRWotR3JrMDJjUm5JWG11Y0FrRmdldGMtRDYwVjYtOUhmVDBwcFktam5OM1BiMXoyWjNhaFRjbGYwYktpTHJhNUlBdlM0VEppd084amNPZkZPUHFDRlRjSUVWamNNWWxFWlpUR3FMaVE?oc=5",
+   "source": "Quartz",
+   "category": "rates",
+   "published": "2026-10-28T12:04+00:00"
   },
   {
-   "id": "n31",
-   "title": "How Broadcom’s stock can surge and overcome ‘the biggest dislocation in the market’",
-   "url": "https://www.marketwatch.com/story/how-broadcoms-stock-can-surge-and-overcome-the-biggest-dislocation-in-the-market-9719e2a8?mod=mw_rss_topstories",
-   "source": "MarketWatch Top Stories",
-   "category": "equities",
-   "published": "2026-10-27T15:02+00:00"
+   "id": "n27",
+   "title": "Bitcoin Investors Beware: Analyst Warns of BTC Price Crash After Fed Meeting",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQdV9MRnhzUEJHWHA5REN3dUsxU0pNbG5lZENrZWp4c2pMbG9ISFY2bG10MFEyWEVHN2RLTU1wc21nX0J0MmhwN3NlQlJBODlKemVzVkVLMkxTRDhPODdTbms3VVotaC16aWl5YjZPNHdwbVBfUEIxZEEteEJpQXNzZFplM2JhaDUweHdfTl9jM2VvNXIyRS1CYXd4dW1oZ2doSDNlRjB2ZENhWjdoWl9ZemFYdw?oc=5",
+   "source": "CryptoRank",
+   "category": "crypto",
+   "published": "2026-10-28T12:04+00:00"
   },
   {
-   "id": "n40",
-   "title": "S&P 500, Nasdaq advance as oil eases ahead of Fed decision",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNR21qQWZsLUZqbWRjR2YtQ3FGakpEWWVjSUVFNjVDSi01MnRiWmV3Z2pPQUsyVGhJR3UxQ1o4RjRVa2tCLXNXbnJjNE9fbE5KVzlKTEZtNHpZb3lPR0hXcFFSVGVydlpnR3RQdVM5bDE3aVI3aVowN0NqY3NHb3VDN3hlaXpLTmxkeFc3NE13dUNqYUtIMHNxRFR5M3VYZmpKUDRzVE5WLUdwRHJCeEpQM1pKaw?oc=5",
+   "id": "n33",
+   "title": "Microsoft and Alphabet Last-Minute Earnings Alert: Options Traders Expect 5%+ Swings in MSFT and GOOGL Stocks",
+   "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPYXZFSEQ4MU5rd3hjeF9mcTcyc3NoLW5SZTQ3ZVltaEZIekdVYWp0ZFFGN0t4Tkt6SHhUUGVtVW5LaXZVaUhsX1l0SU12dkEtQ3VTY2xYWWdRRGRfS2RqblpBcFBwTGYzTUVJU1pmM1d0b1hqdXV1V2hnWm9kcjV1VGNfT0ZTbzhGTEtlZjhlUk9LYVB0dHNxY2JYcmpKSy1kX3daanhtNXhsNExWNmNQT1hmOG0yOHlSbmphSTNIZTRYVEdXNzhCS3BQZHRQb1J3cHc?oc=5",
+   "source": "TipRanks",
+   "category": "equities",
+   "published": "2026-10-28T11:59+00:00"
+  },
+  {
+   "id": "n34",
+   "title": "Dissent and more: 3 things to watch for at the Fed meeting",
+   "url": "https://www.coindesk.com/daybook-us/2026/10/28/dissent-and-more-3-things-to-watch-for-at-the-fed-meeting",
+   "source": "CoinDesk",
+   "category": "crypto",
+   "published": "2026-10-28T11:57+00:00"
+  },
+  {
+   "id": "n36",
+   "title": "Major brokerages expect Fed to hold rates ahead of policy meeting",
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNaVJZYzFha0pfdmc2T1ItN3NZMzhHWFpjVm5PajhMLWt4dWE3TktPeHJraThlYUozaXFrYnk0TDRtOFFyeUVqa0JUbzV4RmFWNkdsbXZydUFtSUlwTkJaU0NZckhyaXRvRmo3bng4aFMtSTVVQ2owR2EtWUwxNXd5eHZnN1BCRElESXl6eUdCTWNFQjEtN0swSHZ2WTlKalNtcGVhckROOA?oc=5",
    "source": "Reuters",
+   "category": "rates",
+   "published": "2026-10-28T11:51+00:00"
+  },
+  {
+   "id": "n42",
+   "title": "Premarket movers: Vertiv, SK Hynix jump; Enphase, NXP slide",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQakt0cTVSa2lfbjNJdl81QUxjZzJpVlBaRzBwNFdxelNTWU9QaWxRMjk4OUZXbk5lOTNsTURwaWdBZFR6cHBILVpxVVBtX0w5TjZELVlIeFZ3NUkyYXd4c0pkTHQ1amRDUThKSGNkWmFjbXJlN082RVpqYW5nTG11NjFNYUNpeDVFOEFNMDBtWkxqdzYzRjFIM2RWbExIQ1JnXzRkNmdxbW4xZTAtcXZFNHpB?oc=5",
+   "source": "Investing.com",
    "category": "equities",
-   "published": "2026-10-27T14:32+00:00"
+   "published": "2026-10-28T11:37+00:00"
   },
   {
-   "id": "n43",
-   "title": "OPEC+ Set to Keep Oil Quotas Unchanged",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/OPEC-Set-to-Keep-Oil-Quotas-Unchanged.html",
-   "source": "OilPrice.com",
-   "category": "oil",
-   "published": "2026-10-27T14:30+00:00"
-  },
-  {
-   "id": "n45",
-   "title": "Crypto Market Faces Pressure As Bitcoin Slides Below $80,000 Before Fed Decision",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPQnk5SjB6TUptWHE0cDVxZXQ1QVZlNmRmYmRBWDV5YnhwX2NXMThXUlczcTdsRTZqcGdVTUNRbnU5OHNOME5WcjJNOVRjSjQ1bnZrN2RaSWVkOHRmTVJ0dHZjbWViUTJrVE1KcllrbXFaRnVVZHRXRk50MGszYWVCeW9FWTdKOTNIOG5jTUY2WlNTVFJQRlBldUtIcUMxRnNsSXdVZTI2QnhrUQ?oc=5",
-   "source": "News Agency of Nigeria",
+   "id": "n46",
+   "title": "Bitcoin rebounds above $81,000 as Asian chip rally spills into crypto, pepe jumps 9%",
+   "url": "https://www.coindesk.com/markets/2026/10/28/bitcoin-rebounds-above-usd81-000-as-asian-chip-rally-spills-into-crypto-pepe-jumps-9",
+   "source": "CoinDesk",
    "category": "crypto",
-   "published": "2026-10-27T14:21+00:00"
+   "published": "2026-10-28T11:32+00:00"
   },
   {
-   "id": "n48",
-   "title": "Nvidia, AMD to invest $4 billion in Meta as tech giants deepen AI partnership",
-   "url": "https://www.cnbc.com/2026/10/27/nvidia-invest-meta.html",
-   "source": "CNBC Top News",
+   "id": "n61",
+   "title": "Oil rises on supply disruption concerns; Houthis claim attack on Saudi Ras Tanura complex",
+   "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQWldBLUhLamVibG1sNUdmR0Zac2NhN21hZVl1S1hLeWl3TlNDandlNk04X2dKbS1ERE9Nc0NqRkFfOTgzSDh5N20zckg3c1p4UUM1QkVRRElodE80TU1HZy0wdnhhMG43eWVYemR0Uk9uTExpOHlJSkkxTHg3M28zUVFfekM4MUxReTdWVEk2LTNJbE8tWnJMb0hzZDB0bHpybEVpTDdhVUJqZV9hdnMzSWpadTFWSEg2MlpaRDZ0NzBHVWlyUjFjTlY1dG4wQVNnNFl2LU1lVFY1X1RIWkhNdWVmSmpvM0U?oc=5",
+   "source": "ICIS",
+   "category": "oil",
+   "published": "2026-10-28T11:15+00:00"
+  },
+  {
+   "id": "n62",
+   "title": "Vertiv Soars After Raising Its Forecast as Enphase Sinks Citing Soft Home Solar Demand",
+   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQd2IwVFlLLTJ1WTdXcnBFYVZiMzBQRERXVWt3TmxfLVFaVHd2RFJndjRqNXpndnk0OG5DLUg4QlFJWEp2RURBOXZ1TGppNHVMOS1zelk2VldSajJ5aWpfNXZydFEyRGx3NWRTME1ZaHlWRnVxRlpUMjRIX3RNaDhFdw?oc=5",
+   "source": "Stock Titan",
    "category": "equities",
-   "published": "2026-10-27T14:19+00:00"
+   "published": "2026-10-28T11:13+00:00"
   },
   {
-   "id": "n49",
-   "title": "Oil News: Crude Oil Futures Hold Firm as Iran Talks Fail to Ease Supply Risk",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOUXE0LTlkVGFQU3VsOFR0a2hEU3dCTDJob3VMYW5nZFVDUWppclhKMTduWWwyMkNheV9HcDBHaldKQ3dJVVk1dTFWUV9xMDh0X2FST2FleVhpY0t0X1NzVHFfQlNmV3FfRmZJdXlINmxEaV91N21KeEw4RFBjRTM4aXBnMHQ0X2xmQm9MTGFzX19kTGhqT09UQm1SSkNZRE1FZDdCa09FeFVoYkhTcGk2bEMyRG5kWjl0UzdSdTNzWjAzV3Vo?oc=5",
-   "source": "FXEmpire",
-   "category": "oil",
-   "published": "2026-10-27T14:19+00:00"
-  },
-  {
-   "id": "n50",
-   "title": "Ripple strikes deal with Robinhood to expand its RLUSD digital dollar",
-   "url": "https://www.cnbc.com/2026/10/27/ripple-strikes-deal-with-robinhood-to-expand-its-rlusd-digital-dollar.html",
-   "source": "CNBC Top News",
-   "category": "equities",
-   "published": "2026-10-27T14:18+00:00"
-  },
-  {
-   "id": "n60",
-   "title": "October US consumer confidence 91.7 vs 81.0 expected",
-   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPaEFkckp2NWttQjlSbTJWRGlMbzhFZXMtQ0lzX0dwem9OYk80QzRCZjlxN01rYzhHSndNQ19SVEd4YTAzM0had0duQUdGcG9ENUh3MFFKU0dZZld2azFIdlFIV3VaRW15R3RRZkdBWFAwZURCbFNoSERTc2RucWg1LXpmaXQ2Zw?oc=5",
-   "source": "investingLive",
-   "category": "macro",
-   "published": "2026-10-27T14:00+00:00"
-  },
-  {
-   "id": "n73",
-   "title": "Ark Invest Sells $15 Million Of Its Own Bitcoin ETF As Price Falls",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQYTMydnI3QjlEZjJ5TXFoZ2t0UmRfZFFocFJNM3RWaTNkQ05FZVNaeFZVbXpnQy00enNsOHp4MjdOcmp5ZC04U3g0MUk2Q19aYjBtUGc0RVdzcXJ6RmdxMTZrZndBcDFmMEo0S08wQ2h6dG9jbWI2VUFJYWtDZjJQS2NFOFd4bEgyTC1waUlOTU9QNEItWFI4?oc=5",
-   "source": "Yahoo Finance",
+   "id": "n67",
+   "title": "Mirae Asset Securities issues tokenized notes on Solana",
+   "url": "https://cointelegraph.com/news/mirae-asset-securities-tokenized-notes-solana?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
    "category": "crypto",
-   "published": "2026-10-27T13:47+00:00"
+   "published": "2026-10-28T11:05+00:00"
   },
   {
-   "id": "n88",
-   "title": "Bitcoin ETFs see $110M inflow after $774M outfl...",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNZHJIU3FUUU1wMUd1NVNVcUlzME1zekQyZFg0Rml0bVVBbnRzY24tcnFqb2tqYmZiTFpkWE1lbjMwX1BwSkk3YWlqSzl6cVNPYTBmWjVMVkI5NGRuT3BBZFRiQlJxRC1ZeUhJeXBJNl9qalJQRXZSWUlyNlJ4TThSRlJpbHUyQmo4SUJTWmY1TG1EbWJSNThR?oc=5",
-   "source": "Pluang",
-   "category": "crypto",
-   "published": "2026-10-27T13:20+00:00"
-  },
-  {
-   "id": "n95",
-   "title": "UBS sees Brent near $110 by year-end on supply risks, high freight costs",
-   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxORk9jZmxyRGZNUnZMUkFoZjA5bUJIX3NkMGgwQUhQY2Q3VS02ek5nNlJBb1d2RDBhQm9qRXpXdHIzM1k2aG11YVVsSkx0ZDFkYzAtYUw2cFRQVGZmUXJyR1drVHMydjR4TEFuNFNpV3FRc2NCaG10S3o4OXhFbFJ5Rkh2ZUFmQS0yLWNrOFRhRHlWd2szRjB0bkdONU9KeHVNY2pQd2tBRzdOM05I?oc=5",
-   "source": "Seeking Alpha",
+   "id": "n85",
+   "title": "Oil Prices Fall as Traders Weigh U.S.-Iran Diplomacy, Saudi Attacks",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOdHd1Q1FTWEFlUlUtZ1FQRWJfYm1QYm5KZW1jTVA2cS01R0cxb0xsNVNrdXJVNm44VTd2ZWN4WnY1R0tla0JuM3NVUmpBVF9GLTl2WEdFRmNUTFpEVUpHVHQzdUREUFBwN2ZEZ2xGcThUa0lKamdzaEY2c19pRy1PcXZCd2hPUmRfTmQ4bUNGWkFPbTM3Z04zLXB2bUdtclBvVmpmQmhqcEloSTJUOHg2ZzRsbEI?oc=5",
+   "source": "WSJ",
    "category": "oil",
-   "published": "2026-10-27T13:12+00:00"
+   "published": "2026-10-28T10:48+00:00"
   },
   {
    "id": "n100",
-   "title": "Morning Minute: Tokenized Stock Battle Looms Over Robinhood’s Earnings Call",
-   "url": "https://decrypt.co/381907/morning-minute-tokenized-stock-battle-looms-over-robinhoods-earnings-call",
-   "source": "Decrypt",
+   "title": "Bitcoin price faces second straight ‘Downtober’ as US spot demand weakens",
+   "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1GYjEwSXd5SXlhYnp6d2t4MnVfNkR2Z0Fickc1Rnd6UlBzaWpzTWExOWhaa1BuVTQxVGNtMVkzZEZaT0ZxVUxuMlh6YmlsT2NISUJxM3lhSEtLUWJHYjhxVG5kRXI2TDZHQXc4b05jaTBPS0dQMV8wag?oc=5",
+   "source": "Crypto News",
    "category": "crypto",
-   "published": "2026-10-27T12:59+00:00"
+   "published": "2026-10-28T10:22+00:00"
+  },
+  {
+   "id": "n103",
+   "title": "Bullish Treasury Bets Face Reversal Risk From Hawkish Fed",
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNWVdDN1Q0dWNoV3p6Z1JKbXlQM0tsU3lGVFVKMzNkZW5qR2FVYUFicy05NURWOXJmUEd3TTR0ZHlRVUY1V3hxU3dWdXA3ODdaZFltdXJ2WnI5NmN0TGNseXFKYXhoUjg4dndnaGlUVXdRQ0YyN2VPaS1IUnd5d2lOaU5RTU0wa05yS1h4b1NmaDlYdmNrQVpxRHpEaTJxQU96UmVPdHhuNEZ5S3k3?oc=5",
+   "source": "Bloomberg.com",
+   "category": "rates",
+   "published": "2026-10-28T10:17+00:00"
   },
   {
    "id": "n104",
-   "title": "Jim Cramer's top 10 things to watch in the stock market Tuesday",
-   "url": "https://www.cnbc.com/investingclub/2026/10/27/jim-cramers-top-10-things-to-watch-in-the-stock-market-tuesday.html",
-   "source": "CNBC Top News",
-   "category": "equities",
-   "published": "2026-10-27T12:51+00:00"
-  },
-  {
-   "id": "n107",
-   "title": "PayPal Holdings (NASDAQ:PYPL) Q3 Results: EPS Beat, Revenue Miss, Raised Profit Guidance",
-   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPTVVtX3l3N1FDMUkyMWtSbFZQcjJWalY2TGdKTWlwME1BN1JtMDdRd3VzNl80UnVGTFNpc2RyaE9ydGRzVnhsQ1pPMnB1ZWVoMHlUQXZuY1VwTmphNE9ETXh3REtSbk0za1NHUXk1OVI5UjZWdlF4RXpPQ3ZKdThBVUR2NTJuVGN4ZjhyUF9zeXdUOXZvMmg5YzYzcFJ5eXNhMTJtSDhnRVlwalRaalhFTkhSZmtzbEtSQnVib2xDQjZmUkE3T2MwUkRmTy1fdVU?oc=5",
-   "source": "ChartMill",
-   "category": "equities",
-   "published": "2026-10-27T12:44+00:00"
-  },
-  {
-   "id": "n108",
-   "title": "Brent: Middle East tensions sustain oil risk premium - Commerzbank",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOSmI0MVo3dm00a0h3UFhvbWR2TWlMOHhYOXkxNEw2Y2ZzZVdfc0pjb044ME9kSEFxWTB6MjBTWll3X3B1aFQwRGxjU3ZWaE01V1N3aHhaNWw2clVVYmtkSkZfVDR6ek9pUU5LRnhDaUFyNWxydVNpdVB3amY0UFZETWJSNGhzV3Z6XzlXR3EwelBGZGhnOFBBZUVvUjFDV3BHdVpYdHN0ZnBxc29uUUdsdGgwVFpiWEZUZFN3ck01cGYwY3ViMXJraA?oc=5",
-   "source": "www.tmgm.com",
+   "title": "Brent holds atop $110 as geopolitical risk overrides easing physical stress",
+   "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOSThNajBNWGZWMWpvMFBXM2JVMmVLQ3dGMWN3VnZOYjA4WGRlVDl4TEg0UE8xbm80LUxzRGJCeDVXNkVjQnpOOVFPREo5NmEtMFVZcFlCWnJYNVhYRC13R29tWUNqMHowM2tpSjVqVFNCSlJFdWZCTGl2M0xDdHhWX0szd1NKOHFIeWtTWTJwVUJQbFo1XzlaT3VkWjJGaGhYU0dHU2d3M3BTU1YySjMtZGY3TXJfNnlmZ29ncFNURW15TXg3SUkxSHR0d1BHSjFGcktTTC1TRmXSAd4BQVVfeXFMTmRaTHE1NVRoY3FpUk92M2dlYzVsYWNTRTNxOVBhMGZOZ3NoMUV5Q1Iwa2RySlRMTUtEZWhUNGtrMG91QnY4UXhQdkYyUmo3WlJtRE1jWUdGaFRCTE4zTWlPRUN0OHRneUZ4Q1BFTUFYX2p4RjA5WEJGYzkyM1V3VHN3U3U5bUZQNzlQZzQ4bXhZQzJEc0lhampxT2hjV2ZtRUM0Qm5kTERlbjIyWEhGTlFWaWZHTlRnR09DdnkzcHFyWm9SRFVYZmIzNVdPVFdTOWNQN1lTMWFLa2F4ZTZ3?oc=5",
+   "source": "Business Standard",
    "category": "oil",
-   "published": "2026-10-27T12:40+00:00"
+   "published": "2026-10-28T10:17+00:00"
   },
   {
-   "id": "n111",
-   "title": "Tom Lee Sees ‘One of the Biggest Rallies of Our Lifetime’ as $10.8B Bitcoin Options Expiry Looms",
-   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNbTJLVHBrTzkyUXJXeHNxcm5wSjlMb05IT1p3VU1vb2RLMHRIbTZ5SXhGa1djVGpScVQ5QTI1d2xZaUVCLWZRUUR6SVpWblc0bDRJX1dod0VBRmpicnEtS0dBcy00T0dtcEQtY0ZabDY0T2RVTzY1bHZJbHF3QmpUQTkxUFVsdWRJUm5nNzFWQWVIMGM?oc=5",
-   "source": "Yahoo Finance",
+   "id": "n110",
+   "title": "Fed officials not aligned on weight of financial conditions",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOZDVJc3BaeUw5dnlFa2JrcmJQcFBnclc2alpNZTdST3BGSThJOFkyYmFUNGdTVFlWc2xheVdoZ0JJTzlISEVUQjdqVVZTQThuYTUxWXU3UGUyOVpjQm9CdTZHdXNNSUVfdlJ0TldocXJWQkdxVUhOX3JxNFV4dGZhM3Jsa0pTeWRvM3owdUgtZ2lJcTYwZjQzOEFQWjdhSlc0Rmt2UFVCRGlvQQ?oc=5",
+   "source": "Reuters",
+   "category": "rates",
+   "published": "2026-10-28T10:03+00:00"
+  },
+  {
+   "id": "n118",
+   "title": "Nasdaq futures rise as SK Hynix boosts chips before Fed decision, earnings",
+   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOVjlVeElMVmRWVVBvYWcyaEdZdW1UR3BFVm5wd3BSd2JDVEZxUXhKZzVzejhHdkxweXZPbUJMN2h4WXY0LWxFSnB6dVBTVngtVjkweWZ2MVU3NzFKQ1ZEeE1yS2FmblBabnVqT0hSR3VxYUN0THZtdExzMHBPRnFkYm04eHoxcmdsTFJiUUU5eFJRSzRvRHRlZUJLb3h4c3JESVZWTg?oc=5",
+   "source": "The Mighty 790 KFGO",
+   "category": "equities",
+   "published": "2026-10-28T09:58+00:00"
+  },
+  {
+   "id": "n121",
+   "title": "Global Government Bond Yields Rise Ahead of Fed Decision, U.K. Budget",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPaEkwMGl6T29kQlFSbU9EanZNX3VMdG5PcG9tWXh3cUQ0U0R5ZTFuUU1QRl9PWl9nd2l4bFpwWl9OOFFTS0VfSV9UcFR0VEtsRW9ld25admRIbkFQa292VTNWVV9xb2g3ZlQwZ2ZuNlVSQkNTQzhGN0RDSl9wZ0hDWi1fcGFTRnJHUTAzeEhUY1BZeVFJU1ZyaVFPdDkzNm9sVTVmcm9pSkxRWjlTOHRpSjlPNmxUb0pPaHBN?oc=5",
+   "source": "WSJ",
+   "category": "rates",
+   "published": "2026-10-28T09:57+00:00"
+  },
+  {
+   "id": "n123",
+   "title": "Bitcoin price eyes $82K as Morgan Stanley strategist says most of correction is over",
+   "url": "https://cointelegraph.com/markets/bitcoin-price-eyes-82k-as-morgan-stanley-strategist-says-most-of-correction-is-over?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
    "category": "crypto",
-   "published": "2026-10-27T12:32+00:00"
-  },
-  {
-   "id": "n112",
-   "title": "Hormuz Reopening Could be OPEC’s Undoing: Bousso",
-   "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNNU1BTkRDTWgwMEJBYkYwNzZ2c2NyZHEtaldfdlZzNjdUbS0zZEFmWW9zYzZma1pFc1FtclZTUnZSYnhRd1FwZTRIYXgtcUpEQzBwM1MxY1pyek9ZOXBSbzF1dmYzNGdRMmphWlNqc2RqLTBSTWgyV0dZWTFhOGJJaE13aw?oc=5",
-   "source": "EnergyNow.com",
-   "category": "oil",
-   "published": "2026-10-27T12:31+00:00"
-  },
-  {
-   "id": "n113",
-   "title": "Ras Tanura Fire Follows Attacks on Aramco Offices and Near Shaybah Field",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/Ras-Tanura-Fire-Follows-Attacks-on-Aramco-Offices-and-Near-Shaybah-Field.html",
-   "source": "OilPrice.com",
-   "category": "oil",
-   "published": "2026-10-27T12:30+00:00"
+   "published": "2026-10-28T09:56+00:00"
   },
   {
    "id": "n124",
-   "title": "Bitcoin shows signs of weakness while Ripple's bank win fails to bolster XRP",
-   "url": "https://www.coindesk.com/daybook-us/2026/10/27/bitcoin-shows-signs-of-weakness-while-ripple-s-bank-win-fails-to-bolster-xrp",
-   "source": "CoinDesk",
-   "category": "crypto",
-   "published": "2026-10-27T12:00+00:00"
+   "title": "US Market: Rising Treasury yields put US banks under pressure over bond losses",
+   "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxNY3pqM0Z4U01zSDI1Z25wMW1sNlJjTDNWX1FWckFnRzFRV2ktSDI0TmZ3V3JFVG5Ub29Ieml4aVRwLXMyS0lLa2dSa1paczNGNnNsVm1wLXdDV1RPZUI3RWNTRWRkNkd4ZzRjODJJdU9oQWp4SU1UZ0hOMDI5eFRaRFo5YXdmbjNtNnNiNWl1alUxODUwTmx4Y1Y2QXFYTS1jMnZaU29xTE1wQXpmNW1kVzRxMC1kbmcyaGMzdVU2dUVicGo4S3hyU1p0ZGsyc0VHMHdhdVFVOWNER3EzZmtZclcwMUFwQ2lUMDNyck1Jcl9ic1J6OVpCTmw1YjVqQms30gGAAkFVX3lxTE1jemozRnhTTXNIMjVnbnAxbWw2UmNMM1ZfUVZyQWdHMVFXaS1IMjROZndXckVUblRvb0h6aXhpVHAtczJLSUtrZ1JrWlpzM0Y2c2xWbXAtd0NXVE9lQjdFY1NFZGQ2R3hnNGM4Mkl1T2hBanhJTVRnSE4wMjl4VFpEWjlhd2ZuM202c2I1aXVqVTE4NTBObHhjVjZBcVhNLWMydlpTb3FMTXBBemY1bWRXNHEwLWRuZzJoYzN1VTZ1RWJwajhLeHJTWnRkazJzRUcwd2F1UVU5Y0RHcTNma1lyVzAxQXBDaVQwM3JyTUlyX2JzUno5WkJObDViNWpCazc?oc=5",
+   "source": "The Economic Times",
+   "category": "rates",
+   "published": "2026-10-28T09:55+00:00"
   },
   {
-   "id": "n127",
-   "title": "Bond-Market Doubts Grow Over Gridlock as Cure for Deficit Angst",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOVE9jeXZ6UHlQZ1VtT0g5WUZBX0E5OFJvSkV0VEI2TDQ4YVB2TXM0M00zY2ZpcUYzbzg5MXVHSVk3WVdYQVcydS1rY3ZVS3YxWkpaT0ZBUjNnWmgybUw3YVVQamU5OTVOZGJXM0FCVUxPYklzVVQxOXJlbVNfc2FwRWtndDlnYnd3S3JIdEVuNklhaTgtalFEUXp3WlZzOHh1b25jT3NNVW1aZU5GSVl5aU1DaWU?oc=5",
-   "source": "Bloomberg.com",
-   "category": "rates",
-   "published": "2026-10-27T11:45+00:00"
-  },
-  {
-   "id": "n128",
-   "title": "The Fed is expected to hold interest rates steady. But Warsh may signal more hikes ahead",
-   "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE51UXpvdF9tbFFNd09wbnNCYVBKMVNJcTlQTGFicXhKNXlGNUhzRXN4WlRBLURjV1NWTlBmekl3VHVLQ0g1aTZMdk5mVXY5aWpLSkZQREJ1dlBpZ3I1UzZFOUIwMkNSdUdJRHVXMUY4SV9XZm1EQnRickVzNA?oc=5",
-   "source": "Quartz",
-   "category": "rates",
-   "published": "2026-10-27T11:35+00:00"
+   "id": "n125",
+   "title": "Futures Mixed, Memory Giant Crushes Views; Microsoft, Google Due",
+   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOOXctSXZneUdSOFNkQzc5bC1BWHgyUmJNS25RYldwUzJpeGwwUjVHTFhGSlZmS2Ytd3oxTEdHbFdrVlRPaG56eGZ1X0FVTmgwYUUwUDlmTlljVEx6V2prWHhyTWdZUXJJWG5oWWtXOUFuckhPZGRZR3p0eWxhRXZFVmhPeFdxVHNMOEJwWThoX2xtZXNwb1pYclVUd0hjVUU2QUNmQWtadndfZnNRNG9Td2FVM0xJeGZHRTFVZkoyQzVDVEFjWGc?oc=5",
+   "source": "Investor's Business Daily",
+   "category": "equities",
+   "published": "2026-10-28T09:52+00:00"
   },
   {
    "id": "n140",
-   "title": "Oil Prices Retreat From Six-Month Highs as Iran Mediation Offers Hope but Saudi Attacks Sustain Supply Fears",
-   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPQ3cxVTg0N0xsakM5R3hiVHRGX19mUHcyei15OUFnMG9Na1F1NU84TzRQSl9lVnZvdE1Vc0tlNko2WjdSQVEzWm5qVTBpYkg5Wlc3Qm5EczdoNGJjb3E5b0pjWmFuQWRLSEd1REIyZHpqRFFLTzR5U2E4RU1NUGdGWWxwX0UzWlU3djFHS0FwWURFTXZVMjI4QkZJbVZtMEVpWm5ScHhSSXBadkk5ZHdDZmM2aTlvdk5Qb1hucnFFQl9acVlUd3Y5R2pLdmlCdw?oc=5",
-   "source": "Tekedia",
-   "category": "oil",
-   "published": "2026-10-27T10:37+00:00"
+   "title": "Robinhood shares fall as crypto slump weighs on profits, offsetting gains in new businesses",
+   "url": "https://www.cnbc.com/2026/10/27/robinhood-hood-q3-2026-earnings.html",
+   "source": "CNBC Top News",
+   "category": "equities",
+   "published": "2026-10-28T09:29+00:00"
   },
   {
-   "id": "n149",
-   "title": "JPMorgan’s Michele Sees US Bonds Returning 7%-8% Over 12 Months",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNSFJXdzFNS0FTUFFCd05KWHZOSS1WTkM0eENVendnM0pOTzJxM0JZTWNTdmwwdVVyNTQtNXFhcEZoSVA3SWdaM3dkVHdHZ2lCOWktc0kxanBkYWFGQXdTYWhLaGk5NUJjSjVuOE9WeFQ3THUwYm5iMTRvQ1hzMm5VbzN4WVlNLWE5d0c4NU44Xzh3b2xjX0hpNmFHOU9LaTNlWEJNSFUtWmZKSjlOanBB?oc=5",
-   "source": "Bloomberg.com",
-   "category": "rates",
-   "published": "2026-10-27T10:14+00:00"
+   "id": "n146",
+   "title": "Bitcoin On Track To Post Weakest October In Six Years As US Buyers Retreat Ahead Of Fed Decision",
+   "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxPc0oxNlEybi1vbkZaVl9wYjlUeGd1a0kzb2p4YjlxeEh2V0QyNi1GVGpuUGhGSzlmVXlyNlFobzE1YjVyVThhX0J6VFlFcGdBbS01d3BVbExjT2lDZlI0REl6UFgzZF9OMDRFWFBDUWcxZG15WW1hODRnWnA5YzByRjdfWUFBeVd6OXZ1amFPLWhhaEx0b3FPWW9HU3dPVXJaek95Qy1XR1Y5UlBROEJrbmlKVFNXdUFGSE03SVAxTl94b0JOX0hNYVVMdElmbElkOE91RU1PbmtkN1prZXVBMFVPZVA0ZFdHQXlnX2pn?oc=5",
+   "source": "TradingView",
+   "category": "crypto",
+   "published": "2026-10-28T09:22+00:00"
   },
   {
-   "id": "n150",
-   "title": "Analysis-Hold or sell? High Treasury yields spur US banks to rethink bond portfolios",
-   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQQ2p3N040QllvVjRRajBVN1ljcE92T29MWUV6YkRkNmc3azNkcG11U1JZSWMwZFZsWjBqdFdEWjZQeGpfTlM4Q0ExWXl2eWxEQ2Y4MnJkZXhtenB1QUNBUG1yeUtBaW9FRUx5SFhDbk1fTXpKQ0RieG5hMVhsT0xRYy1R?oc=5",
-   "source": "AOL.com",
-   "category": "rates",
-   "published": "2026-10-27T10:10+00:00"
-  },
-  {
-   "id": "n151",
-   "title": "Analysis-Bond investors are thinking less about the Fed and more about AI, deficits",
-   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPUFNrS2xvcG5jaWYyYk5Wa1E1blZGeUgwY1doUFpDakFmcWJJdzBGdkVvX0R4RHZPRk50VUgyODQzTUNBd21Sa1JUUFB3ZDd4NHFUWmQ2Y2JGYnFfRjQtdXJlRWRTel9VTVVCeW1VMG5qSXRvYmJ0Y3ZDTmhLY0VpbWxkRU1LclJ6MVZIOG8xcTgzanVTZTNIWUxyYXgwVlV1VjhiSQ?oc=5",
-   "source": "Yahoo Finance",
-   "category": "rates",
-   "published": "2026-10-27T10:04+00:00"
-  },
-  {
-   "id": "n155",
-   "title": "U.S. Treasury yields are little changed as Federal Reserve's monetary policy meeting gets underway",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQNmh6WFAzNWdIOWhlWXJxTjdEVk44cmliSXBmSlVuVDVmMkNxVzY0Ykc5TzFBVEVrNXcxSXNnc0VqZlAxemFpTEJHczdCSHBGTWFBclBQVkcyUm5qQzF0am5OOHhYVnRBTnhZYlFGRmRKOTJfX0RFOXd0bHZ0VXhNRmhoUWZfeVREdFQ3MWpOcGtIaHZMeHZB0gGcAUFVX3lxTE92WXJpR0xaYlIzNERkNzFvZHJnek1vLTIzNjhLUWRGb2RBTnhfQWMzQ2ttREhuZHowck9iY2hDM3VrRnUtd25EWVh1cWM2bG9VSWw3N0VSUWVLV3IwbG9tUWhXWnRjenZ1bFRTaDhtX2FJN0E1VzJnWkUwbU9DQk4tZXp5MVhXaExXQnRZc2xFdEc5QUFZVXVWQ0VSVA?oc=5",
+   "id": "n147",
+   "title": "Treasury yields tick higher ahead of Federal Reserve interest rate decision",
+   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNblEzWWhhd29Pcm51emZVLUtkQ0FHb3FFYTBBRTlsTU9MN1lKQVl5eDVGUjJPYnpfTm8tV2JteFlEbVkxbV9WNHhvbHdUQ0JYOWk4YkVObXhrUlRDQ0ZLTHhNcUtCRVdRLVU5TXYyN2RLUVFRMHR5SklNMXB5eUt4RnNaZknSAYoBQVVfeXFMT19ETGtYNWFfbnVCbTdXTkoxYVBJN25Vd0xUeE1zVmxVVXlHbFhMUHZOX2Q1VGNKTmx4aTNUd0R2WVloQXF1Y2JLUHRzc0ZRaXRKRjY2UGo2R29ucndXc05LczJQQU9pekw1TmhfT0YzTm9pbEhuRUl1WHRrRThBSWJWTmxISEd3WHJB?oc=5",
    "source": "CNBC",
    "category": "rates",
-   "published": "2026-10-27T09:44+00:00"
+   "published": "2026-10-28T09:22+00:00"
+  },
+  {
+   "id": "n148",
+   "title": "Equinor Profits Triple as Oil and Gas Prices Surge",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Equinor-Profits-Triple-as-Oil-and-Gas-Prices-Surge.html",
+   "source": "OilPrice.com",
+   "category": "oil",
+   "published": "2026-10-28T09:20+00:00"
+  },
+  {
+   "id": "n169",
+   "title": "Port of Fujairah Resumes Oil Loadings After Attack and Why it Matters Globally",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOVkp0Q2hNMmJIWS1RLTBFWUNVZnlydF9NemhEVEVhcWJzV29TX1huZGlNUUpFRFMxSkljQkY0RUxlVmxKUThDWlJHRFJXcXdVdVF5a2hINlV5NlEtSG1rR05zMGtUb2VUbEJoTUFZUERJRE1Oc1hIUmlzU3l5UEpSeG5Xc1BVNUI1TFFUekVfVGdqcDhvQ2VfOXZhbXR0OTExNGJJRF9oOHdqbUpKZGc?oc=5",
+   "source": "EnergyNow.com",
+   "category": "oil",
+   "published": "2026-10-28T08:10+00:00"
+  },
+  {
+   "id": "n175",
+   "title": "Oil Traders Brace for Iran Escalation After U.S. Elections",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Traders-Brace-for-Iran-Escalation-After-US-Elections.html",
+   "source": "OilPrice.com",
+   "category": "oil",
+   "published": "2026-10-28T07:50+00:00"
   }
  ],
  "market": {
@@ -738,242 +671,242 @@
     "label": "S&P 500",
     "group": "equities",
     "kind": "price",
-    "last": 7730.61,
-    "change_1d": 0.7,
-    "change_1w": 0.23,
-    "change_1m": 0.61,
-    "as_of": "2026-10-27T15:59+00:00"
+    "last": 7722.6,
+    "change_1d": 0.6,
+    "change_1w": 0.13,
+    "change_1m": 0.51,
+    "as_of": "2026-10-27T20:48+00:00"
    },
    {
     "symbol": "^IXIC",
     "label": "Nasdaq Composite",
     "group": "equities",
     "kind": "price",
-    "last": 26501.625,
-    "change_1d": 1.27,
-    "change_1w": 0.29,
-    "change_1m": -1.19,
-    "as_of": "2026-10-27T15:59+00:00"
+    "last": 26477.81,
+    "change_1d": 1.18,
+    "change_1w": 0.2,
+    "change_1m": -1.28,
+    "as_of": "2026-10-27T21:15+00:00"
    },
    {
     "symbol": "^DJI",
     "label": "Dow Jones",
     "group": "equities",
     "kind": "price",
-    "last": 52443.73,
-    "change_1d": 0.16,
-    "change_1w": -0.1,
-    "change_1m": 1.87,
-    "as_of": "2026-10-27T15:59+00:00"
+    "last": 52377.57,
+    "change_1d": 0.03,
+    "change_1w": -0.23,
+    "change_1m": 1.74,
+    "as_of": "2026-10-27T20:48+00:00"
    },
    {
     "symbol": "^RUT",
     "label": "Russell 2000",
     "group": "equities",
     "kind": "price",
-    "last": 2812.046,
-    "change_1d": 0.92,
-    "change_1w": 1.39,
-    "change_1m": -0.21,
-    "as_of": "2026-10-27T15:44+00:00"
+    "last": 2818.87,
+    "change_1d": 1.16,
+    "change_1w": 1.64,
+    "change_1m": 0.03,
+    "as_of": "2026-10-27T20:30+00:00"
    },
    {
     "symbol": "ES=F",
     "label": "S&P 500 futures",
     "group": "equities",
     "kind": "price",
-    "last": 7763.0,
-    "change_1d": 0.63,
-    "change_1w": 0.1,
-    "change_1m": 0.21,
-    "as_of": "2026-10-27T15:49+00:00"
+    "last": 7776.25,
+    "change_1d": 0.23,
+    "change_1w": -0.31,
+    "change_1m": 0.57,
+    "as_of": "2026-10-28T12:26+00:00"
    },
    {
     "symbol": "NQ=F",
     "label": "Nasdaq 100 futures",
     "group": "equities",
     "kind": "price",
-    "last": 29815.0,
-    "change_1d": 1.28,
-    "change_1w": 0.47,
-    "change_1m": -2.46,
-    "as_of": "2026-10-27T15:49+00:00"
+    "last": 29930.75,
+    "change_1d": 0.4,
+    "change_1w": -0.25,
+    "change_1m": -2.23,
+    "as_of": "2026-10-28T12:26+00:00"
    },
    {
     "symbol": "^VIX",
     "label": "VIX",
     "group": "equities",
     "kind": "price",
-    "last": 17.54,
-    "change_1d": -4.62,
-    "change_1w": 1.33,
-    "change_1m": 9.15,
-    "as_of": "2026-10-27T15:44+00:00"
+    "last": 17.42,
+    "change_1d": -0.57,
+    "change_1w": 4.44,
+    "change_1m": 8.6,
+    "as_of": "2026-10-28T12:21+00:00"
    },
    {
     "symbol": "XLK",
     "label": "Tech (XLK)",
     "group": "equities",
     "kind": "price",
-    "last": 189.84,
-    "change_1d": 1.89,
-    "change_1w": 2.37,
-    "change_1m": -2.41,
-    "as_of": "2026-10-27T15:59+00:00"
+    "last": 189.49,
+    "change_1d": 1.7,
+    "change_1w": 2.18,
+    "change_1m": -2.59,
+    "as_of": "2026-10-27T20:00+00:00"
    },
    {
     "symbol": "SMH",
     "label": "Semis (SMH)",
     "group": "equities",
     "kind": "price",
-    "last": 557.24,
-    "change_1d": 2.88,
-    "change_1w": 1.99,
-    "change_1m": -7.13,
-    "as_of": "2026-10-27T15:59+00:00"
+    "last": 557.98,
+    "change_1d": 3.02,
+    "change_1w": 2.13,
+    "change_1m": -7.0,
+    "as_of": "2026-10-27T20:00+00:00"
    },
    {
     "symbol": "XLF",
     "label": "Financials (XLF)",
     "group": "equities",
     "kind": "price",
-    "last": 55.94,
-    "change_1d": -0.14,
-    "change_1w": 0.39,
-    "change_1m": 3.23,
-    "as_of": "2026-10-27T15:58+00:00"
+    "last": 55.88,
+    "change_1d": -0.25,
+    "change_1w": 0.29,
+    "change_1m": 3.12,
+    "as_of": "2026-10-27T20:00+00:00"
    },
    {
     "symbol": "XLE",
     "label": "Energy (XLE)",
     "group": "equities",
     "kind": "price",
-    "last": 68.395,
-    "change_1d": -1.79,
-    "change_1w": 0.63,
-    "change_1m": 10.14,
-    "as_of": "2026-10-27T15:59+00:00"
+    "last": 68.21,
+    "change_1d": -2.05,
+    "change_1w": 0.35,
+    "change_1m": 9.84,
+    "as_of": "2026-10-27T20:00+00:00"
    },
    {
     "symbol": "XLV",
     "label": "Health care (XLV)",
     "group": "equities",
     "kind": "price",
-    "last": 179.08,
-    "change_1d": -0.11,
-    "change_1w": -0.41,
-    "change_1m": 4.57,
-    "as_of": "2026-10-27T15:59+00:00"
+    "last": 179.18,
+    "change_1d": -0.06,
+    "change_1w": -0.36,
+    "change_1m": 4.62,
+    "as_of": "2026-10-27T20:00+00:00"
    },
    {
     "symbol": "XLI",
     "label": "Industrials (XLI)",
     "group": "equities",
     "kind": "price",
-    "last": 167.65,
-    "change_1d": 0.41,
-    "change_1w": 0.51,
-    "change_1m": -0.67,
-    "as_of": "2026-10-27T15:59+00:00"
+    "last": 167.92,
+    "change_1d": 0.57,
+    "change_1w": 0.67,
+    "change_1m": -0.51,
+    "as_of": "2026-10-27T20:00+00:00"
    },
    {
     "symbol": "XLY",
     "label": "Cons. discretionary (XLY)",
     "group": "equities",
     "kind": "price",
-    "last": 115.33,
-    "change_1d": 0.94,
-    "change_1w": -0.15,
-    "change_1m": 5.81,
-    "as_of": "2026-10-27T15:59+00:00"
+    "last": 115.45,
+    "change_1d": 1.04,
+    "change_1w": -0.04,
+    "change_1m": 5.92,
+    "as_of": "2026-10-27T20:00+00:00"
    },
    {
     "symbol": "XLP",
     "label": "Cons. staples (XLP)",
     "group": "equities",
     "kind": "price",
-    "last": 87.365,
-    "change_1d": -0.68,
-    "change_1w": -0.44,
-    "change_1m": 6.18,
-    "as_of": "2026-10-27T15:59+00:00"
+    "last": 87.15,
+    "change_1d": -0.92,
+    "change_1w": -0.68,
+    "change_1m": 5.92,
+    "as_of": "2026-10-27T20:00+00:00"
    },
    {
     "symbol": "XLU",
     "label": "Utilities (XLU)",
     "group": "equities",
     "kind": "price",
-    "last": 42.65,
-    "change_1d": 0.24,
-    "change_1w": 1.84,
-    "change_1m": 8.66,
-    "as_of": "2026-10-27T15:59+00:00"
+    "last": 42.85,
+    "change_1d": 0.71,
+    "change_1w": 2.32,
+    "change_1m": 9.17,
+    "as_of": "2026-10-27T20:00+00:00"
    },
    {
     "symbol": "^IRX",
     "label": "US 13-week bill",
     "group": "rates",
     "kind": "yield",
-    "last": 4.04,
-    "change_1d": 1.5,
-    "change_1w": -4.0,
-    "change_1m": -1.7,
-    "as_of": "2026-10-27T15:44+00:00"
+    "last": 4.043,
+    "change_1d": 0.3,
+    "change_1w": -2.0,
+    "change_1m": -2.2,
+    "as_of": "2026-10-28T12:21+00:00"
    },
    {
     "symbol": "^FVX",
     "label": "US 5Y yield",
     "group": "rates",
     "kind": "yield",
-    "last": 4.826,
-    "change_1d": 0.2,
-    "change_1w": -10.9,
-    "change_1m": -24.2,
-    "as_of": "2026-10-27T15:44+00:00"
+    "last": 4.853,
+    "change_1d": 1.3,
+    "change_1w": -11.9,
+    "change_1m": -21.0,
+    "as_of": "2026-10-28T12:21+00:00"
    },
    {
     "symbol": "^TNX",
     "label": "US 10Y yield",
     "group": "rates",
     "kind": "yield",
-    "last": 4.986,
-    "change_1d": -0.0,
-    "change_1w": -13.1,
-    "change_1m": -25.4,
-    "as_of": "2026-10-27T15:44+00:00"
+    "last": 4.999,
+    "change_1d": 0.6,
+    "change_1w": -14.7,
+    "change_1m": -25.6,
+    "as_of": "2026-10-28T12:21+00:00"
    },
    {
     "symbol": "^TYX",
     "label": "US 30Y yield",
     "group": "rates",
     "kind": "yield",
-    "last": 5.307,
-    "change_1d": 0.6,
-    "change_1w": -11.8,
-    "change_1m": -25.4,
-    "as_of": "2026-10-27T15:44+00:00"
+    "last": 5.3,
+    "change_1d": -0.5,
+    "change_1w": -13.9,
+    "change_1m": -29.4,
+    "as_of": "2026-10-28T12:21+00:00"
    },
    {
     "symbol": "SHY",
     "label": "1-3Y Treasuries (SHY)",
     "group": "rates",
     "kind": "price",
-    "last": 81.465,
-    "change_1d": -0.02,
-    "change_1w": 0.2,
-    "change_1m": 0.44,
-    "as_of": "2026-10-27T15:59+00:00"
+    "last": 81.45,
+    "change_1d": -0.04,
+    "change_1w": 0.18,
+    "change_1m": 0.42,
+    "as_of": "2026-10-27T20:00+00:00"
    },
    {
     "symbol": "IEF",
     "label": "7-10Y Treasuries (IEF)",
     "group": "rates",
     "kind": "price",
-    "last": 91.125,
-    "change_1d": 0.01,
-    "change_1w": 0.97,
-    "change_1m": 1.78,
-    "as_of": "2026-10-27T15:59+00:00"
+    "last": 91.1,
+    "change_1d": -0.02,
+    "change_1w": 0.94,
+    "change_1m": 1.75,
+    "as_of": "2026-10-27T20:00+00:00"
    },
    {
     "symbol": "TLT",
@@ -984,128 +917,128 @@
     "change_1d": -0.06,
     "change_1w": 1.87,
     "change_1m": 3.83,
-    "as_of": "2026-10-27T15:59+00:00"
+    "as_of": "2026-10-27T20:00+00:00"
    },
    {
     "symbol": "LQD",
     "label": "IG credit (LQD)",
     "group": "rates",
     "kind": "price",
-    "last": 104.322,
-    "change_1d": 0.29,
-    "change_1w": 1.07,
-    "change_1m": 1.81,
-    "as_of": "2026-10-27T15:59+00:00"
+    "last": 104.3,
+    "change_1d": 0.27,
+    "change_1w": 1.05,
+    "change_1m": 1.79,
+    "as_of": "2026-10-27T20:00+00:00"
    },
    {
     "symbol": "HYG",
     "label": "High yield (HYG)",
     "group": "rates",
     "kind": "price",
-    "last": 77.49,
-    "change_1d": 0.38,
-    "change_1w": 0.86,
-    "change_1m": -0.06,
-    "as_of": "2026-10-27T15:59+00:00"
+    "last": 77.6,
+    "change_1d": 0.52,
+    "change_1w": 1.0,
+    "change_1m": 0.08,
+    "as_of": "2026-10-27T20:00+00:00"
    },
    {
     "symbol": "BZ=F",
     "label": "Brent crude",
     "group": "oil",
     "kind": "price",
-    "last": 109.43,
-    "change_1d": -5.51,
-    "change_1w": 0.59,
-    "change_1m": 3.94,
-    "as_of": "2026-10-27T15:49+00:00"
+    "last": 111.31,
+    "change_1d": -2.26,
+    "change_1w": 2.29,
+    "change_1m": 8.5,
+    "as_of": "2026-10-28T12:26+00:00"
    },
    {
     "symbol": "CL=F",
     "label": "WTI crude",
     "group": "oil",
     "kind": "price",
-    "last": 100.06,
-    "change_1d": -1.67,
-    "change_1w": -1.7,
-    "change_1m": 8.06,
-    "as_of": "2026-10-27T15:49+00:00"
+    "last": 101.88,
+    "change_1d": 1.98,
+    "change_1w": 4.87,
+    "change_1m": 13.99,
+    "as_of": "2026-10-28T12:26+00:00"
    },
    {
     "symbol": "BNO",
     "label": "Brent oil fund (BNO)",
     "group": "oil",
     "kind": "price",
-    "last": 69.39,
-    "change_1d": -0.97,
-    "change_1w": 3.77,
-    "change_1m": 15.02,
-    "as_of": "2026-10-27T15:59+00:00"
+    "last": 69.67,
+    "change_1d": -0.57,
+    "change_1w": 4.19,
+    "change_1m": 15.48,
+    "as_of": "2026-10-27T20:00+00:00"
    },
    {
     "symbol": "GC=F",
     "label": "Gold",
     "group": "oil",
     "kind": "price",
-    "last": 4075.8,
-    "change_1d": 0.93,
-    "change_1w": -1.61,
-    "change_1m": -2.22,
-    "as_of": "2026-10-27T15:49+00:00"
+    "last": 4072.8,
+    "change_1d": -0.04,
+    "change_1w": -1.86,
+    "change_1m": -2.56,
+    "as_of": "2026-10-28T12:26+00:00"
    },
    {
     "symbol": "DX-Y.NYB",
     "label": "US dollar index",
     "group": "oil",
     "kind": "price",
-    "last": 102.248,
-    "change_1d": 0.28,
-    "change_1w": 0.51,
-    "change_1m": 1.04,
-    "as_of": "2026-10-27T15:49+00:00"
+    "last": 102.307,
+    "change_1d": -0.01,
+    "change_1w": 0.52,
+    "change_1m": 0.92,
+    "as_of": "2026-10-28T12:26+00:00"
    },
    {
     "symbol": "BTC",
     "label": "Bitcoin (BTC)",
     "group": "crypto",
     "kind": "price",
-    "last": 80506,
-    "change_1d": 0.22,
-    "change_1w": -2.18,
-    "change_1m": -5.59,
-    "as_of": "2026-10-27T15:58+00:00"
+    "last": 80726,
+    "change_1d": 0.82,
+    "change_1w": -2.49,
+    "change_1m": -2.09,
+    "as_of": "2026-10-28T12:35+00:00"
    },
    {
     "symbol": "ETH",
     "label": "Ether (ETH)",
     "group": "crypto",
     "kind": "price",
-    "last": 2345.66,
-    "change_1d": 0.85,
-    "change_1w": -3.19,
-    "change_1m": -13.95,
-    "as_of": "2026-10-27T15:58+00:00"
+    "last": 2341.45,
+    "change_1d": 0.83,
+    "change_1w": -3.9,
+    "change_1m": -11.21,
+    "as_of": "2026-10-28T12:35+00:00"
    },
    {
     "symbol": "SOL",
     "label": "Solana (SOL)",
     "group": "crypto",
     "kind": "price",
-    "last": 100.87,
-    "change_1d": -0.92,
-    "change_1w": -4.31,
-    "change_1m": -18.36,
-    "as_of": "2026-10-27T15:58+00:00"
+    "last": 101.69,
+    "change_1d": 1.33,
+    "change_1w": -3.66,
+    "change_1m": -13.42,
+    "as_of": "2026-10-28T12:35+00:00"
    },
    {
     "symbol": "BNB",
     "label": "BNB",
     "group": "crypto",
     "kind": "price",
-    "last": 749.31,
-    "change_1d": 0.78,
-    "change_1w": 1.47,
-    "change_1m": -4.78,
-    "as_of": "2026-10-27T15:58+00:00"
+    "last": 754.07,
+    "change_1d": 1.85,
+    "change_1w": 1.87,
+    "change_1m": -0.21,
+    "as_of": "2026-10-28T12:35+00:00"
    },
    {
     "symbol": "XRP",
@@ -1113,88 +1046,88 @@
     "group": "crypto",
     "kind": "price",
     "last": 1.32,
-    "change_1d": 1.74,
-    "change_1w": 0.56,
-    "change_1m": -14.18,
-    "as_of": "2026-10-27T15:58+00:00"
+    "change_1d": 0.46,
+    "change_1w": -2.42,
+    "change_1m": -11.17,
+    "as_of": "2026-10-28T12:35+00:00"
    },
    {
     "symbol": "ADA",
     "label": "Cardano (ADA)",
     "group": "crypto",
     "kind": "price",
-    "last": 0.205537,
-    "change_1d": -0.36,
-    "change_1w": -6.69,
-    "change_1m": -20.27,
-    "as_of": "2026-10-27T15:58+00:00"
+    "last": 0.204185,
+    "change_1d": 0.04,
+    "change_1w": -8.23,
+    "change_1m": -15.93,
+    "as_of": "2026-10-28T12:35+00:00"
    },
    {
     "symbol": "AVAX",
     "label": "Avalanche (AVAX)",
     "group": "crypto",
     "kind": "price",
-    "last": 8.85,
-    "change_1d": -1.54,
-    "change_1w": -7.65,
-    "change_1m": -19.86,
-    "as_of": "2026-10-27T15:58+00:00"
+    "last": 8.92,
+    "change_1d": 1.54,
+    "change_1w": -7.24,
+    "change_1m": -14.6,
+    "as_of": "2026-10-28T12:35+00:00"
    },
    {
     "symbol": "SUI",
     "label": "Sui (SUI)",
     "group": "crypto",
     "kind": "price",
-    "last": 0.924129,
-    "change_1d": 0.41,
-    "change_1w": -9.21,
-    "change_1m": -26.76,
-    "as_of": "2026-10-27T15:58+00:00"
+    "last": 0.927709,
+    "change_1d": 1.23,
+    "change_1w": -8.78,
+    "change_1m": -19.79,
+    "as_of": "2026-10-28T12:35+00:00"
    },
    {
     "symbol": "GRAM",
     "label": "Toncoin (TON)",
     "group": "crypto",
     "kind": "price",
-    "last": 1.21,
-    "change_1d": -0.63,
-    "change_1w": -9.91,
-    "change_1m": -24.17,
-    "as_of": "2026-10-27T15:58+00:00"
+    "last": 1.23,
+    "change_1d": 0.22,
+    "change_1w": -7.65,
+    "change_1m": -25.97,
+    "as_of": "2026-10-28T12:35+00:00"
    }
   ],
   "treasury_curve": {
-   "date": "10/26/2026",
+   "date": "10/27/2026",
    "curve": {
     "3 Mo": 4.22,
-    "6 Mo": 4.35,
-    "1 Yr": 4.47,
-    "2 Yr": 4.68,
-    "5 Yr": 4.84,
-    "10 Yr": 5.0,
-    "30 Yr": 5.31
+    "6 Mo": 4.34,
+    "1 Yr": 4.5,
+    "2 Yr": 4.7,
+    "5 Yr": 4.82,
+    "10 Yr": 4.99,
+    "30 Yr": 5.3
    },
    "change_bp": {
     "3 Mo": 0.0,
-    "6 Mo": 5.0,
+    "6 Mo": -1.0,
     "1 Yr": 3.0,
-    "2 Yr": -1.0,
-    "5 Yr": 2.0,
-    "10 Yr": 0.0,
-    "30 Yr": -2.0
+    "2 Yr": 2.0,
+    "5 Yr": -2.0,
+    "10 Yr": -1.0,
+    "30 Yr": -1.0
    },
-   "spread_2s10s_bp": 32.0,
-   "spread_3m10y_bp": 78.0
+   "spread_2s10s_bp": 29.0,
+   "spread_3m10y_bp": 77.0
   },
   "missing": [],
-  "fetched_at": "2026-10-27T15:59+00:00"
+  "fetched_at": "2026-10-28T12:36+00:00"
  },
  "sources": {
   "headlines_considered": 180,
   "live_sources": 20,
   "total_sources": 21,
-  "earnings_events": 70,
-  "economic_events": 21,
+  "earnings_events": 75,
+  "economic_events": 46,
   "web_research": true
  },
  "model": "claude-opus-5-5"
