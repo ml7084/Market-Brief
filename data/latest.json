@@ -1,618 +1,746 @@
 {
- "date": "2026-11-16",
- "generated_at": "2026-11-16T16:59:50+00:00",
+ "date": "2026-11-17",
+ "generated_at": "2026-11-17T18:01:38+00:00",
  "timezone": "America/New_York",
  "window": {
-  "since": "2026-11-15T14:33+00:00",
-  "until": "2026-11-16T16:55+00:00"
+  "since": "2026-11-16T16:40+00:00",
+  "until": "2026-11-17T17:55+00:00"
  },
  "brief": {
-  "notification_title": "Nasdaq in correction as 5% yields bite before Nvidia",
-  "market_summary": "It's midday Monday in New York and risk assets are falling together. The S&P 500 is down 1.27% at 7,465.54 and the Nasdaq is down 1.72% at 24,704. The Nasdaq is now in correction, and semis (SMH) are down 3.84% today and 13.3% over the month. Treasuries are steady after a brutal week: the 10Y is at 5.141% (−1.3bp today, +27.7bp on the week), Fed-hike odds for December are above 90%, and the dollar index is at 103.55, its highest since April 2025. Brent is down 2.35% to $93.59 as surplus forecasts outweigh the Iran headlines. BTC is flat near $64,600 after the weekend flush to $62K.",
-  "since_last": "A note on timing: the research notes worried this was Sunday night ET. It isn't. The snapshot is 16:55 UTC, which is 11:55 ET Monday, so the session is live, and the headline times and the AP \"Before the Bell\" piece are consistent with that.\n\nWhat changed since yesterday:\n- **Nasdaq correction:** a Friday dip has become a correction (n12). The Commerce Department added a rule targeting China's remote access to US data centers (n2, n46), which hit Nvidia again before Tuesday's report. Trump said he's fine with Jensen Huang returning as CEO (n1).\n- **Bill yields:** the 3-month and 6-month auctions cleared at 4.155% and 4.31% (n7).\n- **Dollar and gold:** the dollar hit a 19-month high (n10) and gold hit a one-year low at $3,860 (n107, n154).\n- **Japan:** Q3 GDP missed at −0.1% annualised vs +0.3% expected.\n- **Oil:** Brent broke below $94 even though Iran struck a US base in Bahrain and Iran reported tankers hitting mines (n175). Iran also floated a two-day plan to end hostilities.\n- **Crypto:** BTC bounced from $62K to about $64.6K. ETF outflows reached seven straight days, and $60K puts are now the largest options position (n85).",
+  "notification_title": "Stocks slide into Nvidia; bonds start hedging again",
+  "market_summary": "At midday (12:55 ET) US stocks are down for a second day. The S&P 500 is at 7,334 (-1.1%), the Dow at 50,867 (-1.4%, down as much as 920 points at the low) and the Nasdaq at 24,243 (-1.1%, -8.3% over a month). The VIX is at 25.9. Treasuries are finally acting as a hedge: the 5-year is down 3.8bp to 4.90% and the 10-year down 2.6bp to 5.10%, while 3-month bill yields keep rising (4.143%) because the market prices a 95.4% chance of a December hike. Brent is steady at $93.27 (+0.9%), caught between surplus forecasts and Hormuz tanker attacks, and bitcoin is at $63,851 (-1.7%, -13% on the week) after eight straight days of ETF outflows. Nvidia reports after the close (EPS estimate about $2.47–2.49, revenue about $109B). It is the event of the week, and the Anthropic IPO follows on 19 Nov.",
+  "since_last": "Monday closed with the S&P at 7,416.59 (-1.9%), the Nasdaq at 24,509.76 (-2.5%) and the Philadelphia semiconductor index down 5.3%. The drivers were Jensen Huang's resignation and new US rules on remote access to AI chips. Today Huang said he is open to returning as CEO (n18). That trimmed NVDA's early 3% loss, but governance experts doubt a return is simple (n47). The US data split in two directions. October retail sales beat (headline +0.2% vs +0.1%, control group +0.6% vs +0.3%). Manufacturing and housing missed: Empire State came in at 7.8 vs 17.6, industrial production at -0.4% vs +0.1%, and the NAHB homebuilder index at 25 vs 29, its lowest since April 2012. The Fed stayed hawkish: Musalem said \"several\" hikes are likely needed by spring (n126), and Hammack wants small incremental hikes (n180). The 3-month bill auction cleared at 4.155%, above the 4.099% expected. On earnings, Home Depot was in line ($3.86 vs about $3.84) with a soft implied Q4; Disney beat ($1.77 vs $1.68) and raised its dividend 33%. CNBC sources say Anthropic will likely price above its $70–78 range (n90). Salesforce fell about 9% on worries that software firms are exposed to AI misuse (n9), and Deutsche Bank fell about 6% in Europe on a whistleblower leak (n97). Brent held near $93 and BTC slipped to about $63.8K.",
   "economic_data": [
    {
-    "release": "Japan Q3 GDP, preliminary (annualised)",
+    "release": "NY Empire State Manufacturing (Nov)",
     "status": "released",
-    "when": "Mon 08:50 JST (Sun 18:50 ET)",
-    "actual": "-0.1%",
+    "when": "Tue 08:30 ET",
+    "actual": "7.8",
+    "expected": "17.6",
+    "previous": "25.5",
+    "takeaway": "A 10-point miss and an 18-point fall from October. Factory momentum is fading. This helps explain the rally in 5-10 year Treasuries even with a hike priced in."
+   },
+   {
+    "release": "Retail sales (Oct, m/m)",
+    "status": "released",
+    "when": "Tue 08:30 ET",
+    "actual": "+0.2%",
+    "expected": "+0.1%",
+    "previous": "n/a",
+    "takeaway": "Ex-autos was +0.5% vs +0.4%. Consumers are still spending, which gives the Fed no reason to back off a December hike. It supports bill yields and the dollar."
+   },
+   {
+    "release": "Retail sales control group (Oct)",
+    "status": "released",
+    "when": "Tue 08:30 ET",
+    "actual": "+0.6%",
     "expected": "+0.3%",
-    "previous": "Q2 revised up to 1.7% or 1.4% (sources differ)",
-    "takeaway": "Private consumption fell 1.1% annualised. A soft Japan makes Bank of Japan tightening less likely, which keeps the yen weak and adds to dollar strength (n147). A stronger dollar is a headwind for gold, oil and crypto."
+    "previous": "n/a",
+    "takeaway": "This series feeds directly into GDP, and it came in at double the consensus. That is the strongest argument for the hawks and keeps December hike odds near 95% (n14)."
    },
    {
-    "release": "US 3-month / 6-month T-bill auctions",
+    "release": "Industrial production (Oct)",
     "status": "released",
-    "when": "Mon 11:30 ET",
-    "actual": "4.155% / 4.31%",
-    "expected": "n/a",
-    "previous": "not in today's material",
-    "takeaway": "Cash pays more than 4.1% with no duration risk. That supports parking dry powder in SGOV and raises the hurdle for risk assets to beat."
-   },
-   {
-    "release": "Fed Chair Warsh speech (SF Fed, AI and productivity)",
-    "status": "upcoming",
-    "when": "Mon 12:00 ET",
-    "actual": "",
-    "expected": "n/a",
+    "when": "Tue morning ET",
+    "actual": "-0.4%",
+    "expected": "+0.1%",
     "previous": "n/a",
-    "takeaway": "Markets price more than a 90% chance of a December hike (n167). If Warsh pushes back on hikes by arguing AI productivity is disinflationary, the front end and tech would rally. If he endorses the hike, that confirms the current trend in yields and the dollar. Williams, Goolsbee, Barkin, Barr and Paulson also speak today."
+    "takeaway": "Mostly a utilities drop (-4.3%); manufacturing actually rose 0.3%, with capacity utilization at 76.4%. It is less weak than the headline, so don't over-read it."
    },
    {
-    "release": "Retail Sales (Oct, m/m)",
+    "release": "NAHB homebuilder index (Nov)",
+    "status": "released",
+    "when": "Tue morning ET",
+    "actual": "25",
+    "expected": "29",
+    "previous": "29",
+    "takeaway": "Lowest since April 2012 (n68). A 5%+ 10-year yield is choking housing, which is bad news for HD and LOW and for housing-linked cyclicals."
+   },
+   {
+    "release": "3-month bill auction",
+    "status": "released",
+    "when": "Tue 11:30 ET",
+    "actual": "4.155%",
+    "expected": "4.099%",
+    "previous": "4.060%",
+    "takeaway": "The bill cleared about 6bp above expectations, and the 6-month cleared at 4.310% vs 4.145% prior. Cash yields keep rising with hike expectations, which supports holding SGOV."
+   },
+   {
+    "release": "Housing starts (Oct)",
     "status": "upcoming",
-    "when": "Tue 17 Nov 08:30 ET",
+    "when": "Wed 08:30 ET",
     "actual": "",
-    "expected": "0.2% (calendar; other sources say 0.0–0.1%)",
-    "previous": "0.8%",
-    "takeaway": "Consensus isn't settled. A strong print after 0.8% would harden hike odds and push the 10Y back toward recent highs. A miss would ease rate pressure but raise growth worries. The release lands the same day as Nvidia reports."
+    "expected": "1.25M",
+    "previous": "1.221M",
+    "takeaway": "After the NAHB plunge, the risk is a miss. That would add to the growth-scare bid in the 5-10 year sector."
    },
    {
-    "release": "Core Retail Sales (Oct, m/m)",
+    "release": "20-year Treasury bond auction",
     "status": "upcoming",
-    "when": "Tue 17 Nov 08:30 ET",
-    "actual": "",
-    "expected": "0.4%",
-    "previous": "0.9%",
-    "takeaway": "This is the cleaner read on consumer demand going into Home Depot, Target, Walmart and TJX earnings this week."
-   },
-   {
-    "release": "FOMC Minutes (27–28 Oct meeting)",
-    "status": "upcoming",
-    "when": "Wed 18 Nov 14:00 ET",
+    "when": "Wed 13:00 ET",
     "actual": "",
     "expected": "n/a",
-    "previous": "n/a",
-    "takeaway": "Watch how widely members supported a December hike and whether they discussed hikes into 2027 (n165). Hawkish minutes would favor bills over duration."
+    "previous": "5.469%",
+    "takeaway": "This tests demand for long duration as the long end worries about term premium. A weak auction (a tail) would hit TLT more than IEF."
    },
    {
-    "release": "Initial Jobless Claims",
+    "release": "FOMC minutes (Oct meeting)",
     "status": "upcoming",
-    "when": "Thu 19 Nov 08:30 ET",
+    "when": "Wed 14:00 ET",
     "actual": "",
-    "expected": "199K",
-    "previous": "200K",
-    "takeaway": "Claims near 200K describe a tight labor market and give the Fed no reason to back off a hike."
+    "expected": "n/a",
+    "previous": "Held 3.75–4.00% on a 10–2 vote",
+    "takeaway": "Look for how many members leaned toward a series of hikes. Hawkish detail would lift bill yields and the dollar and add pressure on long-duration tech and crypto."
    },
    {
-    "release": "Philly Fed Manufacturing Index",
+    "release": "Philly Fed Manufacturing (Nov)",
     "status": "upcoming",
-    "when": "Thu 19 Nov 08:30 ET",
+    "when": "Thu 08:30 ET",
     "actual": "",
     "expected": "19.2",
     "previous": "20.9",
-    "takeaway": "Still firmly expansionary. The prices-paid component matters more for the inflation story than the headline."
+    "takeaway": "If Philly misses the way Empire did, the manufacturing slowdown is broad, which would help the case for Treasury duration."
    },
    {
-    "release": "UoM Inflation Expectations (revised)",
+    "release": "Initial jobless claims",
     "status": "upcoming",
-    "when": "Fri 20 Nov 10:00 ET",
+    "when": "Thu 08:30 ET",
     "actual": "",
-    "expected": "n/a",
-    "previous": "4.3%",
-    "takeaway": "A 4.3% inflation-expectations reading is exactly what a hawkish Fed worries about. An upward revision would add to hike pricing."
+    "expected": "199K",
+    "previous": "200K",
+    "takeaway": "Claims near 200K mean a tight labor market. Only a jump would challenge December hike pricing."
+   },
+   {
+    "release": "UoM sentiment & 1-yr inflation expectations (Nov final)",
+    "status": "upcoming",
+    "when": "Fri 10:00 ET",
+    "actual": "",
+    "expected": "52.1",
+    "previous": "51.0 / 4.3%",
+    "takeaway": "Inflation expectations matter more than sentiment here. A reading above 4.3% would push yields up and weaken the IEF idea."
    }
   ],
   "earnings": [
    {
-    "ticker": "TSN",
-    "company": "Tyson Foods",
-    "status": "reported",
-    "timing": "Mon before open",
-    "result": "Non-GAAP EPS was $0.61, which GuruFocus calls a $0.01 beat. Our calendar consensus was $0.65, so it may be a miss on that basis; the sources disagree. Revenue was $14.59B, about $490M above estimates, and the dividend was raised 2%. The share reaction isn't in the material.",
-    "takeaway": "Revenue strength fits the defensive bid (XLP +0.22% today, +5.6% over the month). Don't read it as a sign for the broad index."
-   },
-   {
     "ticker": "NVDA",
     "company": "NVIDIA",
     "status": "upcoming",
-    "timing": "Tue 17 Nov after close (~16:20 ET)",
-    "result": "EPS est. $2.47–2.49 vs $1.24 a year ago; revenue est. about $109B. It's the first report under interim CEO Colette Kress. The stock closed Friday at $162.85, down 12.8% on the week, and is lower again today.",
-    "takeaway": "Guidance and leadership clarity matter more than the beat. The new China remote-access rule (n2) adds risk to guidance. NVDA drives SMH, XLK and the Nasdaq, so the report is this week's biggest index event alongside the Anthropic IPO."
+    "timing": "Today after close (~16:20 ET)",
+    "result": "Bar: EPS about $2.47–2.49 (last year $1.24) on revenue of about $109B. Guidance and any word on leadership matter more than the beat.",
+    "takeaway": "This is the swing factor for SMH, XLK, the Nasdaq and, increasingly, BTC (n3). Even a clean beat doesn't settle Huang's status (n47), the new remote-access chip rules or the Anthropic supply overhang, so I want price confirmation rather than a headline."
    },
    {
     "ticker": "HD",
     "company": "Home Depot",
-    "status": "upcoming",
-    "timing": "Tue 17 Nov before open",
-    "result": "EPS est. $3.84–3.87 vs $3.74 last year; revenue est. $42.8B.",
-    "takeaway": "A read on housing with mortgage rates at 7.49% (n43). Weak comparable sales would confirm rate damage to housing-linked spending."
+    "status": "reported",
+    "timing": "Tue before open",
+    "result": "Adjusted EPS $3.86 vs about $3.84 (calendar estimate $3.86, so effectively in line). Revenue $43.4B vs $42.8B; comps +2.2% vs +1.8%. Gross margin fell 60bp to 32.8%. FY EPS guidance is about +2%, implying Q4 of $2.77 vs $2.81 consensus. CFO McPhail becomes CEO on 23 Nov.",
+    "takeaway": "Shares are about -3% and dragged the Dow. Comps held up, but margins and the Q4 guide point to housing pressure, which the NAHB 25 reading confirms. That raises the bar for Lowe's tomorrow."
    },
    {
     "ticker": "DIS",
     "company": "Walt Disney",
+    "status": "reported",
+    "timing": "Tue before open",
+    "result": "Adjusted EPS $1.77 vs $1.68; revenue $25.95B vs $25.2B (+16%, about +7% excluding the 53rd week). Dividend +33%, $3B in savings targeted by 2029, double-digit FY27 EPS growth guided.",
+    "takeaway": "A solid beat with shareholder-friendly guidance. Sources disagree on the stock's direction today, so I'm not drawing a conclusion. It's a single-stock story and doesn't move the index."
+   },
+   {
+    "ticker": "BIDU",
+    "company": "Baidu",
+    "status": "reported",
+    "timing": "Mon",
+    "result": "EPS $0.58 vs $0.57. Revenue fell 1% to ¥30.8B; online marketing -22%; AI cloud +94%.",
+    "takeaway": "The ADR fell about 5.4%. The core ads business is shrinking faster than AI cloud can replace it, and China's October retail sales (+0.4% y/y) are weak ahead of BABA, PDD and JD."
+   },
+   {
+    "ticker": "TSN",
+    "company": "Tyson Foods",
+    "status": "reported",
+    "timing": "Mon",
+    "result": "EPS $0.61 vs $0.65 (-6.2% surprise).",
+    "takeaway": "A miss in staples, but XLP is +5.7% over a month on defensive rotation. One food-company miss doesn't change that flow."
+   },
+   {
+    "ticker": "KB",
+    "company": "KB Financial",
+    "status": "reported",
+    "timing": "Mon",
+    "result": "EPS $3.42 vs $3.94 (-13.2% surprise).",
+    "takeaway": "A sizeable miss for a Korean bank and little read-through to US financials. XLF's -1.5% today looks more tied to broad de-risking and the Deutsche Bank leak (n97)."
+   },
+   {
+    "ticker": "LOW",
+    "company": "Lowe's",
     "status": "upcoming",
-    "timing": "Tue 17 Nov before open",
-    "result": "EPS est. $1.67 vs $1.11 last year.",
-    "takeaway": "A gauge of discretionary consumer spending (parks) and streaming margins. XLY is −2.0% on the week."
+    "timing": "Wed before open",
+    "result": "Bar: EPS $2.86–2.89 (last year $3.06); revenue about $22.4B.",
+    "takeaway": "After HD's soft Q4 guide and a 14-year-low NAHB, the risk is a guidance cut. It shows how a 5% 10-year yield feeds into housing."
    },
    {
     "ticker": "TGT",
     "company": "Target",
     "status": "upcoming",
-    "timing": "Wed 18 Nov before open",
-    "result": "EPS consensus is $2.03 in the calendar but $2.06 or $2.68 in other sources, so check the bar before reading the headline.",
-    "takeaway": "Lowe's and TJX report the same morning, so Wednesday gives a broad read on the consumer just before the FOMC minutes."
+    "timing": "Wed before open",
+    "result": "Bar: EPS $2.05–2.07 (last year $1.78); revenue about $26.5B. TJX is the same morning (EPS $1.33–1.34).",
+    "takeaway": "Tests whether the strong retail sales control group is reaching discretionary big-box stores. NerdWallet finds more people relying on credit for monthly expenses (n105)."
    },
    {
     "ticker": "PANW",
     "company": "Palo Alto Networks",
     "status": "upcoming",
-    "timing": "Wed 18 Nov after close",
-    "result": "EPS est. $0.52 vs $0.53 last year.",
-    "takeaway": "The first big software print after Nvidia. It will show whether the selling in tech spreads beyond semis."
+    "timing": "Wed after close",
+    "result": "Bar: EPS $0.52 (last year $0.53).",
+    "takeaway": "Software is under pressure after CRM's -9% on AI-misuse and outage fears (n9). A strong cyber print could steady software sentiment. A miss would extend the tech selling."
    },
    {
     "ticker": "WMT",
     "company": "Walmart",
     "status": "upcoming",
-    "timing": "Thu 19 Nov before open",
-    "result": "EPS est. $0.63–0.64 vs $0.62 last year; revenue est. about $187B.",
-    "takeaway": "Staples have outperformed (XLP +5.6% over the month), so expectations are higher. Walmart's guidance is the best consumer signal of the week."
+    "timing": "Thu before open",
+    "result": "Bar: EPS about $0.63–0.64 (last year $0.62); revenue about $187.2B.",
+    "takeaway": "WMT just had its best two-month run against the S&P since 1975 (n39), so expectations and positioning are crowded. Even a good print may not lift the stock."
    }
   ],
   "sections": [
    {
     "asset_class": "us_equities",
     "sentiment": "bearish",
-    "summary": "Selling is concentrated in AI and long-duration tech: SMH is −3.84% and XLK −2.34%, while health care and staples are slightly up. The labels on the move are Nvidia's leaderless report and Anthropic's roughly $61B IPO, but the underlying driver is a 5.14% 10-year and a December hike being priced in. VIX at 21 shows stress, not panic.",
+    "summary": "This is a second day of de-risking led by semis and software. Nvidia's leadership vacuum, new AI-chip remote-access rules and the Anthropic IPO's demand for new money are all hitting tech, while defensives hold their monthly gains. The market goes into Nvidia's print with the VIX at 25.9 and speculators adding to S&P shorts, so the move after the report could be large in either direction.",
     "key_points": [
-     "S&P 7,465.54 (−1.27%), Nasdaq 24,704 (−1.72%, in correction, n12), Dow −0.82%, Russell −1.04%",
-     "SMH 468.07 (−3.84% today, −13.3% over the month); memory names Micron, SanDisk and SK Hynix are down again (n118); IREN −10% to a one-year low (n20)",
-     "Leadership has rotated over the month: XLV +6.95%, XLP +5.63%, XLF +5.16%, against XLK −9.36%",
-     "Anthropic IPO: about 825M shares at $70–78, roughly a $1.3T valuation and more than $61B raised. That's new supply competing with existing AI holdings (n99)"
+     "S&P 7,334 (-1.1%, -4.6% over a month), Nasdaq 24,243 (-1.1%, -8.3% over a month, in correction), Dow 50,867 (-1.4%), VIX 25.90 (+13%).",
+     "SMH $455.16 (-1.5% today, -5.9% on the week, -17% over a month) after SOX fell 5.3% on Monday. XLK -1.9%. CRM about -9% on fears of AI misuse and outages (n9).",
+     "Rotation into defensives over the month: XLU +6.0%, XLV +5.9%, XLP +5.7%, against XLK -13.1%. CFTC data show S&P speculators net short 138.6K (from 129.4K) and Nasdaq-100 net longs cut to 29.1K from 42.9K.",
+     "Supply overhang: Anthropic (ANT) is expected to price above $70–78 and list 19 Nov. Nasdaq-100 funds must buy it within 15 trading days, which means selling other holdings to fund it (n28)."
     ],
     "headline_ids": [
-     "n23",
-     "n42",
-     "n2",
-     "n8",
-     "n12",
-     "n118",
      "n35",
-     "n99"
+     "n18",
+     "n47",
+     "n33",
+     "n9",
+     "n28",
+     "n90",
+     "n74",
+     "n42",
+     "n97"
     ]
    },
    {
     "asset_class": "bonds",
-    "sentiment": "bearish",
-    "summary": "Treasuries are taking a breather today (10Y −1.3bp to 5.141%) after a week in which the 5Y rose 30bp and the 10Y 28bp on hot inflation data and more than 90% hike odds for 9 Dec. The front end now pays real money: 3M bills cleared at 4.155% and 6M at 4.31%. Credit is weaker on the week, but HYG is flat over the month, so there's no credit stress yet.",
+    "sentiment": "mixed",
+    "summary": "The curve is splitting. Bill yields rise as a December hike is close to fully priced, while 5-10 year yields fall on weak manufacturing and housing data and equity risk-off. Bonds are offsetting stock losses for the first time since March (n7). That makes intermediate Treasuries useful again, but the long end still carries term-premium and supply risk.",
     "key_points": [
-     "5Y 4.962%, 10Y 5.141%, 30Y 5.479%; 13-week bill 4.133% (+9.8bp on the week); 2s10s +27bp",
-     "The belly led the selloff (5Y +30.3bp vs 30Y +22.3bp on the week), which is consistent with the market pricing Fed hikes",
-     "IEF −1.80% and TLT −3.23% on the week; LQD −1.78%; HYG −0.88% on the week but −0.04% over the month",
-     "Goldman sees the 10Y at 4.6% by end-2027 (n109); Morgan Stanley expects slower growth and higher rates (n27)"
+     "13-week bill 4.143% (+1.8bp); the 3-month auction cleared at 4.155% vs 4.099% expected and the 6-month at 4.310%. The market prices a 95.4% chance of a December hike (n14).",
+     "5Y 4.897% (-3.8bp), 10Y 5.095% (-2.6bp), 30Y 5.452% (-1.5bp): the belly is leading. On the week the 10Y is still +11.2bp.",
+     "IEF +0.30%, TLT +0.45%, SHY +0.14%. In credit, LQD +0.09% and HYG -0.05%, so high-yield spreads are slightly wider and not yet stressed.",
+     "Hawks: Musalem says several hikes by spring, possibly up to four (n126); BofA says rates rise 'until activity cools' (n23). The dollar index is at 103.41 (+1.2% on the week) and has erased its 'liberation day' losses (n123)."
     ],
     "headline_ids": [
      "n7",
-     "n167",
-     "n104",
-     "n111",
-     "n165",
-     "n109",
-     "n10"
+     "n14",
+     "n126",
+     "n23",
+     "n79",
+     "n36",
+     "n123",
+     "n180"
     ]
    },
    {
     "asset_class": "brent_oil",
-    "sentiment": "bearish",
-    "summary": "Brent is down 2.35% to $93.59, 14.8% lower over the month and about 16% below its October high. The market is ignoring escalation headlines and trading the surplus. The IEA sees a Q4 surplus of about 1.7 mb/d, inventories rose 52M bbl in October, and Hormuz flows are near pre-war levels. The tail risks are still real, and OPEC+ meets on 29 Nov.",
+    "sentiment": "mixed",
+    "summary": "Brent is stuck near $93 after falling about 15% over the month. Surplus signals are piling up: Gulf exports are recovering, OPEC+ output is at an 8-month high and Russian exports are at a 4-month high. Hormuz mine strikes and a record-low SPR keep a floor under prices. Nothing in the last 25 hours trips the previous brief's re-entry triggers.",
     "key_points": [
-     "Brent $93.59, WTI $86.67, BNO 59.33 (−2.84%); Friday's settle was $95.84, a second straight weekly loss",
-     "Bearish: IEA surplus (n135); Goldman sees $78 by Dec 2027 (n102); about 71M bbl of emergency stock releases run through February",
-     "Bullish tails: Iran's strike on Bahrain and mine reports (n175); Houthis within 100km of Aden, threatening Red Sea Saudi flows (n28); Citi's $150 Hormuz scenario (n137); Morgan Stanley raised its forecasts (n84)",
-     "A stronger dollar (DXY 103.55) is an extra headwind; OPEC+ sets 2027 policy on 29 Nov"
+     "Brent $93.27 (+0.9%, +2.0% on the week, -14.9% over a month); WTI $86.50; BNO $59.21. Speculative crude net longs fell to 74.0K from 80.3K.",
+     "Bearish supply: OPEC+ output is at an 8-month high (n46), Russian crude loadings hit 30.27M bbl in a week (n12), OPEC cut its demand growth forecast (n125), and the IEA sees a Q4 surplus.",
+     "Bullish risk: IRGC says two tankers hit mines in Hormuz, Iranian strikes on Bahrain continue (n143), and the US SPR is at 276.4M bbl, lowest since 1982 (n98).",
+     "Goldman sees Brent averaging $88 in 2027 (n163) but flags $140 upside in a disruption scenario (n132). Next tests: API tonight, EIA Wednesday, OPEC+ on 29 Nov."
     ],
     "headline_ids": [
-     "n135",
-     "n86",
-     "n102",
-     "n28",
-     "n175",
-     "n84",
-     "n156"
+     "n60",
+     "n122",
+     "n46",
+     "n12",
+     "n125",
+     "n98",
+     "n163",
+     "n132",
+     "n143"
     ]
    },
    {
     "asset_class": "crypto_l1",
     "sentiment": "bearish",
-    "summary": "BTC is holding about $64,600 after the weekend liquidation cascade to $62K, but nothing has been repaired. Spot ETF outflows have run seven straight days (−$1.91B over 5–13 Nov, about $2.1B for November), and rising real yields raise the cost of holding an asset with no yield (n9). Altcoins fell harder on the week, and good network news, such as Zelle choosing Solana and Solana 1.0, isn't moving prices.",
+    "summary": "Bitcoin is trading as a high-beta AI and liquidity asset, sliding with Nasdaq into Nvidia and the Anthropic IPO, which is drawing speculative money elsewhere. Spot ETF outflows have run eight straight days. ETH has its own problem in the Glamsterdam contract-breakage issue, while SOL is the only major with inflows.",
     "key_points": [
-     "BTC $64,603 (−13.8% on the week), ETH $1,821.69 (−14.4%), SOL $71.07 (−18.8%, four-month low of $67.41), AVAX −19.7%; TON is the outlier at −0.6% on the week",
-     "The $60K put is the largest options bet, with $900M open interest (n85), so that level is the market's focus",
-     "Strategy bought 485 BTC for $33.4M while funding a $228M preferred buyback (n126); its unrealized loss is about $9.6B (n33)",
-     "Lighter exchange halted withdrawals after a $10.4M exploit (n5), a reminder about counterparty risk at small venues"
+     "BTC $63,851 (-1.7%, -13.1% on the week, -21.5% over a month) and close to the 15 Nov four-month low of about $62K. ETH $1,787 (-1.9%, -25% over a month). SOL $72.42 (+1.6%).",
+     "BTC ETFs: -$68.6M on 16 Nov (preliminary, BlackRock data missing), the 8th straight outflow day, and about -$1B last week. ETH ETFs -$398.9M last week; SOL ETFs +$11.7M (n65). IBIT led a $2.35B exodus (n113).",
+     "Q3 13F filings show Susquehanna and Goldman adding BTC ETFs (n16, n54), but that data is backward-looking. Wallets linked to the Binance hack moved $137M of ETH (n15), a potential supply overhang.",
+     "ETH Glamsterdam gas repricing could break up to 15,000 contracts; core devs revisit it Thursday. MSCI is dropping MSTR. The CFTC nominee hearing is today and SEC nominees go before Senate Banking on 19 Nov."
     ],
     "headline_ids": [
+     "n65",
+     "n113",
+     "n44",
      "n3",
-     "n85",
-     "n92",
-     "n126",
-     "n9",
-     "n70",
-     "n5"
+     "n108",
+     "n15",
+     "n40",
+     "n16"
     ]
    }
   ],
-  "instructor_take": "Here's my read. Today looks like an Nvidia-and-Anthropic story, but the real driver is the price of money. A 10-year at 5.14%, more than 90% odds of a December hike and a dollar at a 19-month high are pressing on every asset whose value sits far in the future or that pays no yield. That explains why semis, gold and bitcoin are all falling together while staples and health care hold up. Most people watch the Nvidia headline. What I'd point to is the size of the Anthropic deal: more than $61B of new AI equity is coming to market, and funds will sell other AI holdings to make room for it. That selling pressure doesn't disappear even if Nvidia beats. I'm also aware the setup for Nvidia is now washed out, with prices down sharply while estimates keep rising (n35). A good report could produce a violent relief rally, and I'm willing to miss the first leg rather than guess. Credit is calm (HYG is flat over the month), so this looks like a valuation reset, not a systemic event. That's why I'm not selling everything, just refusing to add risk until the data confirms. Cash paying 4.155–4.31% is a real alternative this week, and I'll let Warsh at noon, retail sales Tuesday, Nvidia Tuesday night and the minutes Wednesday tell me when to spend it. What would change my mind is Warsh pushing back on the hike and yields falling while Nvidia guides up. That combination would end the rate pressure and the AI doubt at the same time.",
+  "instructor_take": "This morning I'm not focused on whether Nvidia beats; it almost always beats. I'm focused on the fact that the Fed is hiking into a 5.1% 10-year while parts of the economy are visibly cracking. Look at today's data. The consumer is fine (control group +0.6%), so the Fed keeps going (95% December odds, Musalem talking about \"several\" hikes). Meanwhile manufacturing (Empire 7.8) and housing (NAHB 25, a 14-year low) are breaking. That combination is a squeeze on equity valuations, and one good Nvidia quarter doesn't undo it, especially with Anthropic about to ask the market for fresh money. What I think the crowd misses is positioning. Speculators have added to S&P shorts (net -138.6K) and cut Nasdaq longs, so a clean Nvidia print could produce a violent one- or two-day squeeze. That isn't a reason to buy tonight. It is a reason not to panic-sell into the close or chase a gap tomorrow. The other quiet shift is that Treasuries are hedging stocks again, led by the 5-10 year sector, so for the first time in months duration is worth a small place alongside bills. I'm keeping cash in SGOV, staying out of semis until price confirms, starting a small IEF position, and adding nothing in oil or crypto this week. I'll change my mind if SMH reclaims $500 for two sessions, or if the 3-month bill yield drops below 4.0%, which would mean the market has stopped believing in hikes.",
   "top_ideas": [
    {
     "rank": 1,
     "asset_class": "bonds",
     "instrument": "SGOV",
-    "direction": "buy",
-    "title": "Keep dry powder in T-bills through a hike",
-    "one_liner": "Bills just cleared at 4.155–4.31%; let cash earn while risk reprices",
-    "thesis": "The Fed is about to hike, and new bill auctions pay 4.155% (3-month) and 4.31% (6-month), so cash has a real return with almost no price risk. SGOV is the funding source for re-entry into semis or crypto once the data confirms. Until then it beats catching falling knives.",
-    "reasoning": "I start with the hurdle rate. Today's 3-month auction cleared at 4.155%, and any risk asset now has to beat that. With December hike odds above 90% (n167), bill yields are more likely to rise than fall, and SGOV rolls up to those higher yields automatically. I prefer it to SHY because two-year notes still lose money if the market prices more hikes into 2027 (n165). I prefer it to IEF or TLT because the 10Y just moved 28bp in a week, and that volatility is too much for a parking spot, even though a 5.14% 10Y with Goldman forecasting 4.6% (n109) is tempting. The concept is opportunity cost: on a day like this, holding the asset that pays you to wait is a position in its own right. A less experienced investor treats cash as doing nothing and feels pressure to buy the dip. Here it's earning a real yield and keeping my options open. I'd change my mind if the 13-week yield fell below 4.0%, because that would mean the market is pricing cuts and the case for longer duration would improve.",
+    "direction": "add",
+    "title": "Hold the T-bill cash sleeve through the hikes",
+    "one_liner": "Keep cash in T-bills; 3M auction cleared 4.155% as hikes loom",
+    "thesis": "Bill yields are rising with each step-up in hike pricing: the 3-month auction cleared at 4.155% vs 4.099% expected, and the 6-month at 4.310%. SGOV collects that carry with almost no price risk. It also keeps the money ready to redeploy once Nvidia and the Anthropic listing have cleared.",
+    "reasoning": "I start with what the Fed is telling us. Musalem wants several hikes by spring, Hammack wants incremental ones, and the market prices 95.4% odds for December. Today's strong retail control group (+0.6% vs +0.3%) gives them cover. When hikes are coming, the safest yield is at the very front, because a bill fund rolls into higher rates every few weeks and its price barely moves. You can see that in today's auction, which cleared 6bp above consensus. Since the last brief the S&P has fallen another 1.1% today and SMH is down 5.9% on the week, while SGOV just kept earning. A less experienced investor treats cash as 'doing nothing'. Here it is a position with a 4%+ yield and option value, because it funds the SMH re-entry rule and the IEF starter without forcing you to sell something at a bad moment. I'd change my mind if the 13-week bill yield fell below 4.0%. That would mean the market is pricing an end to hikes, and duration would then beat bills by a wide margin.",
     "catalysts": [
-     "Warsh speech Mon 16 Nov 12:00 ET",
-     "Retail sales Tue 17 Nov 08:30 ET",
-     "FOMC minutes Wed 18 Nov 14:00 ET",
-     "FOMC decision 9 Dec"
+     "Wed 18 Nov 14:00 ET FOMC minutes",
+     "Weekly bill auctions (check TreasuryDirect for dates)",
+     "Fri 20 Nov 10:00 ET UoM inflation expectations",
+     "Dec FOMC (hike about 95% priced)"
     ],
     "risks": [
-     "A dovish Fed pivot would lower bill yields over time, and money in SGOV would miss duration gains",
-     "Opportunity cost if Nvidia sparks a fast relief rally in risk assets"
+     "A sudden growth shock leads the Fed to skip December and bill yields fall, so the cash sleeve loses out to duration",
+     "Holding too much cash for too long and missing a sharp post-Nvidia relief rally"
     ],
-    "entry": "Keep the existing position. Add idle cash and any settled ETH/ETHA trim proceeds at market today; no price level is needed.",
-    "invalidation": "Exit if the 13-week bill yield (now 4.133%) falls below 4.0%. Otherwise redeploy only when the SMH re-entry rule in idea 2 triggers.",
+    "entry": "Keep the existing position and add idle cash at market today; no price level is needed. This sleeve funds ideas 2 and 3.",
+    "invalidation": "The 13-week bill yield (now 4.143%) falls below 4.0%, or the FOMC minutes show the committee leaning toward an early end to hikes.",
     "horizon": "months",
     "conviction": "high",
-    "sizing": "The cash sleeve, roughly 15–25% of the portfolio, sized as the reserve for planned re-entries"
+    "sizing": "Cash sleeve of 15–25% of the portfolio while the VIX is above 20; draw it down only through the re-entry rules in ideas 2 and 3."
    },
    {
     "rank": 2,
     "asset_class": "us_equities",
     "instrument": "SMH",
     "direction": "avoid",
-    "title": "Stay out of semis until Nvidia confirms",
-    "one_liner": "SMH −13% in a month; wait for NVDA beat plus two closes above $500",
-    "thesis": "Semis are being hit three ways at once: rising discount rates, a leaderless Nvidia facing a new China restriction, and the Anthropic IPO absorbing capital meant for AI. The washed-out setup could produce a sharp bounce, but I'd rather pay up after confirmation than guess the bottom.",
-    "reasoning": "The previous avoid has worked: SMH is at 468.07, down 3.84% today and 13.3% over the month, so I keep the same rule rather than chase. My evidence is a chain of three. Yields at 5.14% hurt long-duration growth stocks hardest, Commerce's new rule on Chinese remote access (n2) puts Nvidia's China guidance at risk, and the first call under interim CEO Kress adds uncertainty about the guidance itself (n8). The concept is buying on confirmation rather than anticipation. I give up the first part of any rebound in exchange for proof that buyers are back. The $500 trigger now sits about 6.8% above today's price, and that's on purpose: a real recovery should clear it within days of a strong report. A less experienced investor might miss that analysts keep raising semiconductor estimates while prices fall (n35). That's the bull case, and it's why I'm avoiding rather than selling more. I'd change my mind if NVDA beats the $2.49 estimate, guides above the roughly $109B revenue consensus, and SMH closes above $500 two sessions in a row.",
+    "title": "Stay out of semis until Nvidia confirms in price",
+    "one_liner": "No semis until Nvidia beats and SMH holds $500 two days",
+    "thesis": "Semis are down 17% over a month for reasons a single earnings beat can't fix: Nvidia has no settled CEO, there are new US rules on remote access to AI chips, and Anthropic's IPO plus forced Nasdaq-100 buying will pull money away from existing AI names. Wait for the market to prove itself with price, not headlines.",
+    "reasoning": "The avoid has worked so far: SMH is at $455.16, down 1.5% today and 5.9% on the week, after SOX fell 5.3% on Monday. My logic is that earnings are only one of four pressures. Huang resigned, and while he is now 'open to returning', governance experts say that's hard (n47). Washington is tightening chip and optical-equipment rules (n67). And Anthropic is about to absorb tens of billions of dollars while index funds must buy it within 15 trading days (n28), which means selling other tech to make room. Nvidia's EPS bar is about $2.47–2.49 on about $109B of revenue, and a beat is likely. But the stock has fallen 26% from its peak (n94) on things outside the income statement. The concept is waiting for confirmation: I'd rather give up the first 8–10% of a rebound than buy a bounce that fails within a week. What would change my mind is the rule itself. If NVDA beats and guides above consensus and SMH then closes above $500 on Wed 18 and Thu 19, the market has voted and I rebuild. Note that speculators are short (S&P net -138.6K), so expect a sharp move either way tonight. Don't let a big green open tempt you before the closes confirm.",
     "catalysts": [
-     "Warsh Mon 16 Nov 12:00 ET",
-     "NVDA earnings Tue 17 Nov after close (EPS est. $2.49)",
-     "PANW Wed 18 Nov after close",
-     "Anthropic IPO pricing and first trades (date not confirmed in the material)"
+     "Tue 17 Nov after close: NVDA FQ3 (EPS est $2.47–2.49, revenue about $109B)",
+     "Thu 19 Nov: Anthropic (ANT) expected to begin Nasdaq trading (one source says 18 Nov)",
+     "Wed 18 Nov after close: PANW",
+     "Thu 19 Nov after close: KEYS",
+     "Any board statement on Nvidia CEO succession"
     ],
     "risks": [
-     "An Nvidia blowout triggers a squeeze and SMH gaps through $500 before the rule allows entry",
-     "A dovish Warsh plus falling yields re-rates growth stocks quickly"
+     "A short squeeze after a strong print: SMH rips through $500 quickly and the re-entry happens at a higher price",
+     "Huang's reinstatement is announced alongside a beat-and-raise, removing the main overhang at once"
     ],
-    "entry": "No buying through Thu 19 Nov. If NVDA beats and guides above consensus, buy half the trimmed amount after SMH closes above $500 on Wed 18 and Thu 19. Buy the second half after Anthropic has traded two sessions with SMH still above $500. Fund both from SGOV.",
-    "invalidation": "The avoid ends once NVDA beats and raises and SMH closes above $500 on two straight sessions after the report. Then rebuild in the two halves.",
+    "entry": "No buying through Thu 19 Nov. If NVDA beats and guides above consensus, buy half the previously trimmed amount after SMH closes above $500 on Wed 18 and Thu 19. Buy the second half after ANT has traded two sessions with SMH still above $500. Fund both from SGOV.",
+    "invalidation": "The avoid ends once NVDA beats and raises and SMH closes above $500 on two straight sessions after the report; then rebuild in the two halves. If NVDA disappoints, extend the avoid and reassess after ANT's first week.",
     "horizon": "weeks",
     "conviction": "medium",
-    "sizing": "0% new exposure now; rebuild to your prior semis weight in two equal halves"
+    "sizing": "0% new exposure now. On re-entry, restore the prior semis weight in two equal halves, typically 2–4% of the portfolio in total."
    },
    {
     "rank": 3,
-    "asset_class": "brent_oil",
-    "instrument": "BNO",
-    "direction": "avoid",
-    "title": "Don't buy the oil dip before OPEC+",
-    "one_liner": "Brent −15% in a month but surplus is winning; wait for 29 Nov",
-    "thesis": "Brent at $93.59 looks cheap against October's high, but the IEA sees a 1.7 mb/d Q4 surplus, inventories are rising and the price is ignoring escalation news. I'd wait for OPEC+ on 29 Nov before taking a long position.",
-    "reasoning": "The most telling evidence today is how oil reacted to the news. Iran struck a US base in Bahrain and reported tankers hitting mines (n175), yet Brent fell 2.35% to $93.59. When a market shrugs off bullish headlines, it's telling you which story it believes. That story is supply: the IEA's first surplus since the war began (n135), a 52M bbl inventory build in October, Hormuz flows near pre-war levels, emergency stock releases through February and Goldman at $78 (n102). A stronger dollar at 103.55 adds a further headwind. The concept is buying something because it fell, not because its fundamentals improved. A 15% drop isn't value if the surplus is real. What a newer investor might miss is that BNO holds futures, so it fell 2.84% today versus Brent's 2.35% and can lag spot Brent. I'd change my mind on two settles above $98, an OPEC+ cut on 29 Nov, or a confirmed collapse in Hormuz or Red Sea flows, since the Houthi advance toward Bab el-Mandeb (n28) is a real tail risk.",
+    "asset_class": "bonds",
+    "instrument": "IEF",
+    "direction": "buy",
+    "title": "Small starter in 7-10Y Treasuries at a 5.1% 10Y",
+    "one_liner": "Small IEF starter: 10Y at 5.1% as growth data crack",
+    "thesis": "With the 10-year at 5.10%, weak manufacturing and housing prints, and Treasuries once again rising when stocks fall, intermediate duration offers income plus a hedge. I prefer IEF to TLT because the growth scare is showing up in the 5-10 year sector, while the long end still carries term-premium and auction risk.",
+    "reasoning": "Today's evidence points to the economy slowing underneath a hawkish Fed. Empire State came in at 7.8 vs 17.6, NAHB at 25 (lowest since 2012) and industrial production at -0.4%. Druckenmiller is flagging weakness in 2027 (n5). When the Fed hikes into that, the market starts pricing the slowdown that follows, and that shows up first in the belly of the curve: the 5Y fell 3.8bp today against 1.5bp for the 30Y. That pattern is the bull steepener explained in today's lesson. MarketWatch notes bonds are offsetting stock losses for the first time since March (n7), so IEF does two jobs at once, paying about 5% and cushioning an equity drawdown. I'm choosing IEF over TLT because the 30-year is where the AI-borrowing and term-premium story lives (n36, n166), and Wednesday's 20-year auction tests exactly that segment. Conviction is low because the Fed may hike more than the market thinks (Musalem has floated up to four), and the 10-year rose 11bp just last week. That's why I'm scaling in after the minutes rather than all at once. I'm wrong if the 10-year closes above 5.30%, because that would mean inflation, not growth, is driving yields.",
     "catalysts": [
-     "EIA inventories Wed 18 Nov",
-     "Iran's two-day ceasefire proposal and Hormuz incidents",
-     "OPEC+ full ministerial meeting 29 Nov"
+     "Wed 18 Nov 08:30 ET housing starts",
+     "Wed 18 Nov 13:00 ET 20-year bond auction",
+     "Wed 18 Nov 14:00 ET FOMC minutes",
+     "Thu 19 Nov 08:30 ET Philly Fed and jobless claims",
+     "Fri 20 Nov 10:00 ET UoM 1-yr inflation expectations (prior 4.3%)"
     ],
     "risks": [
-     "Escalation in Hormuz or the Red Sea causes a sharp spike (Citi's $150 scenario, n137)",
-     "OPEC+ surprises with cuts on 29 Nov",
-     "A cold European winter with gas storage at multi-decade lows (n11) lifts energy broadly"
+     "Hawkish minutes or a hot inflation-expectations print pushes the 10Y back toward 5.25%+",
+     "An equity relief rally after Nvidia pulls money out of bonds",
+     "A weak 20-year auction spills over into the 10-year"
     ],
-    "entry": "No new BNO or XLE buying now. If you already hold energy, don't add. Reassess after the 29 Nov OPEC+ meeting.",
-    "invalidation": "The avoid ends if Brent settles above $98 two days running, OPEC+ announces cuts on 29 Nov, or tanker flows through Hormuz or Bab el-Mandeb are confirmed to drop sharply.",
+    "entry": "Buy the first half on Wed 18 Nov after the 20-year auction and FOMC minutes are out (after 14:00 ET), provided the 10Y is at or below 5.15%. Buy the second half if the 10Y backs up to 5.20–5.25%, or on Fri if UoM 1-yr inflation expectations print at or below 4.3%. Fund from SGOV.",
+    "invalidation": "The 10-year closes above 5.30% (IEF near $89), or UoM 1-yr inflation expectations rise clearly above 4.3% with the minutes signalling a multi-hike path.",
     "horizon": "weeks",
-    "conviction": "medium",
-    "sizing": "0% new exposure; leave any existing energy position unchanged"
+    "conviction": "low",
+    "sizing": "2–3% starter, building to at most 5% of the portfolio."
    }
   ],
-  "prior_ideas_review": "1) **SGOV:** working; keep. The 13-week bill is at 4.133% (+9.8bp on the week) and today's auctions cleared at 4.155% and 4.31%, well above the 4.0% exit level. Meanwhile the S&P fell 1.27% today. Carried forward as idea 1.\n\n2) **Avoid SMH:** working; keep. SMH is 468.07, down 3.84% today and 13.3% over the month, so not buying spared real losses. The re-entry rule is unchanged, and the $500 trigger is now about 6.8% above the price. Carried forward as idea 2.\n\n3) **Trim ETH:** done; close it. Evidence put the Saturday close near $1,900, below $2,000, so the backstop fired. ETH is now $1,821.69, so the trim sold roughly level with or slightly above today's price, a small saving. Settled proceeds go to SGOV. Don't sell more of the core. The rebuy rule stands: a week of daily closes above $2,000 plus three straight days of ETH ETF inflows. Neither condition is close; ETH ETFs lost about $399M last week.",
+  "prior_ideas_review": "1) BUY SGOV: worked, and I'm keeping it. The 13-week bill yield rose to 4.143% from 4.133%, well above the 4.0% exit level. The 3-month auction cleared at 4.155% vs 4.099% expected. Over the same stretch the S&P fell another 1.1% today and the Nasdaq is -3.3% on the week. Any ETH trim proceeds parked here also avoided ETH's further 1.9% drop today (-12.3% on the week). 2) AVOID SMH: worked, and I'm keeping it with the same rule. SMH is at $455.16 (-1.5% today, -5.9% on the week), and the $500 trigger is now about 10% away, which is deliberately demanding. Nvidia reports tonight, and Anthropic's listing (19 Nov per CNBC, 18 Nov per one other source) is the second checkpoint. 3) AVOID BNO: roughly neutral so far. Brent is at $93.27 (+2.0% on the week) and BNO at $59.21 (+1.5% on the week), so avoiding cost a little. None of the triggers have fired: Brent hasn't settled above $98 and OPEC+ doesn't meet until 29 Nov. Surplus evidence keeps building (OPEC+ output at an 8-month high, Russian exports at a 4-month high), so the avoid stays in force as a standing rule. I've dropped it from the top three only to make room for the IEF starter, which has better reward relative to risk.",
   "lesson": {
-   "concept": "Equity duration (the discount-rate effect)",
-   "explanation": "A stock's value is the present value of its future cash flows. Companies whose profits are expected far in the future behave like long-dated bonds, so when yields rise, their prices fall the most. Assets with no cash flow at all, like gold and bitcoin, also suffer, because the cash you could earn instead (the opportunity cost) just went up. Sectors with near-term, steady earnings behave like short-duration bonds and hold up better.",
-   "todays_example": "The 10Y rose 28bp in a week to 5.14% and bills now pay 4.155–4.31%. Over the month, XLK is −9.4% and SMH −13.3%, while XLV is +7.0%, XLP +5.6% and XLF +5.2%. Gold hit a one-year low and BTC is −20.9%. One rate shock is reordering everything."
+   "concept": "Bull steepener",
+   "explanation": "A bull steepener is when yields fall (bond prices rise) and short- and medium-term yields fall more than long ones, so the curve gets steeper. It usually happens when the market starts to believe growth will slow and the Fed will eventually have to ease, even if it is still hiking now. Long-dated yields fall less because they also reflect inflation risk, government borrowing and the extra return investors demand for locking money up for decades. It matters for picking a vehicle: in a bull steepener, intermediate bonds like IEF usually do better for the risk taken than long bonds like TLT.",
+   "todays_example": "The 5-year is down 3.8bp to 4.897%, the 10-year down 2.6bp to 5.095% and the 30-year down only 1.5bp to 5.452%. Monday's official curve showed the same pattern (2Y -5bp, 30Y -1bp). Weak Empire State (7.8) and NAHB (25) prints are driving it. Meanwhile the 3-month bill rose 1.8bp because a December hike is about 95% priced, so the very front of the curve tells a different story. That split is why idea 3 uses IEF rather than TLT, while the cash stays in SGOV."
   },
   "watchlist": [
    {
-    "time": "Mon 12:00 ET",
-    "event": "Fed Chair Warsh on AI and productivity (SF Fed); Williams, Goolsbee, Barkin, Barr and Paulson also speak today"
+    "time": "Tue 14:25 ET",
+    "event": "NY Fed President Williams speaks"
    },
    {
-    "time": "Tue 08:30 ET",
-    "event": "October retail sales (headline 0.2%, core 0.4%; consensus varies by source)"
+    "time": "Tue after close (~16:20 ET)",
+    "event": "Nvidia FQ3 results and guidance (EPS est $2.47–2.49, revenue about $109B)"
    },
    {
-    "time": "Tue before open",
-    "event": "Home Depot (EPS est. $3.84–3.87), Disney ($1.67), JD.com, Viking"
+    "time": "Tue 16:30 ET",
+    "event": "API crude inventories (draw expected)"
    },
    {
-    "time": "Tue after close",
-    "event": "Nvidia Q3 (EPS est. $2.49, revenue about $109B), the first report under interim CEO Kress"
+    "time": "Tue (during session)",
+    "event": "Senate Agriculture hearing on CFTC nominees"
    },
    {
-    "time": "Wed before open",
-    "event": "Target, Lowe's, TJX"
+    "time": "Wed 02:00 ET",
+    "event": "UK CPI y/y (forecast 3.6%, prior 3.5%); BoE's Bailey speaks 10:00 ET"
+   },
+   {
+    "time": "Wed pre-market",
+    "event": "Lowe's, TJX, Target earnings; housing starts 08:30 ET (1.25M expected)"
+   },
+   {
+    "time": "Wed 10:30 ET",
+    "event": "EIA weekly crude inventories"
+   },
+   {
+    "time": "Wed 13:00 ET",
+    "event": "20-year Treasury bond auction (prior 5.469%)"
    },
    {
     "time": "Wed 14:00 ET",
-    "event": "FOMC minutes; EIA crude inventories also due Wednesday"
+    "event": "October FOMC minutes; Barr 13:35, Williams 14:30, Kashkari 16:15"
    },
    {
     "time": "Wed after close",
-    "event": "Palo Alto Networks (EPS est. $0.52)"
+    "event": "Palo Alto Networks earnings (EPS est $0.52)"
    },
    {
-    "time": "Thu before open / 08:30 ET",
-    "event": "Walmart and Alibaba earnings; jobless claims (199K expected), Philly Fed (19.2)"
+    "time": "Thu pre-market",
+    "event": "Walmart, Alibaba, PDD, NetEase earnings; Philly Fed and jobless claims 08:30 ET"
    },
    {
-    "time": "Fri 10:00 ET",
-    "event": "UoM sentiment and inflation expectations (prior 4.3%)"
+    "time": "Thu 19 Nov",
+    "event": "Anthropic (ANT) expected to begin Nasdaq trading; Senate Banking SEC nominee hearing; Ethereum core devs revisit Glamsterdam"
    },
    {
-    "time": "This week, date unconfirmed",
-    "event": "Anthropic IPO pricing ($70–78) and debut; 20-year bond auction"
+    "time": "Thu after close",
+    "event": "Intuit, Ross Stores, Keysight earnings"
    },
    {
-    "time": "Daily",
-    "event": "BTC spot ETF flows (seven straight outflow days) and BTC's $60K level"
+    "time": "Fri 08:25 / 10:00 / 12:15 ET",
+    "event": "Waller speaks; UoM sentiment and 1-yr inflation expectations; Cook speaks"
    },
    {
     "time": "Sun 29 Nov",
-    "event": "OPEC+ full ministerial meeting on 2027 policy"
+    "event": "OPEC+ meeting on 2027 output policy (BNO avoid reassessed)"
    }
   ],
   "top_headline_ids": [
-   "n23",
-   "n2",
-   "n8",
-   "n12",
-   "n167",
+   "n35",
+   "n18",
+   "n126",
+   "n14",
    "n7",
-   "n111",
-   "n135",
+   "n68",
    "n28",
-   "n85"
+   "n90",
+   "n60",
+   "n65"
   ]
  },
  "headlines": [
   {
-   "id": "n2",
-   "title": "Nvidia fallout: Commerce targets loophole for China's data center use",
-   "url": "https://www.cnbc.com/2026/11/16/nvidia-commerce-china-lutnick.html",
-   "source": "CNBC Top News",
-   "category": "equities",
-   "published": "2026-11-16T16:51+00:00"
-  },
-  {
    "id": "n3",
-   "title": "Bitcoin faces $2.1B in November ETF outflows as rebound stays unconfirmed",
-   "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9zSE9QTXlBQ3F6TVpzRHdtTTI0dUhSR1RJWlFyMjRUMnA0MllSMHFWTWpQRW5SWkU5dUVqMDd0RzlXb0NKNGJJMFV6LTloY01mUW9lNW1RbXI?oc=5",
-   "source": "Cryptonews.net",
+   "title": "Why Nvidia earnings and the Anthropic IPO could mean new trouble for bitcoin",
+   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPMHJfOWwzMGRWZ1RIR04yUGU0NnV0ZGhxU0tXb1JzSEh5eGhwNTNIMGV4WngxdmthclVpemxSc0syUjhveDVrQnY5NHcyeUlkbTdFU1FXYjJ2QTRmSTNJdVBTYlhRcjM1M0ZTTV9BcGk0cnJjUWpSU25mX1o3dk53QmgySS1HelhKeFQyY2hzOFJSY2VoVnhMM1BqUkg?oc=5",
+   "source": "Business Insider",
    "category": "crypto",
-   "published": "2026-11-16T16:49+00:00"
-  },
-  {
-   "id": "n5",
-   "title": "Lighter suspends all withdrawals after $10.4 million crypto exploit",
-   "url": "https://www.coindesk.com/tech/2026/11/16/lighter-suspends-all-withdrawals-after-usd10-4-million-crypto-exploit",
-   "source": "CoinDesk",
-   "category": "crypto",
-   "published": "2026-11-16T16:41+00:00"
+   "published": "2026-11-17T17:49+00:00"
   },
   {
    "id": "n7",
-   "title": "US Treasury Bill Yields Rise as 3-Month and 6-Month Auction Rates Hit 4.155% and 4.31%",
-   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQY2J4eU9UTGpMdDBKVG9ibkFBZjktQW9HMHI4djBRODdyX3ByZVBjN2dQMG52OXhETlphMWV0TEQwNjB1VlNFaVBtMTNERGtKVFlZWFdKUzAwVXJGanVPRGNaWDV3S21sVjRyOHVNcUk4c28tT3ZLQ2VvcElkQ1JiaFVaYXRjN3lXWnJoNnZTTk01QWlfMlR5RVppeF9WUmJ1cnhUV1JKRVEwSE5DejAzS2tHX3M0VzlaaVhxU0Z2N0dJcThrSVNacDUydGNIQQ?oc=5",
-   "source": "Business Upturn",
-   "category": "rates",
-   "published": "2026-11-16T16:38+00:00"
-  },
-  {
-   "id": "n8",
-   "title": "Nvidia is gearing up for one of Wall Street’s most anticipated earnings calls in years",
-   "url": "https://www.marketwatch.com/story/nvidia-is-gearing-up-for-one-of-wall-streets-most-anticipated-earnings-calls-in-years-91855b1e?mod=mw_rss_topstories",
+   "title": "As stocks struggle, bonds are finally helping investors play defense again. There’s just one problem.",
+   "url": "https://www.marketwatch.com/story/as-stocks-struggle-bonds-are-finally-helping-investors-play-defense-again-theres-just-one-problem-94c8a1d8?mod=mw_rss_topstories",
    "source": "MarketWatch Top Stories",
    "category": "equities",
-   "published": "2026-11-16T16:37+00:00"
+   "published": "2026-11-17T17:40+00:00"
   },
   {
    "id": "n9",
-   "title": "Rising US yields keep Bitcoin pressured as opportunity cost rises for holding crypto",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOWjEwT2VNNFNYWkJ2TVU3S1dEakIzbFJ3MmR4MUR1SC1YQ2p6eFZXaTdzMWJIdEN6bGhUand2WG9Qbm1TOTJhU3ZMdzZKUnlCM3dodjQ5dDBBRHNPN0thUVZGSWlqbzU0S0dyZ1l0bElKdEg1U1hMWVd5Yi1rZGVtVFMxLWFOSElFOGdlU0hoX3F0UQ?oc=5",
-   "source": "Traders Union",
-   "category": "crypto",
-   "published": "2026-11-16T16:32+00:00"
-  },
-  {
-   "id": "n10",
-   "title": "Dollar hits highest since April 2025 as Fed rate bets lend support",
-   "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1KV0pqa1pDazlaUlR0T2ZmaEJtalpSQ3VUVnotTEtYN0xFbDJkaHk3aFRIaEZ5REtlVkpaR3ZXMlJJeVhKVXEwenE3VThUN01mMUtR?oc=5",
-   "source": "شبكة تواصل الإخبارية",
-   "category": "rates",
-   "published": "2026-11-16T16:30+00:00"
+   "title": "Why Salesforce’s stock is leading S&P 500 decliners amid tech jitters",
+   "url": "https://www.marketwatch.com/story/why-salesforces-stock-is-leading-s-p-500-decliners-amid-tech-jitters-17510caf?mod=mw_rss_topstories",
+   "source": "MarketWatch Top Stories",
+   "category": "equities",
+   "published": "2026-11-17T17:36+00:00"
   },
   {
    "id": "n12",
-   "title": "The Nasdaq Just Entered a Correction. Are Your ETFs All Making the Same Bet?",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNRVp1NUkxMFVzVDg2R2NJUDhsNXpENl9CT2Zpbmo4WUVwU2ozVXlqdHdDcC1SSkE4SDVFX2h6VWFNVnBCRThtdjdmNEMxeG56ODJzSHZJNF9fSlZzQkZvRnlkeVcxdVN6LVV3VGVGbWVrM3pNamxZM0p0SlNDaEFiV0hWOERPZXVzQXFwbURMMmxQaHF5VFNuUkg1LXk2NTFoaUswM0pHcW0yaGZ6TVpzMUlyYlYzRFNI?oc=5",
-   "source": "The Motley Fool",
+   "title": "Russian Crude Exports Hit Four-Month High",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Russian-Crude-Exports-Hit-Four-Month-High.html",
+   "source": "OilPrice.com",
+   "category": "oil",
+   "published": "2026-11-17T17:30+00:00"
+  },
+  {
+   "id": "n14",
+   "title": "Markets Price a 95.4% Chance of a Quarter-Point Fed Hike in December",
+   "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5icVN6N0VYd1FzRnE4REx6RGxCd1RnUWJZSXpFUEtlQTVfLWVVeHA5UUNZckw0TGc1RGdyX1huVlR5UmtyTGRsMkF2MWZaV1YxN0lab1VhalpjQQ?oc=5",
+   "source": "www.tokenpost.com",
+   "category": "rates",
+   "published": "2026-11-17T17:24+00:00"
+  },
+  {
+   "id": "n15",
+   "title": "Binance Hack Wallets Move $137 Million in Ethereum After Two Weeks of Silence",
+   "url": "https://decrypt.co/383446/binance-hack-wallets-move-ethereum-after-two-weeks",
+   "source": "Decrypt",
+   "category": "crypto",
+   "published": "2026-11-17T17:18+00:00"
+  },
+  {
+   "id": "n16",
+   "title": "Susquehanna triples Bitcoin ETF holdings to $622 million in Q3",
+   "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9tWnBBSEZuQjVFTWZmMll0WE5BeE1zNi1tSF93cHFxdEZMczlQZXBiSnNmTTdpbndYdzY2Q3dYTEZKaXcxV3FGZEtRTzBsWnFwcVdKNl84SWdOckpDZWtmN25FanhXOVpsVTJWTXF1RTB5MVFtelU2S1M4RQ?oc=5",
+   "source": "Crypto Briefing",
+   "category": "crypto",
+   "published": "2026-11-17T17:16+00:00"
+  },
+  {
+   "id": "n18",
+   "title": "Former Nvidia CEO Jensen Huang says he’s open to returning in first statement since resignation",
+   "url": "https://www.cnbc.com/2026/11/17/nvidia-jensen-huang-statement.html",
+   "source": "CNBC Top News",
    "category": "equities",
-   "published": "2026-11-16T16:30+00:00"
+   "published": "2026-11-17T17:13+00:00"
   },
   {
    "id": "n23",
-   "title": "Stocks Fall Before Nvidia Earnings, Anthropic IPO: Markets Wrap",
-   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOU3BQd2lUam5YX1RGekdqV203U1BmRzNUQnlhem10ajRycVpfTUYzRWtOM2h1ZDd5M2tvUnNXeG1VOHRGTEl4VkJsSUhuQk41UlcyNU1EZDJaSTNTd2NvM3lDUDV5NU95SUtxSHZaZEpjSnMxRGgtamUtb0lYWUtHMTFZZDBLblVaeXhVTEhSa2ZPeF9y?oc=5",
-   "source": "Bloomberg",
-   "category": "equities",
-   "published": "2026-11-16T16:09+00:00"
+   "title": "Bank of America Says US Rates Will Rise ‘Until Activity Cools’",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQMXN1YXhGUkxTS0w4REVyZU9vWlY4T0tOQ2duVjJTc2FuZjF3VlE3M1Q0VFQ3cjRNTXpGcmdCOW1jRlIwRHRzY1ZsUHJTTU5KWEM2U1lPSmxfQ0pVNW5JR3lfc0FqOXREcTVpMm95cjFrdlU0akMzREQ0c0RWTEhfU0pzbU5hYm1KekJZejg5Q190N19XYk1rMjBxMXNXd1lxOFM0dTJrZTQxTDhoYWlpOQ?oc=5",
+   "source": "Bloomberg.com",
+   "category": "macro",
+   "published": "2026-11-17T17:05+00:00"
   },
   {
    "id": "n28",
-   "title": "Houthi Advance Puts Saudi Crude Exports at Risk",
-   "url": "https://oilprice.com/Energy/Energy-General/Houthi-Advance-Puts-Saudi-Crude-Exports-at-Risk.html",
-   "source": "OilPrice.com",
-   "category": "oil",
-   "published": "2026-11-16T16:00+00:00"
+   "title": "If you own a Nasdaq-100 fund, you’ll own Anthropic shares after 15 trading days — whether you want to or not",
+   "url": "https://www.marketwatch.com/story/if-you-own-a-nasdaq-100-fund-youll-own-anthropic-shares-after-15-trading-days-whether-you-want-to-or-not-19b08485?mod=mw_rss_topstories",
+   "source": "MarketWatch Top Stories",
+   "category": "equities",
+   "published": "2026-11-17T17:02+00:00"
+  },
+  {
+   "id": "n33",
+   "title": "Three Reasons Why US Stock Markets Are Crashing: Dow Slumps 900 Points, Nasdaq Enters Correction",
+   "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQdzF4WXduQ1RQSWVzTjhmV1k5UnB0NFhFbllDME8teno3dXhfSXBpbi13R0hSNWFhdDNFMVRjcGRYMXlnZDNkYUY1TXdUbjRick82Q295Ml92LU12cVg0UmtuMXZ1enRjdUdORFlQY2pfaW1iQjBESG82X3ZBUjJGQ0dtLWFCZTNiam9PNG90VkNNZ3VBWTU1YXduaXFHRXM0cTNoTWtEMUpuSmR3bUZ3RnRDemN5ZDBPOUROalFwN0tVUFFlY1hwWVIyTnVNVU05YWZMdNIB3AFBVV95cUxPd215MGlHckQ0WC1wT1ZPbEFfb0lQSnlWRnNab0dyVUNVaE5PQmhaVjFzU2UtMklka0thRmRxM0psek1FNjBYeHB3Vk1nV1VEOVJoU2RuOHVCV1RqSE9TQ2hoMDhRYmREX3NrZmFXZnlUYU9hR2pzbU9KZzBQRVpadEVWb3Y0WjdjZENtNzdQcmhIVzU2QjVCSHUxeW14ME80NlJkNVhpUDVxWGxmTUdWTzhIXzhmOUswTkVYX2hoYUwydU1sOUZQbWxESWV5OGE4WjJBN3cxVTU0MXFP?oc=5",
+   "source": "NDTV Profit",
+   "category": "equities",
+   "published": "2026-11-17T16:52+00:00"
   },
   {
    "id": "n35",
-   "title": "These 13 S&P 500 stocks can rise up to 70% over the next year, according to analysts",
-   "url": "https://www.marketwatch.com/story/these-13-s-p-500-stocks-can-rise-up-to-70-over-the-next-year-according-to-analysts-21119af9?mod=mw_rss_topstories",
-   "source": "MarketWatch Top Stories",
+   "title": "Nvidia stock falls ahead of earnings as company reels from Huang resignation",
+   "url": "https://www.cnbc.com/2026/11/17/nvidia-stock-earnings-jensen-huang-resignation.html",
+   "source": "CNBC Top News",
    "category": "equities",
-   "published": "2026-11-16T15:47+00:00"
+   "published": "2026-11-17T16:49+00:00"
+  },
+  {
+   "id": "n36",
+   "title": "Long Treasury Yields Have Changed Their Reason for Rising",
+   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQdmIwcTFNNThOXzlodzRoRVBOZHZQRUJPUkF5aDZWTE5vSXN5RUpUNVg1alM2X2NQcWphd0p1TmtoazZoS2hqN0RTYmhTWnYtRldKVDN0LXRjNGFKd0hZdnM3UzhOdll4TzNrR0E4SVZCVC1JU3RRUk01NDNMVHY5bEVWTEQ?oc=5",
+   "source": "IndraStra Global",
+   "category": "rates",
+   "published": "2026-11-17T16:49+00:00"
+  },
+  {
+   "id": "n40",
+   "title": "Capitulation Meets Support",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5mT2ZsNkhrZGg0NVh3WFNqT1BxQXE5aEpCSlpYeUpoTS1WcnctdFZxSHV0M0JBazQyLTJqU2NGd0RacWtTZDBpQnF5a1VDVzk3LU0yX3Vndk5SclpOalNNSmF0LU9OQ295YUliRE5B?oc=5",
+   "source": "Glassnode Research",
+   "category": "crypto",
+   "published": "2026-11-17T16:41+00:00"
   },
   {
    "id": "n42",
-   "title": "Wall St falls as Nvidia jitters cloud sentiment ahead of results",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOZEJobHpHMl90WUdVbnpzSGxLb1l3bi1BczhrN29iVW9rUzBtQWE4aFNuM2ZGS1RIQThLdEZPWmZjeExVaHhRaXBubkdqR3R3TXJYTlRqUmRYcXZxYS1pV1lyRlExUDdEUWJ3cTg4aktJVWcxbkg5UW9oeVRXLXhCZjdRQmFNeFJlLXhpWTRMM1lEUVlodGwxVHNCSE9ONTlnem0yekw1dDNraElYZGc?oc=5",
-   "source": "Reuters",
-   "category": "equities",
-   "published": "2026-11-16T15:32+00:00"
-  },
-  {
-   "id": "n70",
-   "title": "Zelle picks Solana for ZelleUSD stablecoin and international payments",
-   "url": "https://cointelegraph.com/news/zelle-solana-zelleusd-stablecoin-international-payments?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "category": "crypto",
-   "published": "2026-11-16T14:55+00:00"
-  },
-  {
-   "id": "n84",
-   "title": "Morgan Stanley Raises Brent Forecasts on Slow Mid-East Recovery",
-   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOY0oxc2ZlV0pTdmZPQUJXaDFSZENLSjZUZ0dEekVyQ0xHT1ZLWWxrRWFDXzFtMHJOU2hKVkViUXR2WlRYWk1NZTNLdUVPOVV3eVFCR1RJeGN1UXctMlRIaV9FSS02cXlwQ1RuWUJ5NUxqRHpscC1rVFFySWFCWXlueE1HcU5YXzE3WVd1MEFCc3h5WlAyUl9DYU53?oc=5",
-   "source": "EnergyNow.com",
-   "category": "oil",
-   "published": "2026-11-16T14:39+00:00"
-  },
-  {
-   "id": "n85",
-   "title": "BTC news: $60K put is the top options bet with $900M in open interest",
-   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNREVpcUFSN29DdTdvMnhUTWd6UjdfZEVoYXkyVVMyRWZoRTM1NjVFbFVES3hud2lpUFEzN1pkZmFrYWRLMEtKbkhSX0NEWWMtQW9LWmh2M2xOSEVaVERfNXQ2ZkhOQkZGOW5kTnI0VEpsMGRxZDZobWhkcm9DaFJFSFY0ZmhjVFF6MnF6akdmeldPcTNZS2VQSy0wZDdCMFZOX3hEYzhTZzB4VmlIRUVtY1U3ZVJGTDVscG45SHVSazI3QQ?oc=5",
-   "source": "CoinDesk",
-   "category": "crypto",
-   "published": "2026-11-16T14:39+00:00"
-  },
-  {
-   "id": "n86",
-   "title": "Brent Crude oil price drops 2% to $93.92 as Middle East supply flows recover",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOM3UtNF9RVEtTZGZudGZ3ejBIUnJ2elNEX3ZiU18tbWk1VzA0V2dpRnp6dC13MzhmdE1CVmF2OHpJOE9kMFdNX2tfR1NHTjJhSWIwU3JIVGJDVmlEaDlsWXBMcHJmejJIb2lWWkthd3Z1cFF0eUpTcmxtRVFkR1phYVcwOVFBSmc5T2hMZG1YQVFPcFJWVlJmWXBUVHBtY2F1Nk52S0hQUDJzR2NTc0cyblpCeTI5MWhWZmpwVWxneXg?oc=5",
-   "source": "Business Upturn",
-   "category": "oil",
-   "published": "2026-11-16T14:37+00:00"
-  },
-  {
-   "id": "n92",
-   "title": "Bitcoin slides to $62,000 following liquidation cascade, then rebounds slightly",
-   "url": "https://www.cnbc.com/2026/11/16/bitcoin-slides-to-62000-following-liquidation-cascade-then-rebounds-slightly.html",
+   "title": "Disney beats fourth-quarter estimates, targets $3 billion in savings through cost-cutting efforts",
+   "url": "https://www.cnbc.com/2026/11/17/disney-dis-earnings-q-2026.html",
    "source": "CNBC Top News",
    "category": "equities",
-   "published": "2026-11-16T14:29+00:00"
+   "published": "2026-11-17T16:40+00:00"
   },
   {
-   "id": "n99",
-   "title": "Bitcoin Tumbles Ahead Of Anthropic IPO. Is It Paralleling Its SpaceX Sell Off?",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNMEVodHE0bjlsNW9qcmxpcDQzYXoyb0FZcjF5cm94b242TV9aOFRjUkMwRXI0LUhpRl8ta0xPSTN3SVA2VG9tcE5Yd1FZMFhfcldCVm5HSmJyMjNVZVhYZm5fX2c4V2hZRTNka1AyX3JtNFJxS0tOQXRaWnA5Y3FOUm1ScUVNTElZMjRVVk10V1RXRmpqLTBSZHZ2dDlzekg0cGZYTS1ra2w0R3VyQi10a0lwdkxTYTk4MHpWUw?oc=5",
-   "source": "Investor's Business Daily",
+   "id": "n44",
+   "title": "Bitcoin drops 2.5% as Nvidia stock risks new 5-month lows into Q3 earnings",
+   "url": "https://cointelegraph.com/markets/bitcoin-drops-25-nvidia-stock-risks-new-5-month-low-q3-earnings?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
    "category": "crypto",
-   "published": "2026-11-16T14:19+00:00"
+   "published": "2026-11-17T16:39+00:00"
   },
   {
-   "id": "n102",
-   "title": "Goldman sees Brent easing to $78 by December 2027 as oil market moves into surplus",
-   "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQRVZVU1dLQjBfNzJRdmlrMVkxekhBV29CTXRJY3hDeGNtc0VEajVCUEEzbnpuV19TOUNyUXJCcGs5Rkl3bThOSHgzZWZxSndXZC0wYUp1TVJEeGUyQVoxOHZJMThCLUJoYk5FWXZsSW5xb29LNUc1TW8yS2hEcElzMGQ2MUtfQzVEa1FOcjNGcy1ZaXpUUWhfQzFGNGozMDVoNzUzMy03V0JhdXZiQkctWFZBQVRoODlKemFUQTI1NFB3dk5jV0FZWWY3amNpVERodjR0eU5Ddi11MDhmR0VB0gHkAUFVX3lxTFB0Ry02MnNUUmU0Tko5UzlkZ3A5WWl5bk4zaUt3c1hXVWxEVm0tTHZMelIwd1dEMEYzbjE1dUZocVhkS1ZKdzVEMzZJY3lSZUthbVlCLUxadmlpMGd4a3VhZkltSHhUZlBka0RkTTlBeVUydHBnYUJ5NC0zTGFiRUM5WXo1RHBCM1gwRXpZRU5Sb3RuSmhTQ2o2TC1Gb29lSXdvSWxjZUVqSUsza1JBQnVOak9MMGNJenBaQ3NuSXRtSG90UkswRjM3cXJrbTZzNzA5dWthQjVWQ0dETEVwcThfT2dBag?oc=5",
-   "source": "Moneycontrol.com",
+   "id": "n46",
+   "title": "Opec-Plus: Output Jumps to 8-Month High, But Is It Sustainable?",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBFNmlPSFhjNVpuQ0V1ZmNYa2JuN2xVMU5uTG1HdG1sMWsyaFU1eUJ3NmhrTkFHbzVoc2V4b1k4LVZ1VW1HM3dsdy0zalJpX0l3YkhaVnA5LVhjdHlSWWxJZ2R3SXQ0cUZUcW1zdjNNSUxXUQ?oc=5",
+   "source": "Energy Intelligence",
    "category": "oil",
-   "published": "2026-11-16T14:13+00:00"
+   "published": "2026-11-17T16:38+00:00"
   },
   {
-   "id": "n104",
-   "title": "Treasury yields pause near 1-month highs as traders brace for Fed signals",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOLUo0azhGODZJRzZTTjhrODQ4aVlrdHFXX2pGQVFsRFIwRmF4endIVVVFTmlGWTRxTURrblcxMzVDal9BVVJXeHA4TkY2cE4zcTE2V3FCVFRSV2dWM3Vva2gzT0o0UEJucFltakRCdDM5UTQzLTlNZWNJNHV1TjNhZ1ZDQ1otOUdMa1FKZW1aWlNkNTNjM3NkMVZRM01XcnpRT2hEQzFIR1dSbzFYN1JLc05aYmJVMzE3bVVrZ2kwYzR1Nlk?oc=5",
-   "source": "Investing.com",
-   "category": "rates",
-   "published": "2026-11-16T14:11+00:00"
-  },
-  {
-   "id": "n109",
-   "title": "Goldman Sachs Sees U.S. 10-Year Treasury Yield Falling to 4.6% by End of Next Year",
-   "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE40TkJ5Y1Z4LUJhY3dHamJQdE9pRi01SVpfOEE2Zi01ZUdEbzlrVGd2aVpNUzlfYjRKb1B2RTJwbFhLRl8yM1pwMkVKbkMzd1Z4TUxQOElVaXc3OXhJT0piYWRlNkdNX1RLU0lJX0UxRENqLTNDS2c?oc=5",
-   "source": "BigGo Finance",
-   "category": "rates",
-   "published": "2026-11-16T14:05+00:00"
-  },
-  {
-   "id": "n111",
-   "title": "COMMENTARY: Warsh's honeymoon period is over",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNQWxhSndRSHRSdEJXcm1fQ1gtc0wwRGZJM1lobnREeE5zMVM1UC1TXzA3ajI4bXVsVVlNZE1EWng0Y0ppTElHd3Jfd1cwQy1WYk5ZaDM2TVhTWHIxTlVzN2U4a0VIZ1FDTG1UTWJXZTh4RHlNLV9MLXdCQTM0NWl6amhfdHA5bFFDVEpLYXNnb1ktaWxPRGlhamNXbjR1OG5YLUN2N2pjbVNqQQ?oc=5",
-   "source": "Reuters",
-   "category": "rates",
-   "published": "2026-11-16T14:02+00:00"
-  },
-  {
-   "id": "n118",
-   "title": "Micron, SanDisk, and SK Hynix Stocks Are Tumbling in Premarket Again. What’s Behind the Drop?",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVXFLRlJnbS0tNTVWb21rTV9sSV9CTXRYbjQ2aUtyR3lLcG1VWUZWcFdrUVBveDBBX3g1RlVWU0RtaVdIRmdLR3JlN1BBRXpsYlVVWm5xUUdMOUFZbUlkcFBKbl9VYzVVSzVfQ05fVFl1MXY1SmNtQ2s1Q2t4a2FqMmdFOHFmdUNMWWlITHNHNm05bUhqdHRxVmhFdUtyOXJrUE9ENEhzdldGdXVlR25ZazVxcGlMbUZO?oc=5",
-   "source": "TipRanks",
+   "id": "n47",
+   "title": "Jensen Huang now wants to return as Nvidia’s CEO. This is why that could be difficult.",
+   "url": "https://www.marketwatch.com/story/jensen-huangs-fans-want-him-back-as-nvidia-ceo-this-is-why-thats-unlikely-2be28ac2?mod=mw_rss_topstories",
+   "source": "MarketWatch Top Stories",
    "category": "equities",
-   "published": "2026-11-16T13:52+00:00"
+   "published": "2026-11-17T16:38+00:00"
+  },
+  {
+   "id": "n60",
+   "title": "Brent Stuck Near $93 as Hormuz Tanker Attacks Offset Gulf Export Surge",
+   "url": "https://oilprice.com/Energy/Energy-General/Brent-Stuck-Near-93-as-Hormuz-Tanker-Attacks-Offset-Gulf-Export-Surge.html",
+   "source": "OilPrice.com",
+   "category": "oil",
+   "published": "2026-11-17T16:00+00:00"
+  },
+  {
+   "id": "n65",
+   "title": "Bitcoin and Ethereum ETFs Extend Outflows as Solana Funds Attract $11.7 Million",
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNZW5hREh2RGpwM3BiMWxsMkg4UHlkbi1iOXlZRFdSZXM3SVJnc1pabktNel9XNzhERERCaktQTHpQdGJPMjY1UlRROWt4Ulo4aWVFcFRNdERrUldnWWo2MGVRT01CODd0NzBvQ3hFb05lQW9mTHZIMjcxNlZ6Tnh2N2NHOUJ6RFVHV2ZENEdBMUtXSnZKNEdHbVQySmNHT1B5dC1EUko3MA?oc=5",
+   "source": "FinanceFeeds",
+   "category": "crypto",
+   "published": "2026-11-17T15:41+00:00"
+  },
+  {
+   "id": "n68",
+   "title": "Homebuilder sentiment plunges to 14-year low, leading more builders to drop prices",
+   "url": "https://www.cnbc.com/2026/11/17/homebuilder-sentiment-plunges-to-14-year-low-leading-more-builders-to-drop-prices.html",
+   "source": "CNBC Top News",
+   "category": "equities",
+   "published": "2026-11-17T15:36+00:00"
+  },
+  {
+   "id": "n74",
+   "title": "Home Depot names Richard McPhail as new CEO, beats earnings expectations",
+   "url": "https://www.cnbc.com/2026/11/17/home-depot-hd-q3-earnings-2026.html",
+   "source": "CNBC Top News",
+   "category": "equities",
+   "published": "2026-11-17T15:27+00:00"
+  },
+  {
+   "id": "n79",
+   "title": "US 10-Year Yield Set for Historic Run Above 5% on Fed Rate Cycle",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOOTJ3VWxtanltWDFIdk5Jc2U5eFdaUFp6aG1PVVkwVVNpNVZxRFRvQllPcjYwVGh1OVlpVG9pQ1QyX283NldTUnBMa0NxRllJd1E3UDVacklIdTh0MmxsQnc2LTRfaGFFR092OHZZNnUwNEFGLVBFaFF5M0paNFo5d0t4YUIyUDNOVnV5UVVyRTlJRmN6azkxTmNjR251eU8yaDVmX2tJdGpFNkdIekVRbndoMEo?oc=5",
+   "source": "Bloomberg.com",
+   "category": "rates",
+   "published": "2026-11-17T15:15+00:00"
+  },
+  {
+   "id": "n90",
+   "title": "Anthropic likely to price IPO above the current range of $70 to $78, sources tell CNBC",
+   "url": "https://www.cnbc.com/2026/11/17/anthropic-ipo-price.html",
+   "source": "CNBC Top News",
+   "category": "equities",
+   "published": "2026-11-17T14:34+00:00"
+  },
+  {
+   "id": "n97",
+   "title": "Deutsche Bank shares sink as whistleblowers reveal Epstein payments, Trump tax leak, Russia bets",
+   "url": "https://www.cnbc.com/2026/11/17/deutsche-bank-leak-epstein-trump.html",
+   "source": "CNBC Top News",
+   "category": "equities",
+   "published": "2026-11-17T14:24+00:00"
+  },
+  {
+   "id": "n98",
+   "title": "US Oil Reserves Fall to 276M Barrels, Lowest Since 1982, Even as Brent Crashes Toward $90",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOWHNCeVAxbEh4djdrZXA2YWFVNGdySDhxNmJIQmFwTHVaZ0dsWXZMZ2VWUE9YSkpubDB6bnoxQXVfVHZuODhLTzdzQjVWbjJRb3FKLWhYbGp4Q0NlbzUzWkJjU0ZPcWdGN1FhUVlwelFELWp5aEZFSUVDclh4cFA1Q2hHZ2ZvX2FzTlpmYXk0RDJtdUVxb3l4SHh0Q1RES25iWnhObmU2U1dwMmdfUFZzdDBpemhhdw?oc=5",
+   "source": "Coinpaper",
+   "category": "oil",
+   "published": "2026-11-17T14:23+00:00"
+  },
+  {
+   "id": "n108",
+   "title": "Is Bitcoin's Price Drop Due to Anthropic's IPO? Vaneck Sees December Low",
+   "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5DTFFfUGFuOXlrT2tZemF2Yk1sQkg0b1JOcVZseXY2a2hIUFpqRGNVc2ZZOFpGd2VCWEJzdnFGcWpSQUc3dU1MNVR0RzhqaWJ5QS1mam1kQ1U?oc=5",
+   "source": "Cryptonews.net",
+   "category": "crypto",
+   "published": "2026-11-17T13:50+00:00"
+  },
+  {
+   "id": "n113",
+   "title": "IBIT Led $2.35B Bitcoin ETF Exodus: Is Wall Street Selling Too Soon? - iShares Bitcoin Trust (NASDAQ:IBIT",
+   "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQSndTaklvblRHcTIxZkdVVTBnMF9QSDcyN2tyc2NFTUdtcUhkOVVfOXliY3RRTHk3RURTOThpOXVHTk1zVVhQNGFUZXM3Q013WUloMW9leE9sQzVaZ2l2a25EX2pjazRQTGZOX1BONE5DekpzMDAycm1hVXJ5eldQdUxDZ29uNXQ5OXZyUGVoNk8xelJrSWlVNGMyb0R4d1pfcm5USFROMTZtXzJZM01peTVJdDFJNGxXRS1QXzRBbEsyM25rNDBtNVQxckxteVRHUWdWOGJobXExUQ?oc=5",
+   "source": "Benzinga",
+   "category": "crypto",
+   "published": "2026-11-17T13:33+00:00"
+  },
+  {
+   "id": "n122",
+   "title": "Oil prices caught between rising Mideast exports and tanker attacks",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPSkZIM2VzenhHUUN1NS1VZUhuUzdHVHNOSFRILUpFcHcyZGp6S3dlalU5VzNmNXUyMElqbEd3MktiV0dxOFZfeFhzdWVyaTRwSWhIekJlY3pFRkdsVVk3dDgwZ05haVhtbktsYXg1TDBYNmp2bzZ0OUxpYWg5ODNzWERiNUp1T3YzUkhLVzhaNUMyMkRhekxpcUNUVmFLZl91VzhuVjJxeEFpejIyRnZJ?oc=5",
+   "source": "Investify",
+   "category": "oil",
+   "published": "2026-11-17T13:09+00:00"
+  },
+  {
+   "id": "n123",
+   "title": "US dollar rally erases ‘liberation day’ losses as rate expectations rise",
+   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQcmwyeDNFekNsR3Z3akxhWGlnZGVCMWNSS05lOEk0akFnMmJaU0M4ZUJURnZ4V2VER2M2bzdqVjJ1SVY3M05qZjdIckE4VVlVMDNndlBPTVRoZ3VzQjNFVHdPTTlVclpYME5DSFBWcnNGMXJKZjFFbnlaOUQ3YnVSUDltcTU?oc=5",
+   "source": "Financial Times",
+   "category": "rates",
+   "published": "2026-11-17T13:07+00:00"
+  },
+  {
+   "id": "n125",
+   "title": "OPEC Further Lowers 2026 Global Oil Demand Growth Forecast",
+   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPZGF4eTctTUVhdU5hYTlzcU1DWDdzWVZVXzl2ZDl1ai1PT2wxbTR0XzJtNGdKYnJrMVZRZFZXc1FoaG9IVTg3ZlRMUllWYnZzZ0NaeVVfU0FtZ1laOUhxRTZ0ZlZzNHVLR3hjNWRfLU1qZndQR1BEbmtjOU9YTXN1eEliN2NkWXI3M1VsS0RxOVVCR2Yy?oc=5",
+   "source": "EnergyNow",
+   "category": "oil",
+   "published": "2026-11-17T12:54+00:00"
   },
   {
    "id": "n126",
-   "title": "Strategy (MSTR) Adds 485 Bitcoin for $33.4 Million as It Spends $228 Million Buying Back Preferred Stock",
-   "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE55eUNXWWYwR09ua0cxaUFxZmpzT0hDd3dmUFVuX21jQ0lORXZuZUhCWEgyMUFUbjZQb1d2cThCb0c3V3l1a1EzWTNvbUlPclNLZ0tVMmxOVTZrUUhMNkdnOEZ1ajhNaGljVDFQQ2RtVTltV1N5WHhHVjB4VGU?oc=5",
-   "source": "Bitcoin Magazine",
-   "category": "crypto",
-   "published": "2026-11-16T13:38+00:00"
-  },
-  {
-   "id": "n135",
-   "title": "Oil prices slip as IEA sees first supply surplus since Iran war began",
-   "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBWNGhzbGtHSWxVS1B2bnVlX3AzUXFNNGkxYUR3Mk9vcE8xS3BFY3VZU3ZEQWhyNHpla3FUNU1iNVNidHhTX3hQVzlzU1hSS0ZGQUYtZGpfWFA0V3JoNFZJblpsSGg4VlRINE5FOWItazU0c0E?oc=5",
-   "source": "Quartz",
-   "category": "oil",
-   "published": "2026-11-16T13:24+00:00"
-  },
-  {
-   "id": "n156",
-   "title": "Oil Price Forecast: Brent Risks $90 as OPEC+ Faces November 29 Production Decision",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOM1J5SGQxMFVISTVBV202ZDJDX21xR20xb1NoN01Jc01UaWpZUkdlU0szeEtMczVxZTJ1WnR3N2ZFVHpnZHRCLWNmWHU0dGhoZHBNM1RDU1J0X18tMC1ILWk0OFlRVEpXd3hKLW5EMzdxZm5PRHlZcmdtSGJnWVF0WFA0RXhUb2pXN2k3N19NbFdXbDB3T0ZMUVNyaHlzLTNtcUdwTnJ4VWR2R3c?oc=5",
-   "source": "Coinpaper",
-   "category": "oil",
-   "published": "2026-11-16T11:36+00:00"
-  },
-  {
-   "id": "n165",
-   "title": "Stocks’ New Headache? The Fed Could Raise Rates Well Into 2027",
-   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOaVRqdWxHZTVJYU9nTnNEUFFBZWVVaG11UTdUYmdzUHFSMjVWYTY0b2o0NG5OTE9mcTZ5M3dQc2swdXE0aGpsTnk0THVka0poUi1uMTdfMkF3TGtWTGgtYU9KZm5DdjBrOWp3RDd6bmpFejdwVWxyb3pEYWxjZzFKTk5MME10LTdf?oc=5",
-   "source": "Barron's",
+   "title": "Fed's Musalem: US likely needs several rate hikes by spring to control inflation",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNSmh3bk9iaG5YQ2V2dzZUMkQ1aGQ2LWNfdHFCWkVaOUtyWFdHS3lFTzZJTDhsQnItcnN4N2NibjRLNXZIbHVvSllBY0Jyc201azJtbUNnWkRndWlPN05sZUVaWkJBZFlTTGJzYWFFLWRqN2R6X25jRllRT1hHekZ2aFRweE5rbHM3Z3p1SHoxR2UwR1VnMWVnbWZ3ZmRHSTkyR2lhU3p1NzNFZFBjMEtRQ25iZnpwVEhBZTd3bw?oc=5",
+   "source": "Reuters",
    "category": "rates",
-   "published": "2026-11-16T11:00+00:00"
+   "published": "2026-11-17T12:33+00:00"
   },
   {
-   "id": "n167",
-   "title": "Rate-Hike Odds Surge Past 90% as Gold Falls Below $3,900 to More Than One-Year Low",
-   "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBUYTlqSjRSLVdSVWktZl9xaHQ5VFNMVnJmX2EyNkI2WjE5M0czSWp2SUozT2tFaHB5OWpEcmpzRDloQW9kZkx1dEpSbVFSUGtSekJpUDlyUlpNcmphRzNmYUVlaGhlbVhGdDhQTGZ4dXVOcE9kUGc?oc=5",
-   "source": "BigGo Finance",
-   "category": "rates",
-   "published": "2026-11-16T10:55+00:00"
+   "id": "n132",
+   "title": "Goldman Sachs Raises Oil Price Forecasts, Sees Brent Upside at $140 a Barrel",
+   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPWWdLclFHZ2c4cHNSTG5Gb2pzM3dyUXJ0dTRfaURrRW1QcUVaeVNOWEJxQmtrRDRmUFhUc3YxVjI4Q1B1M2ZKb3paWExmOGx0dU4tU3VIWVV4V0VrbmI1TlhWQng2eWZkejkxdXk5LWF0RWpkNl9ET1ZWTHFxeGxfeFNMTEVTbURCSF9zNm5WTWkxZWViX3FTYUNhRk5laTA3WGxJOWszQm0?oc=5",
+   "source": "EnergyNow.com",
+   "category": "oil",
+   "published": "2026-11-17T11:33+00:00"
   },
   {
-   "id": "n175",
-   "title": "Iran Claims Two More Oil Tankers Hit Mines in Strait of Hormuz",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/Iran-Claims-Two-More-Oil-Tankers-Hit-Mines-in-Strait-of-Hormuz.html",
+   "id": "n143",
+   "title": "Iran and Oman Hold Talks on Strait of Hormuz Security as Tanker Attacks Surge",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Iran-and-Oman-Hold-Talks-on-Strait-of-Hormuz-Security-as-Tanker-Attacks-Surge.html",
    "source": "OilPrice.com",
    "category": "oil",
-   "published": "2026-11-16T10:00+00:00"
+   "published": "2026-11-17T10:00+00:00"
+  },
+  {
+   "id": "n163",
+   "title": "Goldman Sachs sees Brent oil averaging $88 in 2027 despite expected oil market surplus",
+   "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNZGptbjJHLTNyem1ONGZibzBQczQ4RnRqSEtaUVN2bG1tSllSNWdKMWhHRHBDdmtRQW9aNVFseF9ZZ3hQNkxteVFaMmM1bmhPSjhnZm5CemhWYnd4czlvcXh5WW14dWRKUW4yVmVMdFQ3RGMtYXFqTEJJcmJObkdIQUUtU1BzRVVCOHFNNmlJcENFSm56TWIwWUY4M2xhYzhTZHhSOXhLbUtsYzJERHpOY3lhcnc1NWJPdzRPQ3hydUIyRUFLR3hYUXdZbG93c0RtaThNZmRSemxoYktRUkNGeTVsdWFNRjJNbVY4eNIB8gFBVV95cUxQblA4cEsyUkktV1ZFc1l5elV1YzBKWTR0bmt6VjFhd1d5dHBWMV9ES0NPVWtUTkczTGE1am9tOHdlUTllcWtsQnluU2dqc08yWmw4UTJOV3FjZExILWwtMERKbTYybnFra1RrdnV6eW5SQUYwcHFJSFJFZGpaRlJ2dlBXZEJyVXVWS2lWOVhQN3g0VG9iMWNGYkpyWFJIWUZOUDFodnNvaHpuUlkzOTBDLU4xcF8wUUFfNEhhMHdqRDhjNHU0eXlsNm9qeHQ4anhSV1I1bnRoQlp4NWs3djlxRW1weVZyVjlnVlZBZ3VhY0JKdw?oc=5",
+   "source": "ET EnergyWorld",
+   "category": "oil",
+   "published": "2026-11-17T06:55+00:00"
+  },
+  {
+   "id": "n180",
+   "title": "Fed’s Hammack Reiterates Preference for Small, Incremental Hikes",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOa3MwUUp3QjVuS0NGTWhLN0hYZldpQkJHUUZKRDZSRlhvdXJ1d2VXTVk1UkVzZ2swX1N1OWdQM1g1cC10cnMwaTRCRzEtVWNfWHBLdjdYY19wUEpZZERkQl9zVzNsbjVuZ25zQUFsaXFBMnBVX1I1X1pPU01SdEpPZzA1clBJZkx5TjYwV29QUmxHRmxfYW8wdWFLazlLbXVBRk9nUm01aVppdHRtS2RjRHlJeW0?oc=5",
+   "source": "Bloomberg.com",
+   "category": "rates",
+   "published": "2026-11-17T00:13+00:00"
   }
  ],
  "market": {
@@ -622,463 +750,463 @@
     "label": "S&P 500",
     "group": "equities",
     "kind": "price",
-    "last": 7465.54,
-    "change_1d": -1.27,
-    "change_1w": -1.12,
-    "change_1m": -2.53,
-    "as_of": "2026-11-16T16:55+00:00"
+    "last": 7334.04,
+    "change_1d": -1.11,
+    "change_1w": -2.48,
+    "change_1m": -4.64,
+    "as_of": "2026-11-17T17:55+00:00"
    },
    {
     "symbol": "^IXIC",
     "label": "Nasdaq Composite",
     "group": "equities",
     "kind": "price",
-    "last": 24704.006,
-    "change_1d": -1.72,
-    "change_1w": -2.17,
-    "change_1m": -5.49,
-    "as_of": "2026-11-16T16:55+00:00"
+    "last": 24242.8,
+    "change_1d": -1.09,
+    "change_1w": -3.28,
+    "change_1m": -8.28,
+    "as_of": "2026-11-17T17:55+00:00"
    },
    {
     "symbol": "^DJI",
     "label": "Dow Jones",
     "group": "equities",
     "kind": "price",
-    "last": 51916.52,
-    "change_1d": -0.82,
-    "change_1w": -0.9,
-    "change_1m": -0.17,
-    "as_of": "2026-11-16T16:55+00:00"
+    "last": 50866.88,
+    "change_1d": -1.44,
+    "change_1w": -2.61,
+    "change_1m": -2.12,
+    "as_of": "2026-11-17T17:55+00:00"
    },
    {
     "symbol": "^RUT",
     "label": "Russell 2000",
     "group": "equities",
     "kind": "price",
-    "last": 2761.3613,
-    "change_1d": -1.04,
-    "change_1w": -2.8,
-    "change_1m": 1.47,
-    "as_of": "2026-11-16T16:40+00:00"
+    "last": 2718.7695,
+    "change_1d": -0.88,
+    "change_1w": -3.64,
+    "change_1m": -0.35,
+    "as_of": "2026-11-17T17:40+00:00"
    },
    {
     "symbol": "ES=F",
     "label": "S&P 500 futures",
     "group": "equities",
     "kind": "price",
-    "last": 7497.5,
-    "change_1d": -1.13,
-    "change_1w": -1.01,
-    "change_1m": -2.68,
-    "as_of": "2026-11-16T16:45+00:00"
+    "last": 7361.5,
+    "change_1d": -1.04,
+    "change_1w": -2.42,
+    "change_1m": -4.82,
+    "as_of": "2026-11-17T17:45+00:00"
    },
    {
     "symbol": "NQ=F",
     "label": "Nasdaq 100 futures",
     "group": "equities",
     "kind": "price",
-    "last": 27549.5,
-    "change_1d": -1.73,
-    "change_1w": -1.66,
-    "change_1m": -6.27,
-    "as_of": "2026-11-16T16:45+00:00"
+    "last": 26990.0,
+    "change_1d": -1.08,
+    "change_1w": -3.04,
+    "change_1m": -9.19,
+    "as_of": "2026-11-17T17:45+00:00"
    },
    {
     "symbol": "^VIX",
     "label": "VIX",
     "group": "equities",
     "kind": "price",
-    "last": 21.03,
-    "change_1d": 8.96,
-    "change_1w": 5.57,
-    "change_1m": 5.2,
-    "as_of": "2026-11-16T16:40+00:00"
+    "last": 25.9,
+    "change_1d": 13.05,
+    "change_1w": 33.09,
+    "change_1m": 40.46,
+    "as_of": "2026-11-17T17:40+00:00"
    },
    {
     "symbol": "XLK",
     "label": "Tech (XLK)",
     "group": "equities",
     "kind": "price",
-    "last": 166.29,
-    "change_1d": -2.34,
-    "change_1w": -2.69,
-    "change_1m": -9.36,
-    "as_of": "2026-11-16T16:54+00:00"
+    "last": 161.64,
+    "change_1d": -1.89,
+    "change_1w": -4.3,
+    "change_1m": -13.08,
+    "as_of": "2026-11-17T17:55+00:00"
    },
    {
     "symbol": "SMH",
     "label": "Semis (SMH)",
     "group": "equities",
     "kind": "price",
-    "last": 468.068,
-    "change_1d": -3.84,
-    "change_1w": -3.97,
-    "change_1m": -13.29,
-    "as_of": "2026-11-16T16:55+00:00"
+    "last": 455.16,
+    "change_1d": -1.46,
+    "change_1w": -5.89,
+    "change_1m": -17.01,
+    "as_of": "2026-11-17T17:55+00:00"
    },
    {
     "symbol": "XLF",
     "label": "Financials (XLF)",
     "group": "equities",
     "kind": "price",
-    "last": 58.385,
-    "change_1d": -0.5,
-    "change_1w": 0.68,
-    "change_1m": 5.16,
-    "as_of": "2026-11-16T16:55+00:00"
+    "last": 57.305,
+    "change_1d": -1.5,
+    "change_1w": -1.69,
+    "change_1m": 4.08,
+    "as_of": "2026-11-17T17:55+00:00"
    },
    {
     "symbol": "XLE",
     "label": "Energy (XLE)",
     "group": "equities",
     "kind": "price",
-    "last": 63.94,
-    "change_1d": -1.57,
-    "change_1w": 3.23,
-    "change_1m": -6.3,
-    "as_of": "2026-11-16T16:55+00:00"
+    "last": 63.445,
+    "change_1d": -0.38,
+    "change_1w": 1.99,
+    "change_1m": -6.42,
+    "as_of": "2026-11-17T17:55+00:00"
    },
    {
     "symbol": "XLV",
     "label": "Health care (XLV)",
     "group": "equities",
     "kind": "price",
-    "last": 188.988,
-    "change_1d": 0.07,
-    "change_1w": 0.35,
-    "change_1m": 6.95,
-    "as_of": "2026-11-16T16:55+00:00"
+    "last": 185.93,
+    "change_1d": -1.04,
+    "change_1w": -1.56,
+    "change_1m": 5.85,
+    "as_of": "2026-11-17T17:55+00:00"
    },
    {
     "symbol": "XLI",
     "label": "Industrials (XLI)",
     "group": "equities",
     "kind": "price",
-    "last": 166.715,
-    "change_1d": -1.22,
-    "change_1w": -1.29,
-    "change_1m": -0.62,
-    "as_of": "2026-11-16T16:55+00:00"
+    "last": 164.89,
+    "change_1d": -0.46,
+    "change_1w": -2.28,
+    "change_1m": -1.07,
+    "as_of": "2026-11-17T17:55+00:00"
    },
    {
     "symbol": "XLY",
     "label": "Cons. discretionary (XLY)",
     "group": "equities",
     "kind": "price",
-    "last": 118.58,
-    "change_1d": -1.17,
-    "change_1w": -2.01,
-    "change_1m": 5.44,
-    "as_of": "2026-11-16T16:55+00:00"
+    "last": 117.5,
+    "change_1d": -0.55,
+    "change_1w": -2.93,
+    "change_1m": 2.66,
+    "as_of": "2026-11-17T17:55+00:00"
    },
    {
     "symbol": "XLP",
     "label": "Cons. staples (XLP)",
     "group": "equities",
     "kind": "price",
-    "last": 92.555,
-    "change_1d": 0.22,
-    "change_1w": 1.83,
-    "change_1m": 5.63,
-    "as_of": "2026-11-16T16:55+00:00"
+    "last": 92.145,
+    "change_1d": -0.49,
+    "change_1w": 1.22,
+    "change_1m": 5.66,
+    "as_of": "2026-11-17T17:55+00:00"
    },
    {
     "symbol": "XLU",
     "label": "Utilities (XLU)",
     "group": "equities",
     "kind": "price",
-    "last": 43.985,
-    "change_1d": -0.12,
-    "change_1w": 0.45,
-    "change_1m": 4.21,
-    "as_of": "2026-11-16T16:55+00:00"
+    "last": 43.82,
+    "change_1d": -0.68,
+    "change_1w": 0.21,
+    "change_1m": 5.95,
+    "as_of": "2026-11-17T17:55+00:00"
    },
    {
     "symbol": "^IRX",
     "label": "US 13-week bill",
     "group": "rates",
     "kind": "yield",
-    "last": 4.133,
-    "change_1d": 1.1,
-    "change_1w": 9.8,
-    "change_1m": 6.3,
-    "as_of": "2026-11-16T16:40+00:00"
+    "last": 4.143,
+    "change_1d": 1.8,
+    "change_1w": 2.8,
+    "change_1m": 6.8,
+    "as_of": "2026-11-17T17:40+00:00"
    },
    {
     "symbol": "^FVX",
     "label": "US 5Y yield",
     "group": "rates",
     "kind": "yield",
-    "last": 4.962,
-    "change_1d": -1.9,
-    "change_1w": 30.3,
-    "change_1m": 6.3,
-    "as_of": "2026-11-16T16:40+00:00"
+    "last": 4.897,
+    "change_1d": -3.8,
+    "change_1w": 9.0,
+    "change_1m": -3.2,
+    "as_of": "2026-11-17T17:40+00:00"
    },
    {
     "symbol": "^TNX",
     "label": "US 10Y yield",
     "group": "rates",
     "kind": "yield",
-    "last": 5.141,
-    "change_1d": -1.3,
-    "change_1w": 27.7,
-    "change_1m": 4.3,
-    "as_of": "2026-11-16T16:40+00:00"
+    "last": 5.095,
+    "change_1d": -2.6,
+    "change_1w": 11.2,
+    "change_1m": -4.1,
+    "as_of": "2026-11-17T17:40+00:00"
    },
    {
     "symbol": "^TYX",
     "label": "US 30Y yield",
     "group": "rates",
     "kind": "yield",
-    "last": 5.479,
-    "change_1d": -0.2,
-    "change_1w": 22.3,
-    "change_1m": 4.3,
-    "as_of": "2026-11-16T16:40+00:00"
+    "last": 5.452,
+    "change_1d": -1.5,
+    "change_1w": 10.2,
+    "change_1m": -2.0,
+    "as_of": "2026-11-17T17:40+00:00"
    },
    {
     "symbol": "SHY",
     "label": "1-3Y Treasuries (SHY)",
     "group": "rates",
     "kind": "price",
-    "last": 81.22,
-    "change_1d": 0.06,
-    "change_1w": -0.45,
-    "change_1m": -0.17,
-    "as_of": "2026-11-16T16:54+00:00"
+    "last": 81.34,
+    "change_1d": 0.14,
+    "change_1w": 0.02,
+    "change_1m": 0.04,
+    "as_of": "2026-11-17T17:55+00:00"
    },
    {
     "symbol": "IEF",
     "label": "7-10Y Treasuries (IEF)",
     "group": "rates",
     "kind": "price",
-    "last": 90.145,
-    "change_1d": 0.12,
-    "change_1w": -1.8,
-    "change_1m": -0.3,
-    "as_of": "2026-11-16T16:54+00:00"
+    "last": 90.515,
+    "change_1d": 0.3,
+    "change_1w": -0.54,
+    "change_1m": 0.48,
+    "as_of": "2026-11-17T17:54+00:00"
    },
    {
     "symbol": "TLT",
     "label": "20Y+ Treasuries (TLT)",
     "group": "rates",
     "kind": "price",
-    "last": 79.31,
-    "change_1d": -0.09,
-    "change_1w": -3.23,
-    "change_1m": -0.92,
-    "as_of": "2026-11-16T16:55+00:00"
+    "last": 79.74,
+    "change_1d": 0.45,
+    "change_1w": -1.41,
+    "change_1m": 0.35,
+    "as_of": "2026-11-17T17:55+00:00"
    },
    {
     "symbol": "LQD",
     "label": "IG credit (LQD)",
     "group": "rates",
     "kind": "price",
-    "last": 102.81,
-    "change_1d": 0.0,
-    "change_1w": -1.78,
-    "change_1m": -0.57,
-    "as_of": "2026-11-16T16:55+00:00"
+    "last": 102.89,
+    "change_1d": 0.09,
+    "change_1w": -0.95,
+    "change_1m": 0.01,
+    "as_of": "2026-11-17T17:55+00:00"
    },
    {
     "symbol": "HYG",
     "label": "High yield (HYG)",
     "group": "rates",
     "kind": "price",
-    "last": 76.83,
-    "change_1d": -0.14,
-    "change_1w": -0.88,
-    "change_1m": -0.04,
-    "as_of": "2026-11-16T16:55+00:00"
+    "last": 76.69,
+    "change_1d": -0.05,
+    "change_1w": -0.63,
+    "change_1m": -0.18,
+    "as_of": "2026-11-17T17:55+00:00"
    },
    {
     "symbol": "BZ=F",
     "label": "Brent crude",
     "group": "oil",
     "kind": "price",
-    "last": 93.59,
-    "change_1d": -2.35,
-    "change_1w": 1.1,
-    "change_1m": -14.81,
-    "as_of": "2026-11-16T16:45+00:00"
+    "last": 93.27,
+    "change_1d": 0.9,
+    "change_1w": 1.95,
+    "change_1m": -14.86,
+    "as_of": "2026-11-17T17:45+00:00"
    },
    {
     "symbol": "CL=F",
     "label": "WTI crude",
     "group": "oil",
     "kind": "price",
-    "last": 86.67,
-    "change_1d": -2.13,
-    "change_1w": -0.21,
-    "change_1m": -14.54,
-    "as_of": "2026-11-16T16:45+00:00"
+    "last": 86.5,
+    "change_1d": 0.91,
+    "change_1w": 0.53,
+    "change_1m": -16.55,
+    "as_of": "2026-11-17T17:45+00:00"
    },
    {
     "symbol": "BNO",
     "label": "Brent oil fund (BNO)",
     "group": "oil",
     "kind": "price",
-    "last": 59.328,
-    "change_1d": -2.84,
-    "change_1w": 0.68,
-    "change_1m": -11.7,
-    "as_of": "2026-11-16T16:55+00:00"
+    "last": 59.21,
+    "change_1d": 0.94,
+    "change_1w": 1.46,
+    "change_1m": -11.78,
+    "as_of": "2026-11-17T17:55+00:00"
    },
    {
     "symbol": "GC=F",
     "label": "Gold",
     "group": "oil",
     "kind": "price",
-    "last": 3860.5,
-    "change_1d": -0.66,
-    "change_1w": -6.17,
-    "change_1m": -7.67,
-    "as_of": "2026-11-16T16:45+00:00"
+    "last": 3868.2,
+    "change_1d": 0.39,
+    "change_1w": -4.02,
+    "change_1m": -7.02,
+    "as_of": "2026-11-17T17:45+00:00"
    },
    {
     "symbol": "DX-Y.NYB",
     "label": "US dollar index",
     "group": "oil",
     "kind": "price",
-    "last": 103.548,
-    "change_1d": 0.13,
-    "change_1w": 1.87,
-    "change_1m": 1.68,
-    "as_of": "2026-11-16T16:45+00:00"
+    "last": 103.411,
+    "change_1d": -0.13,
+    "change_1w": 1.16,
+    "change_1m": 1.4,
+    "as_of": "2026-11-17T17:45+00:00"
    },
    {
     "symbol": "BTC",
     "label": "Bitcoin (BTC)",
     "group": "crypto",
     "kind": "price",
-    "last": 64603,
-    "change_1d": 0.12,
-    "change_1w": -13.82,
-    "change_1m": -20.89,
-    "as_of": "2026-11-16T16:54+00:00"
+    "last": 63851,
+    "change_1d": -1.68,
+    "change_1w": -13.1,
+    "change_1m": -21.54,
+    "as_of": "2026-11-17T17:54+00:00"
    },
    {
     "symbol": "ETH",
     "label": "Ether (ETH)",
     "group": "crypto",
     "kind": "price",
-    "last": 1821.69,
-    "change_1d": 0.77,
-    "change_1w": -14.44,
-    "change_1m": -24.96,
-    "as_of": "2026-11-16T16:54+00:00"
+    "last": 1787.36,
+    "change_1d": -1.93,
+    "change_1w": -12.31,
+    "change_1m": -25.28,
+    "as_of": "2026-11-17T17:54+00:00"
    },
    {
     "symbol": "SOL",
     "label": "Solana (SOL)",
     "group": "crypto",
     "kind": "price",
-    "last": 71.07,
-    "change_1d": -0.22,
-    "change_1w": -18.8,
-    "change_1m": -32.06,
-    "as_of": "2026-11-16T16:54+00:00"
+    "last": 72.42,
+    "change_1d": 1.61,
+    "change_1w": -12.56,
+    "change_1m": -29.5,
+    "as_of": "2026-11-17T17:54+00:00"
    },
    {
     "symbol": "BNB",
     "label": "BNB",
     "group": "crypto",
     "kind": "price",
-    "last": 589.27,
-    "change_1d": -0.15,
-    "change_1w": -14.44,
-    "change_1m": -18.57,
-    "as_of": "2026-11-16T16:54+00:00"
+    "last": 587.23,
+    "change_1d": -0.47,
+    "change_1w": -13.77,
+    "change_1m": -18.01,
+    "as_of": "2026-11-17T17:54+00:00"
    },
    {
     "symbol": "XRP",
     "label": "XRP",
     "group": "crypto",
     "kind": "price",
-    "last": 0.956304,
-    "change_1d": 0.83,
-    "change_1w": -13.36,
-    "change_1m": -26.78,
-    "as_of": "2026-11-16T16:54+00:00"
+    "last": 0.960246,
+    "change_1d": 0.18,
+    "change_1w": -8.3,
+    "change_1m": -24.87,
+    "as_of": "2026-11-17T17:54+00:00"
    },
    {
     "symbol": "ADA",
     "label": "Cardano (ADA)",
     "group": "crypto",
     "kind": "price",
-    "last": 0.1526,
-    "change_1d": -0.01,
-    "change_1w": -15.91,
-    "change_1m": -31.38,
-    "as_of": "2026-11-16T16:54+00:00"
+    "last": 0.152201,
+    "change_1d": -0.33,
+    "change_1w": -12.64,
+    "change_1m": -29.93,
+    "as_of": "2026-11-17T17:54+00:00"
    },
    {
     "symbol": "AVAX",
     "label": "Avalanche (AVAX)",
     "group": "crypto",
     "kind": "price",
-    "last": 7.14,
-    "change_1d": -0.28,
-    "change_1w": -19.72,
-    "change_1m": -28.02,
-    "as_of": "2026-11-16T16:54+00:00"
+    "last": 7.12,
+    "change_1d": -0.73,
+    "change_1w": -14.39,
+    "change_1m": -26.19,
+    "as_of": "2026-11-17T17:54+00:00"
    },
    {
     "symbol": "SUI",
     "label": "Sui (SUI)",
     "group": "crypto",
     "kind": "price",
-    "last": 0.720558,
-    "change_1d": 0.51,
-    "change_1w": -16.35,
-    "change_1m": -27.77,
-    "as_of": "2026-11-16T16:54+00:00"
+    "last": 0.720936,
+    "change_1d": 0.13,
+    "change_1w": -12.05,
+    "change_1m": -25.25,
+    "as_of": "2026-11-17T17:54+00:00"
    },
    {
     "symbol": "GRAM",
     "label": "Toncoin (TON)",
     "group": "crypto",
     "kind": "price",
-    "last": 1.052,
-    "change_1d": 0.74,
-    "change_1w": -0.59,
-    "change_1m": -23.1,
-    "as_of": "2026-11-16T16:54+00:00"
+    "last": 1.063,
+    "change_1d": 1.5,
+    "change_1w": -3.36,
+    "change_1m": -20.76,
+    "as_of": "2026-11-17T17:54+00:00"
    }
   ],
   "treasury_curve": {
-   "date": "11/13/2026",
+   "date": "11/16/2026",
    "curve": {
-    "3 Mo": 4.32,
+    "3 Mo": 4.34,
     "6 Mo": 4.42,
-    "1 Yr": 4.65,
-    "2 Yr": 4.88,
-    "5 Yr": 4.98,
-    "10 Yr": 5.15,
-    "30 Yr": 5.47
+    "1 Yr": 4.62,
+    "2 Yr": 4.83,
+    "5 Yr": 4.93,
+    "10 Yr": 5.12,
+    "30 Yr": 5.46
    },
    "change_bp": {
-    "3 Mo": 0.0,
+    "3 Mo": 2.0,
     "6 Mo": 0.0,
-    "1 Yr": 0.0,
-    "2 Yr": 2.0,
-    "5 Yr": 3.0,
-    "10 Yr": 5.0,
-    "30 Yr": 4.0
+    "1 Yr": -3.0,
+    "2 Yr": -5.0,
+    "5 Yr": -5.0,
+    "10 Yr": -3.0,
+    "30 Yr": -1.0
    },
-   "spread_2s10s_bp": 27.0,
-   "spread_3m10y_bp": 83.0
+   "spread_2s10s_bp": 29.0,
+   "spread_3m10y_bp": 78.0
   },
   "missing": [],
-  "fetched_at": "2026-11-16T16:55+00:00"
+  "fetched_at": "2026-11-17T17:55+00:00"
  },
  "sources": {
   "headlines_considered": 180,
   "live_sources": 20,
   "total_sources": 21,
   "earnings_events": 27,
-  "economic_events": 10,
+  "economic_events": 21,
   "web_research": true
  },
  "model": "claude-opus-5-5"
